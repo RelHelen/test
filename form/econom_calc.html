@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Депозитный калькулятор</h3>
+    <p>
+      Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
+      а затем рассчитать, какая это будет сумма через заданный промежуток
+      времени.
+    </p>
+    <form action="credit">
+      <input
+        type="text"
+        name="SС"
+        id="SС"
+        placeholder="введите сумму кредита"
+      /><br />
+      <input
+        type="text"
+        name="stavka1"
+        id="stavka1"
+        placeholder="введите ставку"
+      /><br />
+      <input
+        type="text"
+        name="Period1"
+        id="Period1"
+        placeholder="срок кредита, в мес"
+      /><br />
+      <input type="button" id="submit" value="Посчитать" />
+    </form>
+
+    <p>Рассчет кредита</p>
+    <div id="msg1"></div>
+    <div id="msg2"></div>
+    <div id="msg3"></div>
+
+    <!-- Period - срок кредита в мес -->
+    <div id="Period"></div>
+    <!-- Payment- ежемесячные выплаты -->
+    <div id="Payment"></div>
+    <!--  Credit - общая сумма выплат -->
+    <div id="Credit"></div>
+    <!-- Doplata- переплата -->
+    <div id="Doplata"></div>
+    <table id="table">
+      <tr class="trh">
+        <th>Год, месяц</th>
+        <th>Всего(с учетом д.п.)</th>
+        <th>В погашение тела долга</th>
+        <th>В погашение процентов</th>
+        <th>Остаток после платежа</th>
+      </tr>
+    </table>
+
+    <script>
+      function Schet() {
+        //let SС = +prompt('введите сумму кредита', '');
+        let SC = parseInt(SС.value);
+        console.log('SC=' + SC);
+        let OSC = SС;
+
+        //let stavka=Number((5/100).toFixed(4));
+        let stavka = parseInt(stavka1.value);
+        console.log('stavka=' + stavka);
+        //let stavka = +prompt('введите ставку', '');
+
+        let MStavka = stavka / (100 * 12);
+        let MProcent = 0; //идет в долг процента кредита
+        let MPayment = 0; //идет в долг тела кредита
+        //let Period = +prompt('срок кредита, в мес', '');
+        let Period = parseInt(Period1.value);
+        console.log('Period=' + Period);
+        let NPeriod = 0;
+        let Payment = 0;
+        let Credit = SС;
+        let Doplata = 0;
+
+        //Размер ежемесячного платежа = СЗ*((П/(1-((1+П)^ск)))
+        Payment = (
+          SС *
+          (MStavka / (1 - Math.pow(1 + MStavka, -Period)))
+        ).toFixed(2);
+
+        //Процент по кредиту = Остаток задолженности*(ставка %/12).
+        MProcent = OSC * (stavka / (100 * 12));
+        console.log('Процент по кредиту' + MProcent);
+        //переплата
+        Doplata = Number((Payment * Period - SС).toFixed(0));
+        //сумма итогового кредита
+        Credit = SС + Doplata;
+
+        window.msg1.innerHTML = 'Вы взяли' + SС;
+        window.msg2.innerHTML =
+          ' должны вернуть ' +
+          Credit +
+          ' за  месяцев' +
+          Period +
+          'переплата составила' +
+          Doplata;
+        window.msg3.innerHTML = 'ежемесячный платеж = ' + Payment;
+
+        while (NPeriod < Period) {
+          MProcent = (OSC * (stavka / (100 * 12))).toFixed(2);
+          MPayment = (Payment - MProcent).toFixed(2);
+          //console.log("MProcent в процент "+MProcent+" MPayment в тело кредита "+MPayment);
+          OSC = (OSC - MPayment).toFixed(2);
+          NPeriod = NPeriod + 1;
+
+          var str = [NPeriod, Payment, MPayment, MProcent, OSC];
+          var strTable = '';
+
+          strTable += "<tr class='trd'>";
+          for (var j = 0; j < str.length; j++) {
+            strTable += '<td>';
+            strTable += str[j];
+            strTable += '</td>';
+          }
+          strTable += '</tr>';
+
+          $('#table').append(strTable);
+        }
+      }
+      submit.addEventListener('click', Schet);
+    </script>
+  </body>
+</html>

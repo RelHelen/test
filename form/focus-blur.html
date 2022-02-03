@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+Событие focus вызывается в момент фокусировки,
+ а blur – когда элемент теряет фокус.
+
+     -->
+    <style>
+      .invalid {
+        border-color: red;
+      }
+
+      #error,
+      #error1,
+      .error {
+        color: red;
+      }
+      .error {
+        position: relative;
+        top: -20px;
+      }
+      input {
+        position: relative;
+      }
+    </style>
+    <h2>Валидация поля</h2>
+    Ваш email: <input type="email" id="input" />
+
+    <div id="error"></div>
+
+    <script>
+      input.onblur = function () {
+        if (!this.value.includes('@')) {
+          // не email
+          this.classList.add('invalid');
+          error.innerHTML = 'Пожалуйста, введите правильный email.';
+        }
+      };
+
+      input.onfocus = function () {
+        if (this.classList.contains('invalid')) {
+          // удаляем индикатор ошибки, т.к. пользователь хочет ввести данные заново
+          this.classList.remove('invalid');
+          error.innerHTML = '';
+        }
+      };
+    </script>
+
+    <!-- посетителю переключаться с поля ввода, если введённое значение не прошло валидацию: -->
+    <h2>
+      Посетителю нельзя переключаться с поля ввода,<br />
+      если введённое значение не прошло валидацию:
+    </h2>
+    <form action="" name="vvod" id="vvod">
+      <input type="text" name="text" id="text" placeholder="name" />
+      <input type="email" name="email" id="email" placeholder="email" />
+      <input type="submit" name="submit" id="submit" value="Submit" />
+    </form>
+    <script>
+      function Creat(txt) {
+        let elErr = document.createElement('div');
+        elErr.classList.add('error');
+        let elTxt = document.createTextNode(
+          'Пожалуйста, введите правильный ' + txt
+        );
+        elErr.appendChild(elTxt);
+        //vvod.appendChild(elErr);
+        let child = document.getElementById(txt);
+        console.log('child = ' + child);
+        vvod.insertBefore(elErr, child);
+      }
+      function Valid() {
+        console.log(
+          'this.name= ' +
+            this.name +
+            '  ' +
+            this.value +
+            ' length= ' +
+            this.value.length
+        );
+        if (this.value.length < 5) {
+          this.classList.add('invalid');
+          this.focus();
+          Creat(this.name);
+        } else {
+          this.classList.remove('invalid');
+          FocusInput();
+        }
+
+        if (this.name == 'email') {
+          if (!this.value.includes('@')) {
+            this.classList.add('invalid');
+            this.focus();
+            if (this.className == 'invalid') {
+            }
+            Creat(this.name);
+          } else {
+            this.classList.remove('invalid');
+            FocusInput();
+          }
+        }
+      }
+
+      function txt() {
+        console.log(text.value);
+      }
+
+      function FocusInput() {
+        ppp = document.querySelectorAll('.error');
+        console.log('ppp= ' + ppp);
+        ppp.forEach((item) => {
+          vvod.removeChild(item);
+        });
+      }
+      email.onblur = Valid;
+      text.onblur = Valid;
+
+      email.onfocus = FocusInput;
+      text.onfocus = FocusInput;
+
+      submit.onclick = txt;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<p id="test"> 1</p>
+<input type="text"   id="testInput">
+<button id="btn">Вывести</button>
+
+<script type='text/javascript' src='jquery-3.3.1.min.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#btn").click(function(){
+     var valueInp = $('#testInput').val();
+    
+     $("#test").html(valueInp);
+      
+	});
+	
+	 
+});
+//выведем на экран содержимое нашего абзаца: 
+/*var text = $('#test').html();
+document.write(text);
+//поменяем содержимое нашего абзаца на текст с тегами: 
+$('#test').html('<span>пока</span>');
+
+var value = $('#testInput').attr('value');
+document.write(value);
+  $('#testInput').attr('value', 'www');
+$('#testInput').attr({value:'www1', type:'password'});
+$('input').attr('value', function(index, value){
+	return value+index;});
+ */
+
+</script>
+
+
+
+</body>
+</html>

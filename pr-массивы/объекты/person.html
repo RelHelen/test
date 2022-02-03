@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //https://metanit.com/web/javascript/4.5.php
+
+      //********* задание объекта пользователь
+
+      var user = {
+        name: 'admin',
+        pass: 'nimda',
+        display() {
+          document.writeln(
+            '<p>name:' + this.name + '    pass:' + this.pass + '</p>'
+          );
+        },
+      };
+      user.display();
+
+      ////// *****вынесения создания объекта в функцию
+
+      //Здесь функция createUser() получает значения
+      // pName и pAge и по ним создает новый объект,
+      //который является возвращаемым результатом.
+
+      //Преимуществом вынесения создания объекта в функцию является то,
+      //что далее мы можем создать несколько однотипных объектов
+      //с разными значениями.
+      function creatUser(vname, vpass) {
+        return {
+          name: vname,
+          pass: vpass,
+          display: function () {
+            document.writeln(
+              '<p>name:' + this.name + '<br>pass:' + this.pass + '</p>'
+            );
+          },
+        };
+      }
+      var admin = creatUser('admin', 'nimda');
+      admin.display();
+
+      var user = creatUser('user', '111');
+      user.display();
+
+      // объект может передаваться в качестве параметра в функцию
+
+      function createUser(pName, pAge) {
+        return {
+          name: pName,
+          age: pAge,
+          displayInfo: function () {
+            document.write(
+              'Имя: ' + this.name + ' возраст: ' + this.age + '<br/>'
+            );
+          },
+          driveCar: function (car) {
+            document.write(this.name + ' ведет машину ' + car.name + '<br/>');
+          },
+        };
+      }
+
+      function createCar(mName, mYear) {
+        return {
+          name: mName,
+          year: mYear,
+        };
+      }
+      var tom = createUser('Том', 26);
+      tom.displayInfo();
+      var bently = createCar('Бентли', 2004);
+      tom.driveCar(bently);
+
+      // Определение типа может состоять из
+      //функции конструктора, методов и свойств.
+
+      //Конструктор - это обычная функция за тем исключением, что в ней мы можем установить свойства и методы.
+      // Для установки свойств и методов используется ключевое слово this:
+
+      //создание класса Animal
+      /*   function Animal(name) {
+               this.name = name; // свойство объекта //name;
+               this.lags = 4; // свойство объекта  
+               this.show_name = function () {
+                 alert(this.name);
+               }; // метод объекта
+             }
+             // Animal – класс, cat – экземпляр.
+
+             Animal.prototype.age = 5;//добавление свойств в класс
+
+//После этого в программе мы можем определить объект типа User и использовать его свойства и методы:
+//Чтобы вызвать конструктор, то есть создать объект типа Animal, 
+//надо использовать ключевое слово new.       
+
+//создание экземпляр cat
+             var cat = new Animal('Мурзик');
+             console.log(cat.name); // Мурзик
+             cat.color = 'Белый'; // добавили свойство
+             console.log(cat.color); // Белый
+             console.log(cat.age); // 5
+      */
+
+      //lпример использования различных типов вметсте
+      // конструктор типа Car
+      function Car(mName, mYear) {
+        this.name = mName;
+        this.year = mYear;
+        this.getCarInfo = function () {
+          document.write(
+            'Модель: ' + this.name + '  Год выпуска: ' + this.year + '<br/>'
+          );
+        };
+      }
+      // конструктор типа User
+      function User(pName, pAge) {
+        this.name = pName;
+        this.age = pAge;
+        this.driveCar = function (car) {
+          document.write(this.name + ' ведет машину ' + car.name + '<br/>');
+        };
+        this.displayInfo = function () {
+          document.write(
+            'Имя: ' + this.name + '; возраст: ' + this.age + '<br/>'
+          );
+        };
+      }
+
+      var tom = new User('Том', 26);
+      tom.displayInfo();
+      var bently = new Car('Бентли', 2004);
+      tom.driveCar(bently);
+    </script>
+  </body>
+</html>

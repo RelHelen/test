@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      #field {
+        width: 200px;
+        height: 150px;
+        border: 10px solid black;
+        background-color: #00ff00;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      #field {
+        width: 200px;
+        height: 150px;
+        position: relative;
+      }
+
+      #ball {
+        position: absolute;
+        left: 0; /* по отношению к ближайшему расположенному предку (поле) */
+        top: 0;
+        transition: 1s all; /* CSS-анимация для значений left/top делает передвижение мяча плавным */
+      }
+    </style>
+  </head>
+
+  <body style="height: 2000px">
+    Нажмите на поле для перемещения мяча.
+    <br />
+    Мяч не должен выходить за границы поля.
+
+    <div id="field">
+      <img src="https://ru.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+      field.onclick = function (event) {
+        let ball = document.getElementById('ball');
+        //определение ширины и высоты элемента
+        let wB = ball.clientWidth / 2;
+        let hB = ball.clientHeight / 2;
+
+        //координаты мяча относительно окна браузера
+        var ballCoords = ball.getBoundingClientRect();
+
+        //координаты поля относительно окна браузера
+        let fieldCoords = this.getBoundingClientRect();
+
+        // создаем объект координаты мяча : вычисляем координаты для мяча
+        let newbBallCoords = {
+          top: event.clientY - fieldCoords.top - 7 - hB,
+          left: event.clientX - fieldCoords.left - 7 - wB,
+        };
+        //topB = event.clientY - fieldCoords.top - 7 - hB;
+        //leftB = event.clientX - fieldCoords.left - 7 - wB;
+
+        if (newbBallCoords.top < 0) {
+          newbBallCoords.top = 0;
+        }
+        if (newbBallCoords.left < 0) {
+          newbBallCoords.left = 0;
+        }
+        // запрещаем пересекать нижнюю границу поля
+        if (newbBallCoords.top + ball.clientHeight > this.clientHeight) {
+          newbBallCoords.top = this.clientHeight - ball.clientHeight;
+        }
+        // запрещаем пересекать правую границу поля
+        if (newbBallCoords.left + ball.clientWidth > this.clientWidth) {
+          newbBallCoords.left = this.clientWidth - ball.clientWidth;
+        }
+
+        ball.style.top = newbBallCoords.top + 'px';
+        ball.style.left = newbBallCoords.left + 'px';
+      };
+    </script>
+  </body>
+</html>

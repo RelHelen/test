@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS First</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+</body>
+	<script>
+		// var n = +prompt("Введите нижнюю границу","");
+		// var v = +prompt("Введите верхнюю границу","");
+		// var sum = 0;
+		// var q = Math.abs(v-n);
+		// var i = 0;
+		// if(v<n){
+		// 	alert("Верхняя граница должна быть больше нижней");
+		// }
+		// else 
+		// 	while(i<=q){
+		// 		sum += n;
+		// 		n++;
+		// 		i++;
+		// 	}
+		// alert(sum);
+
+
+		// var n = +prompt("Введите первое число","");
+		// var v = +prompt("Введите второе число","");
+		// var max = 1;
+		// var i=1;
+		// for(i=2;i<=v;i++){
+		// 	if(n%i==0 && v%i==0){
+		// 		if(i>max){
+		// 			max = i;
+		// 		}
+		// 	}
+		// }
+		//  alert(max);
+
+
+		// var n = +prompt("Введите число","");
+		// var i=1;
+		// while(i<=n){
+		// 	if(n%i==0){
+		// 		alert(i);
+		// 	}
+		// 	i++;
+		// }
+
+
+		// var n = +prompt("Введите число","");
+		// var i = 0;
+		// while(n>=1){
+		// 	n = n / 10;
+		// 	i++;
+		// }
+		// alert("Количество цифр " + i);
+
+		// var i=1;
+		// var i1 = 0;
+		// var i2 = 0;
+		// var i3 = 0;
+		// var i4 = 0;
+		// var i5 = 0;
+		// while(i<=10){
+		// 	var n = +prompt("Введите число","");
+		// 	if(n>0){
+		// 		i1++;
+		// 	}
+		// 	if(n<0){
+		// 		i2++;
+		// 	}
+		// 	if(n==0){
+		// 		i3++;
+		// 	}
+		// 	if(n%2==0){
+		// 		i4++;
+		// 	}
+		// 	if(n%2!=0){
+		// 		i5++;
+		// 	}
+		// 	i++;
+		// }
+		// alert("Количество положительных чисел " + i1);
+		// alert("Количество отрицателных чисел " + i2);
+		// alert("Количество нулей " + i3);
+		// alert("Количество четных чисел " + i4);
+		// alert("Количество нечетных чисел " + i5);
+		
+
+		// var n1;
+		// var n2;
+		// var op;
+		// var res;
+		// var conf;
+		// do{
+		// 	n1 = +prompt("Введите первое число","");
+		// 	n2 = +prompt("Введите второе число","");
+		// 	op = prompt("Введите операцию +,-,*,/","");
+		// 	switch(op){
+		// 	case "+":
+		// 		res = n1 + n2;
+		// 		break;
+		// 	case "-":
+		// 		res = n1 - n2;
+		// 		break;
+		// 	case "*":
+		// 		res = n1 * n2;
+		// 		break;
+		// 	case "/":
+		// 		res = n1 / n2;
+		// 		break;
+		// 	default:
+		// 		alert("Такой операции не существует");
+		// 	}
+		// 	alert(res);
+		// 	conf = confirm("Продолжаем или нет?");
+		// }
+		// while (conf == true);
+
+
+		// var n = +prompt("Введите число","");
+		// var n1 = n;
+		// var b = +prompt("Введите насколько цифер сдвинуть","");
+		// var i = 0;
+		// var i1 = 1;
+		// while(n>=1){
+		// 	n = n / 10;
+		// 	i++;
+		// }
+		// var a = i - b;
+		// do{
+		// 	var a1 = Math.pow(10,i1);
+		// 	i1++;
+		// }
+		// while(i1<=a);
+		// var g = n1 % a1;
+		// var t = Math.floor(n1/a1);
+		// alert(g + "" + t);
+
+
+		// var a = new Date();
+		// var conf;
+		// var day = a.getDay();
+		// do{
+		// 	switch(day){
+		// 		case 0:
+		// 			alert("It is Sunday");
+		// 			break;
+		// 		case 1:
+		// 			alert("It is Monday");
+		// 			break;
+		// 		case 2:
+		// 			alert("It is Tuesday");
+		// 			break;
+		// 		case 3:
+		// 			alert("It is Wednersday");
+		// 			break;
+		// 		case 4:
+		// 			alert("It is Thursday");
+		// 			break;
+		// 		case 5:
+		// 			alert("It is Friday");
+		// 			break;
+		// 		case 6:
+		// 			alert("It is Saturday");
+		// 			break;
+		// 		default:
+		// 			break;
+		// 	}
+		// 	conf = confirm("Хотите увидеть следующий день недели?");
+		// 	day++;
+		// 	if(day==7){
+		// 		day=0;
+		// 	}
+		// }
+		// while (conf == true);
+
+
+		// var i=1;
+		// var j=1;
+		// var s=1;
+		// while(j<=10){
+		// 	while(i<=10){
+		// 		s=i*j;
+		// 		document.write("<br>"+i+"*"+j+"="+s);
+		// 		i++;
+		// 	}
+		// 	j++;
+		// 	i=1;
+		// 	document.write("<br>");
+		// }
+
+
+		 alert("Загадайте число от 1 до 100");
+		 var n = 50;
+		 var ng = 0;
+		 var vg = 100;
+		 var v;
+		 var ot;
+		 ot = confirm("Ваша цифра 100?");
+		 if(ot){
+		 	alert("Ваше число - 100");
+		 }
+		 else{
+		 	ot = confirm("Ваша цифра 0?");
+		 	if(ot){
+		 		alert("Ваше число - 0");
+		 	}
+		 	else{
+		 		do{
+		 			v = prompt("Ваше число > " + n + ", < " + n + ", или == " + n,"");
+		 			if(v==">"){
+		 				ng = n;
+		 				n = n + Math.floor((vg - ng) / 2);
+		 			}
+		 			if(v=="<"){
+		 				vg = n;
+		 				n = ng + Math.floor((vg - ng) / 2);
+		 			}
+		 		}
+		 		while(v!="==");
+		 		alert("Ваше число - " + n);
+		 	}
+		 }
+	</script>
+</html>

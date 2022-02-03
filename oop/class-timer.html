@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //отчет секунд в обратную строну от 100 -0
+      class Timer {
+        constructor(t) {
+          //описали поля
+          this.time = t;
+        }
+        //описываем методы
+        tic() {
+          this.time--;
+        }
+        run() {
+          setInterval(() => {
+            this.tic();
+          }, 1000);
+        }
+      }
+      //увеличение счетчика
+      class reverseTimer extends Timer {
+        constructor(options) {
+          super(options); //взять все поля из родиеля
+        }
+        tic() {
+          this.time++;
+        }
+      }
+
+      //вывод в консоль
+      class consoleTimer extends reverseTimer {
+        constructor(options) {
+          super(options);
+        }
+        tic() {
+          super.tic(); //выполнить все как в родителе
+          console.log(this.time);
+        }
+      }
+
+      let myTime = new consoleTimer(60);
+      myTime.run();
+      //   https://www.youtube.com/watch?v=Spme1IW1ejg
+    </script>
+  </body>
+</html>

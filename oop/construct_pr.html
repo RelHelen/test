@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*class Person {
+        name;
+        age;
+        constructor() {
+          document.write('создался объект');
+        }
+      }*/
+      /* создаем объект и инициализируем конструктор.
+      Как правило, цель конструктора 
+      - инициализация объекта некоторыми начальными данными:*/
+      //var Tom = new Person(); // 'создался объект'
+
+      /*  class Person {
+        constructor(personName, personAge) {
+          this.name = personName;
+          this.age = personAge;
+        }
+        print() {
+          document.write(`Name: ${this.name}  Age: ${this.age}`);
+        }
+      }
+      const tom = new Person('Tom', 37);
+      tom.print(); // Name: Tom  Age: 37*/
+
+      //Приватные поля #
+      //Установить и получить их значение можно только внури класса
+      class Person {
+        #name;
+        #age;
+        constructor(name, age) {
+          this.#name = name;
+          this.#age = age;
+        }
+        print() {
+          console.log(`Name: ${this.#name}  Age: ${this.#age}`);
+        }
+      }
+      const tom = new Person('Tom', 37);
+      tom.name = 'Sam';
+      // tom.#age = -45;      // ! Ошибка - нельзя обратиться к приватному полю
+      tom.print(); // Name: Tom  Age: 37
+    </script>
+  </body>
+</html>

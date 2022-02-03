@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      localStorage.setItem('login', 'admin');
+      localStorage.setItem('pass', 'pass');
+
+      //alert(localStorage.getItem('login'));
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        //alert(`${key}: ${localStorage.getItem(key)}`);
+      }
+      // срабатывает при обновлениях, сделанных в том же хранилище из других документов
+      window.onstorage = (event) => {
+        if (event.key != 'now') return;
+        //alert(event.key + ':' + event.newValue + ' at ' + event.url);
+      };
+
+      //localStorage.setItem('now', Date.now());
+
+      /*Обратите внимание, что событие также содержит: 
+      event.url – url-адрес документа, в котором данные обновились.
+      Также event.storageArea содержит объект хранилища – 
+      событие одно и то же для sessionStorage и localStorage, 
+      поэтому event.storageArea ссылается на то хранилище, 
+      которое было изменено. Мы можем захотеть что-то 
+      записать в ответ на изменения.*/
+
+      /*Автосохранение поля формы
+Создайте поле textarea, значение которого будет автоматически сохраняться при каждом его изменении.
+
+Когда пользователь закроет страницу и потом откроет её заново он должен увидеть последнее введённое значение.*/
+    </script>
+    <form id="formText">
+      <textarea name="text"> </textarea>
+      <button type="reset" name="removeText">removeText</button>
+    </form>
+    <script>
+      let text = formText.text;
+      let but = formText.removeText;
+      console.log(text);
+      console.log(but);
+      if (localStorage.getItem('txt')) {
+        text.value = localStorage.getItem('txt');
+      }
+
+      text.oninput = function () {
+        let value = this.value;
+        console.log(value);
+        localStorage.setItem('txt', value);
+      };
+      but.onclick = function () {
+        localStorage.removeItem('txt');
+      };
+    </script>
+    <!-- https://itchief.ru/javascript/localstorage -->
+  </body>
+</html>

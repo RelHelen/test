@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="num">Это пример скрипта</div>
+<p>Lorem ipsum dolor.</p>
+
+<div style="width:400px;background-color: #89f442; margin:0 auto; color: white" id="picture">
+	<!-- <table >
+		<tr>
+			<td><img src="1.jpg" width="200px"></td>
+			<td>
+				<h3>первая картинка</h3>
+				<p>описание</p>
+				
+			</td>
+		</tr>
+		<tr>
+			<td><img src="2.jpg" width="200px"></td>
+			<td>
+				<h3>вторая картинка</h3>
+				<p>описание</p>
+				
+			</td>
+		</tr>	
+		<tr>
+			<td><img src="3.jpg" width="200px"></td>
+			<td>
+				<h3>третья картинка</h3>
+				<p>описание</p>				
+			</td>
+		</tr>		
+	</table>-->
+    <form method="POST" id="forms" name="forms">
+    	<input type="text" name="pic" id="pic"><br>
+    	<input type="text" name="headers" id="headers"><br>
+    	<input type="text" name="desc" id="desc"><br>
+    	<!--<textarea   name="desc" id="desc"></textarea>-->
+    	<button  onClick=addElem() id="btn">Показать</button>
+    </form>
+</div>
+<script>
+	var elemPic={
+		firsr:{
+          img:"1.jpg",
+          h_3:"первая картинка",
+          p_t:"описание1"
+		},
+		second:{
+          img:"2.jpg",
+          h_3:"вторая картинка",
+          p_t:"описание1"
+		},
+		thirh:{
+          img:"2.jpg",
+          h_3:"вторая картинка",
+          p_t:"описание1"
+		},
+	};
+	//alert(JSON.stringify(elemPic));
+
+	btn.onClick=addElem(){
+
+    var t1=document.getElementById("pic").value;
+	var t2=document.getElementById("headers").value;
+	var t3=document.getElementById("desc").value;
+		alert(t1);
+		//var string="<img ='"+t1+"'>";
+		 let newLi = document.createElement('div');
+         newLi.innerHTML = "jfgdfhgkjdfg";
+         // newLi.innerHTML = "<img src="+t1+">";
+         my_div=document.getElementById("num"); //взяли текст из num	
+          //document.body.insertBefore(newLi, my_div);
+         picture.appendChild(newLi);
+
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #block-modal {
+        display: none;
+        position: absolute;
+        left: 30%;
+        width: 300px;
+        height: 600px;
+        border-radius: 10px;
+        border: 1px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn-show">Показать</button>
+    <button id="btn-hide">Скрыть</button>
+    <button id="btn-change">Изменить</button>
+    <div id="block-modal">Модальное окно</div>
+    <script>
+      const btnShow = document.getElementById('btn-show');
+      const btnHide = document.getElementById('btn-hide');
+      const btnChange = document.getElementById('btn-change');
+      const blockModal = document.getElementById('block-modal');
+
+      function fnShow() {
+        blockModal.style.display = 'block';
+      }
+      function fnHide() {
+        blockModal.style.display = 'none';
+      }
+      function fnChange() {
+        blockModal.style.border = '2px solid red';
+        blockModal.style.backgroundColor = 'yellow';
+      }
+
+      btnShow.addEventListener('click', fnShow);
+      btnHide.addEventListener('click', fnHide);
+      btnChange.addEventListener('click', fnChange);
+      btnChange.addEventListener('dblclick', function () {
+        blockModal.style.backgroundColor = 'white';
+      });
+    </script>
+  </body>
+</html>

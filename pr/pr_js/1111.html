@@ -1,0 +1,55 @@
+  <script type="text/javascript">
+   document.body.onload = addElement;
+     var my_div = newDiv = null
+     var text = {       //создали объект text
+      red: "red",
+      green: "green",
+      black: "black"
+     }
+
+      function addElement(){
+               var newDiv = document.createElement("div"); // создали новый элемент div
+         my_div=document.getElementById("num"); //взяли текст из num        
+         newDiv.innerHTML = "<h1>Привет!</h1>";
+         document.body.insertBefore(newDiv, my_div);
+         var string="<p>"
+         for(var elem in text){ //elem - ключ в объекте text , text[elem] - значение ключа
+                  
+                   //newDiv.innerHTML = "<p style='color:"+text[elem]+"'>"+text[elem]+"</p>";
+                  string += "<font style='background-color:"+text[elem]+";padding-left:"+40+"px"+";padding-right:"+40+"px"+"'>"+text[elem]+"</font>";
+                  string +=" ";                 
+             }
+             string +="</p>"; 
+             var newDiv = document.createElement("div");
+             newDiv.innerHTML =string;
+                 document.body.insertBefore(newDiv, my_div);
+
+       }
+/*  
+    var person={//создали объект
+            one:{
+            name:"Вася Пупкин",
+            age:26,
+          },
+          two:{
+            name:"Лида",
+            age:23,
+          }
+        }; 
+
+      //person.name="Вася Пупкин";
+      //person.age="26";
+      person.one.name="Rbc\Пупкин";
+      person.one.age="28";
+      alert(JSON.stringify(person));//формат передачи данных ключ:значение через запятую
+*/
+     
+  </script>
+<!--
+<div id="list"></div>
+<script>
+  var newLi = document.createElement('p');
+  newLi.innerHTML = 'Привет, мир!';
+  list.appendChild(newLi);
+
+</script>-->

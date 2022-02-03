@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*Создать массив из 10 случайных чисел */
+      var arr = [];
+      //var A = [];
+      var brr = [];
+      var arrNum = 4;
+
+      function InputMass(A, n) {
+        for (var i = 0; i < n; i++) {
+          A[i] = +prompt('введите число ' + i, '');
+        }
+        return A;
+      }
+      InputMass(arr, arrNum);
+
+      function PrintMass(str, A, n) {
+        document.writeln('Вывод массива  ' + str);
+
+        for (var i = 0; i < n; i++) {
+          document.writeln(A[i]);
+        }
+        document.writeln('<br>');
+        return A;
+      }
+      PrintMass('arr', arr, arrNum);
+
+      /*Функция принимает массив и выводит только четные
+      элементы.*/
+      function ChetMass(n) {
+        var j = 0;
+        for (var i = 0; i < n; i++) {
+          if (arr[i] % 2 == 0) {
+            brr[j] = arr[i];
+            j++;
+          }
+        }
+        PrintMass('arr', arr, arrNum);
+        PrintMass('brr', brr, j);
+        return brr;
+      }
+      ChetMass(arrNum);
+
+      /*Функция принимает массив и возвращает сумму всех
+      элементов массива.*/
+      /*function getSumm(A) {
+        var s = 0;
+        A.forEach((item, index, A) => {
+          s += item;
+          //document.write(`${item} имеет позицию ${index} в ${A}`);
+          //document.writeln('<br>');
+        });
+        document.writeln('<br>');
+        document.writeln(`s=${s} `);
+        return s;
+      }*/
+      function getSumm(A) {
+        //Функция применяется по очереди ко всем элементам массива и «переносит» свой результат на следующий вызов.
+        let s = A.reduce((sum, current) => sum + current, 0);
+        document.writeln(`s1=${s} `);
+        return s;
+      }
+      getSumm(arr);
+
+      /*Функция принимает массив и возвращает его максимальный элемент.*/
+      function getMax(A) {
+        var max = A[0];
+        A.forEach((item, index, A) => {
+          if (max < A[index]) {
+            max = A[index];
+          }
+        });
+        document.writeln('<br>');
+        document.writeln(`max=${max} `);
+        return max;
+      }
+      getMax(arr);
+
+      /*Функция добавления нового элемента в массив по указанному индексу*/
+
+      /*Метод arr.splice(str) – это универсальный «швейцарский нож» для работы с массивами.
+       Умеет всё: добавлять, удалять и заменять элементы.*/
+
+      /*arr.splice(index[, deleteCount, elem1, ..., elemN])
+        Он начинает с позиции index, удаляет deleteCount элементов 
+        и вставляет elem1, ..., elemN на их место.
+        Возвращает массив из  элементов.*/
+
+      var indexA = +prompt('введите индекс ', 0);
+      var itemA = +prompt('введите number ', 5);
+      arr.splice(indexA, 0, itemA);
+      document.writeln('Новый массив' + arr);
+
+      /*
+      Создать еще один массив из 5 случайных чисел
+            
+      */
+      var carr = [];
+      function rndMass() {
+        for (var i = 0; i < 5; i++) {
+          carr[i] = Math.floor(Math.random() * 10);
+          document.writeln(`<p>carr[ ${i} ]= ${carr[i]} </p>`);
+        }
+        return carr;
+      }
+      rndMass();
+      /* 1. Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов
+        без повторений. */
+      var jarr = [];
+      function joinMass(A, B) {
+        jarr = A.concat(B); //объединили два массива
+
+        //проверка  на совпадения и удаление
+        delMass(jarr, 0);
+        function delMass(jarr, k) {
+          for (var i = k; i < jarr.length - 1; i++) {
+            for (var j = i + 1; j < jarr.length; j++) {
+              console.log(
+                `i=${i}; j=${j}; jarr i=${jarr[i]};  jarr j=${jarr[j]}; `
+              );
+              if (jarr[i] == jarr[j]) {
+                jarr.splice(j, 1);
+                console.log('jarr:' + jarr + ':j=' + j);
+                return delMass(jarr, i);
+              }
+            }
+          }
+        }
+
+        return jarr;
+      }
+      joinMass(arr, carr);
+      PrintMass('jarr', jarr, jarr.length);
+
+      /*Функция принимает 2 массива и возвращает новый массив,
+в котором собраны общие элементы (то есть элементы,
+которые встречаются и в первом и во втором массивах)
+без повторений.*/
+      var garr = [];
+      function generalMass(A, B) {
+        //проверка  на совпадения
+        var k = 0;
+        for (var i = 0; i < A.length; i++) {
+          for (var j = 0; j < B.length; j++) {
+            console.log(
+              `i=${i}; j=${j}; jarr i=${jarr[i]};  jarr j=${jarr[j]}; `
+            );
+            if (A[i] == B[j]) {
+              garr[k] = A[i];
+              k++;
+              console.log(' garr:' + garr + ':k=' + k);
+            }
+          }
+        }
+
+        return garr;
+      }
+      generalMass(arr, carr);
+      PrintMass('garr', garr, garr.length);
+
+      /*Создать массив фруктов и отсортировать его по алфавиту.
+Написать следующие функции.
+1. Вывод на экран с помощью document.write() в виде списка
+(с помощью тегов ul и li).*/
+
+      let fruits = ['Яблоко', 'Апельсин', 'Слива'];
+      fruits.sort();
+      document.write('<ul>');
+      for (key in fruits) {
+        document.write('<li>');
+        document.write(fruits[key]);
+
+        document.write('</li>');
+      }
+      document.write('</li>');
+
+      /*Поиск фрукта в массиве. Функция принимает название
+фрукта и возвращает индекс найденного элемента или -1,
+если не найден. Поиск должен быть нерегистрозависимым*/
+      name = 'яблоко';
+      if (fruits.indexOf(name) !== -1) {
+        var n = fruits.indexOf(name);
+        document.write(name);
+        document.write('Элемент  найден на позиции' + n);
+      } else if (fruits.indexOf(name[0].toLowerCase + name.slice(1)) !== -1) {
+        document.write(name);
+        var n = fruits.indexOf(name);
+        document.write('Элемент  найден на позиции' + n);
+      } else if (fruits.indexOf(name[0].toLowerCase + name.slice(1)) !== -1) {
+        document.write(name);
+        var n = fruits.indexOf(name);
+        document.write('Элемент  найден на позиции' + n);
+      } else {
+        document.write('Элемент не найден на позиции');
+      }
+    </script>
+  </body>
+</html>

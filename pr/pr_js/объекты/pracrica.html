@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Third</title>
+	 
+</head>
+<body>
+	
+</body>
+	<script>
+	/*
+Напишите код, выполнив задание из каждого пункта отдельной строкой:
+Создайте пустой объект user.
+Добавьте свойство name со значением John.
+Добавьте свойство surname со значением Smith.
+Измените значение свойства name на Pete.
+Удалите свойство name из объекта.
+	*/
+	/*
+var user={
+		age: 22,
+	};
+	user.name="Jon";
+	user.surname="Smith";
+    var nameFriend=	user.name;
+    alert ("nameFriend"+nameFriend);
+	
+	user.name="Pete";	
+	alert ("nameFriend "+nameFriend);
+	alert ("user.name "+user.name);
+    
+	delete user.name;
+alert ("user.name "+user.name);
+
+alert( "age" in user );
+alert( "name" in user );
+
+//=== undefined
+/*
+Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+*/
+/* function isEmpty(obj) {
+   for (let key in obj) {       
+      return false;
+    }
+    return true;
+  }
+  
+var  schedule = {};
+ 
+alert( schedule.noSuchProperty);//=== undefined
+
+
+ 
+alert( isEmpty(schedule) ); // true
+
+schedule.name = "Dfcz";
+
+alert( isEmpty(schedule) ); // false
+*/
+/*
+У нас есть объект, в котором хранятся зарплаты нашей команды:
+*/
+/*
+var salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+var sum=0;
+for(var key in salaries){
+document.write(key+"   "+salaries[key]+"<br>");
+sum+=salaries[key];
+}
+document.write(sum);
+*/
+/*Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.*/
+/*var menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+}; 
+function multiplyNumeric(obj) {
+    for (var key in obj) {
+      if (typeof obj[key] == 'number') {
+        obj[key] *= 2;
+		document.write(key+"   "+salaries[key]+"<br>");
+      }
+    }
+  };
+multiplyNumeric(menu);
+console.log(menu);
+*/
+/*
+/*
+Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек), и написать следующие функции для работы с таким объектом.
+1. Функция принимает объект-прямоугольник и выводит
+информацию о нем */
+ 
+var dec = new Object({
+	x1: 1,
+	x2: 2,
+	y1: 3,
+	y2: 4,
+	Width: function(){
+		return ((this.x1-this.x2));},
+	Length: function(){
+		return ((this.y1-this.y2));},
+	Square: function(){
+		return ((this.x1-this.x2)*(this.y1-this.y2));
+	},
+});
+
+/*var doc = function(){
+	dec.x1=prompt("x1=","");
+	dec.x2=prompt("x2=","");
+	dec.y1=prompt("y1=","");
+	dec.y2=prompt("y2=","");
+	for(var key in dec){
+	document.write(key+" =  "+dec[key]+"<br>");
+	
+}};
+doc();*/
+ 
+/*
+Функция принимает объект-прямоугольник и возвращает
+его ширину*/
+/*var doc1 = function(){
+	dec.x1=prompt("x1=","");
+	dec.x2=prompt("x2=","");
+	dec.y1=prompt("y1=","");
+	dec.y2=prompt("y2=","");
+	var x=dec.x2-dec.x1;
+	document.write("ширина",x);	
+};
+doc1();*/
+ /*
+ Функция принимает объект-прямоугольник и возвращает
+его высоту
+ */
+ /*
+ Функция принимает объект-прямоугольник и возвращает
+его площадь.
+ */
+/*	dec.x1=prompt("x1=","");
+	dec.x2=prompt("x2=","");
+	dec.y1=prompt("y1=","");
+	dec.y2=prompt("y2=","");
+	
+ var docSquare = function(){	
+	var x=dec.x2-dec.x1;
+	var y=dec.y2-dec.y1;
+	document.write("площадь= ",x*y);	
+};*/
+    dec.x1=prompt("x1=","");
+	dec.x2=prompt("x2=","");
+	dec.y1=prompt("y1=","");
+	dec.y2=prompt("y2=","");
+var width1 = dec.Width();
+var length1 = dec.Length();
+var sc = dec.Square();
+alert(width1);
+ 
+	</script>
+</html>

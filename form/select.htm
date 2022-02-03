@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Событие change срабатывает по окончании изменения элемента.</h3>
+    <select onchange="alert(this.value)">
+      <option value="">Выберите что-нибудь</option>
+      <option value="1">Вариант 1</option>
+      <option value="2">Вариант 2</option>
+      <option value="3">Вариант 3</option>
+    </select>
+    <br />
+
+    <h3>Добавление и удаление объектов списка</h3>
+    <form name="myForm">
+      <select name="language" size="5">
+        <option value="JS" selected="selected">JavaScript</option>
+        <option value="Java">Java</option>
+        <option value="CS">C#</option>
+        <option value="CPP">C++</option>
+      </select>
+      <p><input type="text" name="textInput" placeholder="Введите текст" /></p>
+      <p>
+        <input type="text" name="valueInput" placeholder="Введите значение" />
+      </p>
+      <p>
+        <input type="button" name="addButton" value="Добавить" />
+        <input type="button" name="removeButton" value="Удалить" />
+      </p>
+    </form>
+    <div id="printBlock2"></div>
+    <div id="printBlock"></div>
+    <script>
+      let selectLang = myForm.language,
+        languagesList = myForm.language.options,
+        addButton = myForm.addButton,
+        removeButton = myForm.removeButton,
+        textInput = myForm.textInput,
+        valueInput = myForm.valueInput;
+
+      function printOpt() {
+        printBlock.innerHTML = '';
+        for (let i = 0; i < languagesList.length; i++) {
+          printBlock.innerHTML += languagesList[i].value + '<br>';
+        }
+      }
+
+      function addLanguage() {
+        let newLanguage = new Option(textInput.value, valueInput.value);
+        myForm.language.options.add(newLanguage);
+        printOpt();
+        resetValue();
+      }
+      function removeLanguage() {
+        //let selectOptions = myForm.language.selectIndex;
+        var selectedIndex = myForm.language.options.selectedIndex;
+        var selectOptions = languagesList[selectedIndex];
+        console.log('selectedIndex= ' + selectedIndex);
+
+        console.log(
+          'languagesList[selectedIndex]= ' + languagesList[selectedIndex]
+        );
+
+        //selectOptions.parentNode.removeChild(selectOptions);
+        //или  вариант
+        //myForm.language.options[selectedIndex] = null;
+        myForm.language.remove(selectedIndex);
+
+        printOpt();
+      }
+      function resetValue() {
+        textInput.value = '';
+        valueInput.value = '';
+      }
+      function select(e) {
+        var selection = document.getElementById('printBlock');
+        var selectedIndex = myForm.language.options.selectedIndex;
+        var selectOptions = languagesList[selectedIndex];
+        selection.innerHTML = selectOptions.text;
+      }
+
+      addButton.addEventListener('click', addLanguage);
+      removeButton.addEventListener('click', removeLanguage);
+      selectLang.addEventListener('change', select);
+    </script>
+  </body>
+</html>

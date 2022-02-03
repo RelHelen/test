@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="form">
+      <span id="out-num1"></span>
+      <span id="options"> </span>
+      <span id="out-num2"></span>
+      <span>=</span>
+      <input type="number" id="result" />
+    </form>
+    <button id="btn-otvet">Проверить</button>
+    <script>
+      function randomInt(min, max) {
+        var length = max - min + 1; //определяем конечный диапозон
+        var rand = Math.floor(Math.random() * length) + min;
+        //+min смещает рендом  не с 0-1 а с min-(1+min)
+        // Math.floor - округления числа вниз, поэтому прибавляем +1
+        return rand;
+      }
+
+      const outNum1 = document.getElementById('out-num1');
+      const outNum2 = document.getElementById('out-num2');
+      const result = document.getElementById('result');
+      const btnOtvet = document.getElementById('btn-otvet');
+      const option = document.getElementById('options');
+
+      var x = (outNum1.innerHTML = randomInt(3, 15));
+      var y = (outNum2.innerHTML = randomInt(3, 15));
+      var errors = [];
+      var i = 0;
+      console.log(x, y);
+
+      var numZnak = randomInt(0, 3);
+      var ops = ['-', '+', '*', '/'];
+      var znak = ops[numZnak];
+      console.log(znak);
+      option.innerHTML = znak;
+      var answer;
+      function otvet() {
+        switch (znak) {
+          case '-':
+            var z = x - y;
+            break;
+          case '+':
+            var z = x + y;
+            break;
+          case '*':
+            var z = x * y;
+            break;
+          case '/':
+            var z = x / y;
+            break;
+        }
+        z = z.toFixed(2);
+        answer = parseFloat(result.value);
+        console.log('answer', typeof answer);
+        answer = answer.toFixed(2);
+
+        if (z == answer) {
+          console.log('z=', z);
+          alert('вы правильно расчитали' + z);
+          location.reload();
+        } else alert('вы не правильно расчитали' + z);
+        console.log('z=', z);
+        errors.push('Ошибка №' + i + ' : ' + x + znak + y + '=' + answer);
+
+        i++;
+      }
+      btnOtvet.addEventListener('click', otvet);
+
+      setTimeout(() => {
+        errors.forEach((val, i) => console.log(errors[i]));
+      }, 3000);
+    </script>
+  </body>
+</html>

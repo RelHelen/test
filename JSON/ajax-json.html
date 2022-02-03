@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="out"></div>
+    <div id="out2"></div>
+    <script>
+      let mas = ['Max', 17, 1514141414, 5, true]; //индексный
+      console.log(mas[0]);
+      console.log(mas.length); //5
+      let z = 4;
+      console.log(mas[z]);
+      mas[20] = 'A';
+      console.log(mas);
+      console.log(mas.length); //21
+
+      /* mas.forEach((element) => {
+        document.querySelector('#out').innerHTML += element + ' ';
+      });*/
+      let str = '';
+      for (let i = 0; i < mas.length; i++) {
+        if (mas[i] != undefined) {
+          str += mas[i] + ' ';
+        }
+      }
+      document.querySelector('#out').innerHTML = str;
+      //ассоциативныйй массив
+      //объект коллекция
+      //каждые данные подписаны
+      //это
+      let m = {
+        name: 'Max',
+        age: 17,
+        cod: 1514141414,
+        car: true,
+        tel: ['+7858568568', '+7475675676'],
+        mail: {
+          gmail: 'www@gmail.com',
+          ya: 'www@ayndex.ru',
+        },
+      };
+      console.log(m.age); //1способ
+      console.log(m['age']); //2способ по ключу
+      let key = 'name';
+      console.log(m[key]); //3способ по имени переменной
+      console.log(m.tel[0]);
+      console.log(m.mail.ya);
+      console.log(m['mail']['ya']);
+      //ассоциативные массивы используются для описания объектов
+
+      console.log(m);
+      let str2 = '';
+
+      for (let i in m) {
+        str2 += i + ':' + m[i] + '<br> ';
+      }
+      document.querySelector('#out2').innerHTML = str2;
+      //массив строку json
+      let strJson = JSON.stringify(m);
+      console.log(strJson);
+      //из строки json в массив
+      let masJson = JSON.parse(strJson);
+      console.log(masJson);
+    </script>
+  </body>
+</html>

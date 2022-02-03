@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        name: 'Pet',
+        age: 22,
+      };
+      console.log(user);
+      for (let key in user) {
+        console.log(key);
+      }
+      const person = Object.create(
+        {
+          //можно прописать методы прототипа
+          calck() {
+            return console.log('Привет,', this.name); //вызывается person.calck()
+          },
+        },
+        {
+          name: {
+            value: 'Max',
+            enumerable: true, //видимость ключа в цикле
+            writable: true, //возможность менять значения
+            configurable: false, //нельзя удалить ключ
+          },
+          birthday: {
+            value: 1990,
+            //enumerable: false, //по умолчанию
+            writable: false, //по умолчанию
+            enumerable: true,
+          },
+          age: {
+            get() {
+              return new Date().getFullYear() - this.birthday; //вызывается person.age
+            },
+            set(val) {
+              console.log('Ваше сообщение: ', val); //вызывается person.age='kjkjkjkj'
+            },
+          },
+        }
+      );
+      console.log(person);
+      person.name = 'Vlad'; //поменяет значение
+      person.birthday = 2004; //не поменяет, т.к не прописан writable: true
+      for (let key in person) {
+        if (person.hasOwnProperty(key)) {
+          //показывает свойства объекта, а не его прототипа
+          console.log(key, person[key]);
+        }
+      }
+    </script>
+  </body>
+</html>

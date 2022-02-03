@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Куки хряняться 4 часа</h2>
+    <button onclick="setCookie()">Set cookies</button>
+    <button onclick="getCookie()">Show cookies</button>
+    <div id="printBlock"></div>
+    <script>
+      // записать куки
+      function setCookie() {
+        var expire = new Date();
+        expire.setHours(expire.getHours() + 4);
+
+        document.cookie = 'city=Berlin;expires=' + expire.toUTCString() + ';';
+        document.cookie =
+          'country=Germany;expires=' + expire.toUTCString() + ';';
+        document.cookie = 'login=tom475;';
+        printBlock.innerHTML = '';
+      }
+
+      //показать или получить куки
+      function getCookie() {
+        alert(document.cookie);
+
+        //формируем массив из куков
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var parts = cookies[i].split('='),
+            name = parts[0],
+            value = parts[1];
+          printBlock.innerHTML += 'Имя куки: ' + name + '<br/>';
+          printBlock.innerHTML += 'Значение: ' + value + '<br/><br/>';
+        }
+      }
+
+      //получить куки по имени
+      function getCookieName(name) {
+        var value = '; ' + document.cookie;
+        console.log('Cookie=' + value);
+        var parts = value.split('; ' + name + '=');
+        if (parts.length == 2) return parts.pop().split(';').shift();
+      }
+
+      var a = getCookieName('country');
+      console.log('country=' + a);
+      //удаление
+
+      document.cookie = 'city=; expires=-1';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+ p { margin: 4px; 
+     font-size:16px; 
+    font-weight:bolder;
+     cursor:pointer; }
+ .blue { color:blue; }
+ .new { background:yellow; }
+ </style>
+ <script type='text/javascript' src='jquery-3.3.1.min.js'></script>
+</head>
+<body>
+ <p class="blue">Click to toggle</p>
+ <p class="blue new">highlight</p>
+ <p class="blue">on these</p>
+ <p class="blue">paragraphs</p>
+<script>
+   $("p").click(function () {
+     $(this).toggleClass("new");
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="items">
+      <div><input type="text" class="item" value="1" /></div>
+      <div><input type="text" class="item" value="2" /></div>
+      <div><input type="text" class="item" value="3" /></div>
+    </div>
+    <script>
+      // был объект стал класс
+      let cat = {
+        name: 'Vass',
+        age: 3,
+        color: 'white',
+        length: 0.5,
+        say: function () {
+          console.log('my');
+        },
+      };
+      console.log('cat=', cat);
+      let cat2 = Object.create(cat); //cat является прототипом для cat2
+      console.log('cat2=', cat2);
+      console.log('cat2=', cat2.age);
+      //в класс
+      class СlassCat {
+        constructor(name, age, color, length) {
+          this.name = name;
+          this.age = age;
+          this.color = color;
+          this.length = length;
+        }
+        say() {
+          console.log('my');
+        }
+      }
+      //создание экземпляра классса
+      let catC1 = new СlassCat('aaa', 2, 'white', '0.2');
+      console.log(catC1);
+
+      let catC2 = new СlassCat('bbb', 3, 'white', '0.6');
+      console.log(catC2);
+
+      //прототип у объектов
+      //есть у каждого животного
+      let animal = {
+        age: 1,
+        eat: function () {},
+      };
+      //разные свойства у разных животных
+
+      let kot = {
+        mustache: true, //усы
+        say: function () {
+          return 'my';
+        },
+      };
+      let dog = {
+        mustache: false, //усы
+        say: function () {
+          return 'gaf';
+        },
+      };
+
+      console.log('kot', kot);
+      //и у кота и у собаки есть возраст и умение кушать
+      //чтобы разным объектам можно было использовать одинаковые свойства и мтоды были придуманы прототипы
+      kot.__proto__ = animal; //__proto__ у объекта
+      console.log('kot.age', kot.age);
+
+      //прототип у классов
+      //перепишем через классы
+      class ClAnimal {
+        constructor(age) {
+          this.age = age;
+        }
+        eat() {}
+      }
+      //чтобы у кота был прототип ClAnimal
+      class ClKot extends ClAnimal {
+        constructor(age) {
+          super(age);
+          this.mustache = true; //усы
+        }
+
+        say() {
+          return 'my';
+        }
+      }
+      class ClDog extends ClAnimal {
+        constructor(age) {
+          super(age);
+          this.mustache = false; //усы
+        }
+        say() {
+          return 'gaf';
+        }
+      }
+
+      let clkot = new ClKot(4);
+      console.log('clkot ', clkot);
+      console.log('clkot ', clkot.age);
+
+      //массив это объект
+      let ar = ['a', 'b', 2];
+      console.log(ar);
+      console.log(ar.indexOf('a'));
+    </script>
+
+    <script>
+      //работа с dom
+      /*const items = document.querySelectorAll('.items .item');
+
+      console.log(items);
+      for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener('focus', function () {
+          this.style.outline = '1px solid red';
+          // this.classList.toggle = 'red';
+          console.log(this.value);
+        });
+      }
+      for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener('blur', function () {
+          this.style.outline = '1px solid black';
+          // this.classList.toggle = 'red';
+          console.log(this.value);
+        });
+      }*/
+      //перепишем через класс
+
+      class $ {
+        constructor(selector) {
+          this.elem = document.querySelectorAll(selector);
+        }
+        on(event, callback) {
+          for (let i = 0; i < this.elem.length; i++) {
+            this.elem[i].addEventListener(event, callback);
+          }
+          return this; //для реализации цепочки вызовов
+        }
+      }
+      /*
+      //1вариант
+      let itemm = new $('.items .item');
+
+      itemm.on('focus', function () {
+        this.style.outline = '1px solid red';
+        console.log(this);
+      });
+
+      itemm.on('blur', function () {
+        this.style.outline = '1px solid black';
+        console.log(this);
+      });*/
+
+      //или 2вариант
+
+      new $('.items .item')
+        .on('focus', function () {
+          this.style.outline = '1px solid red';
+          console.log(this);
+        })
+        .on('blur', function () {
+          this.style.outline = '1px solid black';
+          console.log(this);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	/*function animals(){		
+		this.myAnimal=function(sub){
+			sub.forEach(function(item, index){
+				document.write(index);
+				document.write(item);				
+				document.write('<br>');
+
+			}
+		)};
+	}
+var zoo=new animals;
+/*var petsArray=array["еж", "пингвин","крокодил"];
+var petsArray=new Array;
+petsArray=["еж", "пингвин","крокодил"];
+zoo.myAnimal(petsArray);*/
+
+
+/*function temp(){
+	this.tempSred=function(it){		
+		var sum=0;
+		it.forEach(function(item,index){
+		  sum=(sum+item);
+		});
+		sum=sum/it.length;
+		document.write(sum);
+	};
+
+}
+var ttt=new temp;
+var tempArr= [1,2,0,0,0,0,-1];
+ttt.tempSred(tempArr);*/
+
+
+function vvod(itA){
+	var n = prompt("введиет размер массива","");	
+	for(var i=0; i<n; i++){
+		var it=prompt("ведите","");
+		itA[i]=[it];
+		document.write(i);
+		document.write(itA[i]); 	document.write('<br>');
+		
+	};
+	return itA;
+};
+function uzmen(){
+	this.uvel=function(it1){		
+		var sum=0;
+		it1.forEach(function(item,index){
+		  sum=(sum+item);
+		});
+		
+		document.write(sum);
+	};
+
+};
+
+var mass=Array;
+var arr = vvod(mass);
+document.write("вывод");
+document.write('<br>');
+document.write(mass.length);
+
+for(var i=0; i<mass.length; i++){		
+		document.write(i);
+		document.write(arr[i]); 	
+		document.write('<br>');
+		
+	};
+/*mass=[1,2,3];
+mass.forEach(function(item,index,mass){
+ document.write(item);
+ document.write('<br>');
+});*/
+
+/*var massRe=new uzmen;
+massRe.uvel(a);*/
+
+</script>
+</body>
+</html>

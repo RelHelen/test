@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="form">
+      <span id="out-num1"></span>
+      <select id="options">
+        <option value="" name="option">OP</option>
+        <option value="+" name="option">+</option>
+        <option value="-" name="option">-</option>
+        <option value="*" name="option">*</option>
+        <option value="/" name="option">/</option>
+      </select>
+      <span id="out-num2"></span>
+      <span>=</span>
+      <input type="number" id="result" />
+    </form>
+    <button id="btn-otvet">Проверить</button>
+    <script>
+      function randomInt(min, max) {
+        var length = max - min + 1; //определяем конечный диапозон
+        var rand = Math.floor(Math.random() * length) + min;
+        //+min смещает рендом  не с 0-1 а с min-(1+min)
+        // Math.floor - округления числа вниз, поэтому прибавляем +1
+        return rand;
+      }
+
+      const outNum1 = document.getElementById('out-num1');
+      const outNum2 = document.getElementById('out-num2');
+      const result = document.getElementById('result');
+      const btnOtvet = document.getElementById('btn-otvet');
+      const option = form.options.options;
+
+      var x = (outNum1.innerHTML = randomInt(3, 15));
+      var y = (outNum2.innerHTML = randomInt(3, 15));
+
+      console.log(x, y);
+
+      var op = '';
+
+      async function operation() {
+        op = option.selectedIndex; //индекс
+
+        //console.log(op);
+        //console.log(option[option.selectedIndex].value); //занчение по индексу
+        return op;
+        /*return new Promise((resolve, reject) => {
+          op = option[option.selectedIndex].value;
+
+         
+
+          if (op != '') {
+            resolve(op);
+            console.log('Готово.', op);
+          } else {
+            reject((op = '+'));
+          }
+        });*/
+      }
+      //const promise = form.options.addEventListener('change', operation);
+      form.options.addEventListener('change', operation);
+      /*  promise.then(function (op) {
+        console.log('promise=', op);
+      });*/
+
+      function otvet() {
+        switch (option[option.selectedIndex].value) {
+          case '-':
+            var z = x - y;
+            break;
+          case '+':
+            var z = x + y;
+            break;
+          case '*':
+            var z = x * y;
+            break;
+          case '/':
+            var z = x / y;
+            break;
+        }
+
+        if (z == result.value) {
+          alert('вы правильно расчитали');
+          location.reload();
+        } else alert('вы не правильно расчитали');
+        console.log('z=', z, 'op', op);
+      }
+      btnOtvet.addEventListener('click', otvet);
+    </script>
+  </body>
+</html>

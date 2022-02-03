@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .blueStyle {
+        color: blue;
+        font-family: Verdana;
+        font-size: 22px;
+      }
+      .redStyle {
+        color: red;
+        font-family: Verdana;
+        font-size: 22px;
+      }
+      .article {
+        font-size: 20px;
+      }
+      .greenStyle {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="article">
+      <h3>Пользователи:</h3>
+      <ul>
+        <li>Джон111</li>
+        <li>Пит111</li>
+      </ul>
+    </div>
+    <script>
+      let listLi = document.getElementsByTagName('li');
+      for (let ell of listLi) {
+        ell.onclick = function (e) {
+          // e.target.classList.toggle('redStyle');
+          this.classList.toggle('redStyle');
+        };
+        /*
+        или
+         ell.onclick = (e) => e.target.classList.toggle('redStyle');
+        
+        */
+      }
+
+      //все элементы документа HTML (HTML,HEAD,BODY)
+      let elemsDoc = document.documentElement.childNodes;
+      //перебрать как массив, а не коллекцию, вывести теги элементов
+      //делаем массив elem
+      elemsDoc = Array.prototype.slice.call(elemsDoc);
+      elemsDoc.forEach((elem) => {
+        console.log(elem.nodeName); //название узла
+      });
+
+      let elemBody = [];
+      //все элементы body  в том числе все вложенные
+      //let elems = document.body.childNodes;
+      //перебрать как массив, а не коллекцию, вывести теги элементов
+      //elems = Array.prototype.slice.call(elems);
+      /* elems.forEach((elem) => {
+           if (elem.nodeType == 1) {
+             console.log(elem.tagName); //тег элеммента
+             elemBody.push(elem.tagName);
+
+           }}*/
+
+      //функция возврата дочерних элементов
+      function getElems(elems) {
+        for (var elem of elems.childNodes) {
+          if (elem.nodeType == 1) {
+            console.log(elem.tagName);
+            elemBody.push(elem.nodeName); //формируем массив элементов
+            getElems(elem);
+          }
+        }
+      }
+      let elems = document.documentElement;
+      getElems(elems);
+
+      //выводим все теги документа
+      elemBody.forEach((elem) => {
+        document.write(elem + '<br>');
+      });
+
+      //Для получения или установки текстового содержимого элемента мы
+      // можем использовать свойство innerText или textContent,
+
+      //а для получения или установки кода html - свойство innerHTML:
+
+      var articleDiv = document.querySelector('div.article');
+      document.write('<h2>articleDiv.innerText</h2>');
+      document.write(articleDiv.innerText);
+      document.write('<br>_______________________');
+      document.write('<h2>articleDiv.innerHTML</h2>');
+      document.write(articleDiv.innerHTML);
+      document.write('_______________________');
+      document.write('<h2>articleDiv.textContent</h2>');
+      document.write(articleDiv.textContent);
+
+      console.log('<h2>articleDiv.innerText</h2>');
+      console.log(articleDiv.innerText);
+      console.log('_______________________');
+      console.log('<h2>articleDiv.innerHTML</h2>');
+      console.log(articleDiv.innerHTML);
+      console.log('_______________________');
+      console.log('<h2>articleDiv.textContent</h2>');
+      console.log(articleDiv.textContent);
+
+      var pElement = document.querySelector('.article h3');
+      pElement.innerText = 'Users'; //записал текст
+      // pElement.textContent = 'hello';
+      var hElement = document.querySelectorAll('.article h3 ')[0];
+      hElement.innerHTML = '<h4>Hello World!!!</h4><p>bila bla bla</p>'; //внутри h3  создал h4 и  p
+
+      //создание и изменение атрибутов
+      articleDiv.setAttribute('style', 'color:blue;'); //сиинй текст у div.article
+      hElement.setAttribute('style', 'color:red;');
+      styleValue = articleDiv.getAttribute('style');
+      console.log('После изменения атрибута: ' + styleValue); // выведет color:blue
+
+      //через свойство style
+      hElement.style.color = '#ddd';
+      hElement.removeAttribute('style');
+
+      // доб - удаление классов
+
+      hElement.className = 'blueStyle'; //устанавливает класс, стирая все что было
+      hElement.classList.add('redStyle'); //добавляет класс
+      hElement.classList.add('redStyle'); //добавляет класс
+      hElement.classList.toggle('blueStyle'); //если есть класс то удалляет, если нет то добавляет
+    </script>
+  </body>
+</html>

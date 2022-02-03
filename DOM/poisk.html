@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li>Первый</li>
+      <li>Второй</li>
+    </ul>
+    <div class="annotation">
+      <p>Аннотация статьи</p>
+    </div>
+    <div class="text">
+      <p>Первый абзац</p>
+      <p>Второй абзац</p>
+    </div>
+    <a href="article1.html">Статья 1</a>
+    <a href="article2.html">Статья 2</a>
+    <a href="article3.html">Статья 3</a>
+    <script>
+      //getElementById(value): выбирает элемент, у которого атрибут id равен value
+      //getElementsByClassName(value): выбирает все элементы, которые имеют класс value
+      //getElementsByTagName(value): выбирает все элементы, у которых тег равен value
+      let liElements = document.getElementsByTagName('li');
+
+      el = [];
+      for (var element of liElements) {
+        //console.log(element);//элемент li
+        //console.log(liElements[i]);//элемент li
+        document.writeln('<p>' + element.innerHTML + '</p>');
+        el.push(element.innerHTML);
+      }
+      console.log(el);
+
+      //querySelector(value): выбирает первый элемент, который соответствует css-селектору value
+      var elP = document.querySelector('.text p');
+      document.writeln(
+        'первый абзац в классе текст: ' + elP.innerHTML + '<br>'
+      );
+
+      //querySelectorAll(value): выбирает все элементы, которые соответствуют css-селектору value
+      var elPs = document.querySelectorAll('.text p');
+      console.log(typeof elPs); //object
+
+      elPs.forEach((element) => {
+        document.writeln('абзац в классе текст: ' + element.innerHTML + '<br>');
+      });
+      //получение всех ссылок
+      let ahEl = document.links;
+      for (var element of ahEl) {
+        document.writeln('ссылка ' + element.href + '<br>');
+        document.writeln('text ' + element.innerHTML + '<br>');
+      }
+    </script>
+  </body>
+</html>

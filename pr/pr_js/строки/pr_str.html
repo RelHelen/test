@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- работа со строками-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var str="string"
+		var num12="12";
+		//alert(+num12+1);
+		//alert(str+'\nмир');//перевод строки
+		//console.log(str[0]);
+		//   -(n+1)  это ~n
+		//alert( ~-1 ); // -(-1+1) = 0
+		console.log(str.indexOf("st"));
+		if (!(~str.indexOf("@"))) {console.log("это не почтовый адрес");};
+		var t=str.length;		
+		for (var i = 0; i<=t-1; i++) 
+		{
+			console.log(str[i]);
+		}
+		// slice(start [, end]) Возвращает часть строки от позиции start до, но не включая, позиции end.
+		alert(str.slice(1,3));//tr
+		alert(str.slice(1));//tring
+		alert(str.slice(-1));//g
+	</script>
+
+</body>
+</html>

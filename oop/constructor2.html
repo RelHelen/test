@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(options) {
+          this.name = options.name;
+          this.age = options.age;
+          this.hasTail = options.hasTail;
+        }
+        //реализуем методы которые попрадут в протип нашего объект
+        voice(signal) {
+          console.log('Voice animal!', signal);
+        }
+      }
+      //создание объекта
+      const animal = new Animal({
+        name: 'Fish',
+        age: 3,
+        hasTail: true,
+      });
+      console.log(animal.name);
+      console.log(animal.voice('тррр'));
+
+      //создали класс из класса
+      class Cat extends Animal {
+        constructor(options) {
+          super(options);
+          this.color = options.color;
+        }
+        /*переделка родительского метода
+        voice() {
+          console.log('I am Cat!');
+        }*/
+        //подключение родительской функции и своей
+        voice(options) {
+          super.voice(options);
+          console.log('I am Cat!');
+        }
+        get ageInfo() {
+          return this.age * 7; //как человеческий возраст
+        }
+        set ageInfo(newAge) {
+          this.age = newAge;
+        }
+      }
+      const cat = new Cat({
+        name: 'Cate',
+        age: 4,
+        hasTail: true,
+        color: 'Black',
+      });
+      console.log(cat.name);
+      console.log(cat.voice('мяу'));
+      console.log(cat.color);
+      console.log(cat.ageInfo);
+      console.log((cat.ageInfo = 8));
+      console.log('cat.age=', cat.age); //8
+    </script>
+  </body>
+</html>

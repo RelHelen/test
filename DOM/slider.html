@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Document</title>
+    <style>
+      .arrow {
+        padding: 0;
+        background: #ddd;
+        border-radius: 15px;
+        border: 1px solid gray;
+        font-size: 24px;
+        line-height: 24px;
+        color: #444;
+        display: block;
+        position: absolute;
+        top: 50%;
+      }
+      .arrow_left {
+        left: 10px;
+      }
+      .arrow_right {
+        right: 10px;
+      }
+
+      .arrow:focus {
+        outline: none;
+      }
+
+      .arrow:hover {
+        background: #ccc;
+        cursor: pointer;
+      }
+      .block {
+        width: calc(130px * 3);
+        overflow: hidden;
+        background: #ddd;
+        border-radius: 20px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .carusel {
+        height: 130px;
+        width: 9999px;
+
+        border: 1px solid red;
+        margin-left: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0;
+      }
+
+      .carusel img {
+        width: 130px;
+        height: 130px;
+        display: block; /* убираем пустое место вокруг картинок */
+      }
+
+      .carusel li {
+        display: inline-block; /* убираем пустое место между элементами списка */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <button class="arrow arrow_left">⇦</button>
+      <button class="arrow arrow_right">⇨</button>
+
+      <ul class="carusel">
+        <li><img src="https://ru.js.cx/carousel/1.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/2.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/3.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/4.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/5.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/6.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/7.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/8.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/9.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/10.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/2.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/3.png" /></li>
+        <li><img src="https://ru.js.cx/carousel/4.png" /></li>
+      </ul>
+    </div>
+    <script>
+      let arrowLeft = document.querySelector('.arrow_left');
+      let arrowRight = document.querySelector('.arrow_right');
+      let carusel = document.querySelector('.carusel');
+      let carusels = document.querySelectorAll('li');
+      //количесвто картинок
+      let count = carusels.length;
+      let pos = 0;
+      //отступ спска ul из расчета ширина картинки на количесвто картинок в одном просмотре
+      let marginCausel = 130 * 3;
+      //количество партий по три картинки
+      //если картинок 10 то партий 3
+      let k = Math.round(count / 3);
+
+      arrowRight.onclick = function () {
+        if (pos < 0) {
+          pos += marginCausel;
+          carusel.style.marginLeft = pos + 'px';
+        }
+      };
+
+      arrowLeft.onclick = function () {
+        if (Math.abs(pos) < marginCausel * k) {
+          pos -= marginCausel;
+          carusel.style.marginLeft = pos + 'px';
+        }
+      };
+    </script>
+  </body>
+</html>

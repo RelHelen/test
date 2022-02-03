@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <form name="search" action="#">
+        <input type="text" name="key" value="текст"></input>
+        <input type="submit" name="send"></input>
+    </form>
+    <script>
+        function formF(){
+            document.write("<br>inpTxt= "+inpTxt.value);  
+        }
+    let a=[];
+// выведем имя всех элементов
+    var searchForm = document.forms["search"];
+    for(var i=0; i<searchForm.elements.length;i++){
+        document.write(searchForm.elements[i].name + "<br/>");
+        a[i]=searchForm.elements[i];
+    }
+        
+    for(let i=0; i<a.length; i++) {
+        document.write(a[i].name + "<br/>");
+    }
+// получим по имени текстовое поле
+    let inpTxt=searchForm.elements["key"];
+    document.write("inpTxt= "+inpTxt.name);
+    document.write("inpTxt= "+searchForm.key.value);
+    let inpBtn=searchForm.elements["send"];
+    inpBtn.onclick=formF;
+    </script>
+
+
+<!-- элементы выбора -->
+<br><br><hr><br><br>
+<h2>элементы выбора</h2>
+<select id="select">
+    <option value="apple" >Яблоко</option>
+    <option value="pear" >Груша</option>
+    <option value="banana">Банан</option>
+  </select>
+  
+  <script>
+    // все три строки делают одно и то же
+    select.options[0].selected = true;
+   // select.selectedIndex = 2;
+    select.options[1].value = 'Груша';
+  </script>
+<br><br><hr><br><br>
+    <select id="selectMus" multiple>
+        <option value="blues" selected>Блюз</option>
+        <option value="rock" selected>Рок</option>
+        <option value="classic">Классика</option>
+      </select>
+      
+      <script>
+        
+        // создаем массив
+        let selectOpt = Array.from(selectMus.options);
+        //вбираем все выделенные элементы
+        let selected=selectOpt.filter(option => option.selected);
+        
+        document.write("<br> selected= "+selected);
+        //берем из нних значение
+        let value=selected.map(option => option.value);
+        document.write("<br>  value selected= "+value);// blues,rock
+        
+      </script>
+      <!-- Добавьте пункт к выпадающему списку -->
+      <br><br><hr><br><br>
+      <h2>Добавьте пункт к выпадающему спискуs</h2>
+      <select id="genres">
+        <option value="rock">Рок</option>
+        <option value="blues" >Блюз</option>
+      </select>
+      <script>
+         
+          let opt= new Option("Классика",'classic',true,true)
+          genres.appendChild(opt);
+
+          let genresOpt=Array.from(genres.options);
+            //вывод веделенного
+
+            let ns= genres.selectedIndex;
+           document.write("<p>genresSelect="+genres.options[ns].text+'<p>');
+
+            console.log(`value=${genres.value} `+` text=${genres.options[genres.selectedIndex].text}`); //1
+            let option1 = new Option("Классика11", "classic11");							                  //2
+            genres.prepend(option1);	
+            //вывод value
+          let genresValue=genresOpt.map(arr=>arr.value);
+          document.write("<br>  value= "+genresValue); 
+        
+           //вывод value перебоором по массиву
+
+          /*for(item of genresOpt){
+            document.write('<br>'+'['+item.index+']='+item.value);
+          }*/
+
+          genresOpt.forEach((item)=>{
+            document.write('<li>'+'['+item.index+']='+item.value+'</li>');
+          })
+
+//другой вариант
+        Object.values(genres).forEach(({index,value, text}) => console.log(index,value, text));
+
+        const newOption = new Option('Классика2', 'classic2');
+
+        genres.options.add(newOption);
+
+        newOption.selected = true;
+
+      </script>
+
+
+<!-- Сделайте выпадающий список с названиями месяцев. Сделайте так, 
+чтобы JavaScript по умолчанию выбирал в этом списке текущий месяц. -->
+</body>
+</html>

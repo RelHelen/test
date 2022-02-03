@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="formUrl" id="formUrl">
+      <input type="text" name="inpDom" id="inpDom" placeholder="domain" />
+      <input type="text" name="inpUrl" id="inpUrl" placeholder="url" />
+      <button name="btn" id="btn" type="submit">Вывести</button>
+    </form>
+    <div id="write"></div>
+    <script>
+      //    замыкание - это функция в функции
+      let formUrl = document.forms.formUrl;
+      let inpDom = formUrl.inpDom;
+      let inpUrl = formUrl.inpUrl;
+      let btn = document.getElementById('btn');
+
+      btn.addEventListener('click', function () {
+        nameDom = inpDom.value;
+        nameUrl = inpUrl.value;
+
+        const UrlCom = domen(nameDom);
+        write.innerHTML += '<p>' + UrlCom(nameUrl) + '</p>';
+        inpDom.value = inpUrl.value = '';
+      });
+
+      function domen(nameDom) {
+        return function (nameUrl) {
+          return `https://${nameUrl}.${nameDom}`;
+        };
+      }
+    </script>
+
+    <script>
+      function logPerson() {
+        console.log(`Person: ${this.name}, ${this.age}, ${this.job}`);
+      }
+      const person1 = { name: 'Michal', age: 22, job: 'web' };
+      const person2 = { name: 'Vasia', age: 23, job: 'front' };
+
+      bind(person1, logPerson);
+      function bind(context, fn) {
+        fn.bind(context)();
+      }
+    </script>
+  </body>
+</html>

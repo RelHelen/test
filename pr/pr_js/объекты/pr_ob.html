@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person={};
+		person.name="red";
+		person.age=25;
+
+        var k='age';
+		person[k]=26;
+		//console.log(person[k]); //26
+		
+		delete person.name;
+		//console.log(person.name); //undefined
+		
+		//аналог обращения
+		var person={
+			name:"dima",
+			age:25,
+			size: {
+				ves:65,
+				rost:165,
+			}
+		};  
+		//console.log(person.size.ves); //26
+		for (key in person) {
+			console.log(key+":"+person[key]); 
+		}
+      
+
+
+
+		
+
+	</script>
+</body>
+</html>

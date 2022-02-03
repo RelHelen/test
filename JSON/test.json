@@ -1,0 +1,11 @@
+{
+  "name": "Max",
+  "age": 17,
+  "cod": 1514141414,
+  "car": true,
+  "tel": ["+7858568568", "+7475675676"],
+  "mail": {
+    "gmail": "www@gmail.com",
+    "ya": "www@ayndex.ru"
+  }
+}

@@ -1,0 +1,54 @@
+.wrap{
+ width:55%;
+ margin:0 auto;
+ background:#ffb951;
+ padding: 20px;
+}
+.content{
+	text-align: center;
+
+}
+.cardProduct{
+	width:31%;
+	float:left;
+	margin:0 20px 10px 0;
+	text-align: center;
+	border: 1px solid #9b6d09;
+	box-shadow: 1px 1px 2px #9b6d09;
+}
+.cardProduct img{
+	width: 250px;
+}
+.cardProduct button{
+	width: 250px;
+	height:30px;
+	background:#9b6d09;
+	border: 1px solid #777;
+	margin: 5px;
+	border-radius: 5px;
+}
+.order{
+	clear:both;
+	text-align: center;
+	border: 1px solid #9b6d09;
+	box-shadow: 1px 1px 2px #9b6d09;
+	width:97%;
+
+}
+.order button{
+	width: 250px;
+	height:30px;
+	background:#994223;
+	border: 1px solid #777;
+	margin: 5px;
+	border-radius: 5px;
+}
+.order input{
+	width: 250px;
+	height:25px;
+	border: 1px solid #777;
+	border-radius: 5px;
+}
+.time{
+	text-align: right;
+}

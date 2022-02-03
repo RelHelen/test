@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Угадай число</h2>
+    <label for="btn-submit">Угадай число от 0 до 10</label>
+    <input type="number" id="in-number" />
+    <button id="btn-submit">Найти число</button>
+    <button id="btn-reset">Очистить</button>
+    <div id="out-number"></div>
+    <script>
+      const inNumber = document.getElementById('in-number');
+      const btnSubmit = document.getElementById('btn-submit');
+      const outNumber = document.getElementById('out-number');
+      const btnReset = document.getElementById('btn-reset');
+      let compNumber = Math.floor(Math.random() * 10);
+
+      function fnNumber() {
+        let number = inNumber.value;
+        outNumber.innerHTML = '';
+
+        console.log('user | comp');
+        console.log(number, '   | ', compNumber);
+
+        if (number == compNumber) {
+          outNumber.innerHTML = 'Вы угадали ! Загаданное число ' + number;
+        }
+        if (number > compNumber) {
+          outNumber.innerHTML = 'Загаданное число меньше вашего ';
+        }
+        if (number < compNumber) {
+          outNumber.innerHTML = 'Загаданное число больше вашего ';
+        }
+        if ((number = NaN || number < 0 || number > 10)) {
+          outNumber.innerHTML = 'Введите число от 0 до 10 ';
+          inNumber.value = '';
+          console.log((number = NaN || number < 0 || number > 10));
+        }
+      }
+      btnSubmit.addEventListener('click', fnNumber);
+      btnReset.addEventListener('click', function () {
+        location.reload();
+      });
+    </script>
+  </body>
+</html>

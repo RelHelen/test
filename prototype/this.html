@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .items,
+      .items2 {
+        background: #ddd;
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+      }
+      .items2 {
+        background: #676;
+        display: inline-block;
+      }
+      .border-red {
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <div class="items">1</div>
+    </div>
+    <br /><br /><br />
+    <div class="item2">
+      <div class="items2">1</div>
+      <div class="items2">2</div>
+      <div class="items2">3</div>
+      <div class="items2">4</div>
+      <div class="items2">5</div>
+      <div class="items2">6</div>
+    </div>
+    <script>
+      //при клике по кубу у него должна появится рамка
+      window.onload = function () {
+        const items = document.querySelector('.items');
+        const items2 = document.querySelectorAll('.items2');
+        /* items.addEventListener('click', function () {
+          this.classList.toggle('border-red');
+          //this.style.border = '1px solid red';
+        });*/
+        console.log(items);
+        //activeEl(); // window
+        items.onclick = activeEl; //сделали ссылку на функцию  и контекстом будет items
+        for (let i = 0; i < items2.length; i++) {
+          items2[i].onclick = activeEl;
+        }
+        function activeEl() {
+          console.log(this);
+          this.classList.toggle('border-red');
+
+          // e.target.classList.toggle('border-red');
+        }
+        //вызываем функцию activeEl() каждый 500ms
+        setInterval(function () {
+          let r = rnd(0, items2.length - 1);
+          console.log(r);
+          activeEl.call(items2[r]); //вызвали в рамках контекста items2[r]
+        }, 500);
+      };
+
+      function rnd(min, max) {
+        return Math.floor(Math.random() * (max - min + 1));
+      }
+
+      //activeEl(); // window
+    </script>
+  </body>
+</html>

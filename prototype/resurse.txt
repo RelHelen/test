@@ -1,0 +1,5 @@
+https://jsonplaceholder.typicode.com/ - для тестирования API
+https://web.postman.co/onboarding/user API платформа
+сайт для тестирования http://getpost.itgid.info/index2.php
+auth=rwwYIHwGJuXmiJgLAMmc
+auth=rwwYlHwGJuXmiJgLAMmc

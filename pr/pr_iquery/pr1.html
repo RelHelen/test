@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<style type="text/css">
+body {
+	margin: 0 auto;
+	padding: 0;
+	width: 570px;
+	font: 75%/120% Arial, Helvetica, sans-serif;
+}
+a:focus {
+	outline: none;
+}
+#panel {
+	background: #754c24;
+	height: 200px;
+	display: none;
+}
+.slide {
+	margin: 0;
+	padding: 0;
+	border-top: solid 4px #422410;
+	 
+}
+.btn-slide {
+	background: #0f0;
+	text-align: center;
+	width: 144px;
+	height: 31px;
+	padding: 10px 10px 0 0;
+	margin: 0 auto;
+	display: block;
+	font: bold 120%/100% Arial, Helvetica, sans-serif;
+	color: #fff;
+	text-decoration: none;
+}
+.active {
+	 
+	background: #0ff;
+}
+</style>
+</head>
+<body>
+
+
+
+ 
+
+<div id="panel">
+	dddd<!-- you can put content here -->
+</div>
+
+<p class="slide"><a href="#" class="btn-slide">Slide Panel</a></p>
+
+ <script type='text/javascript' src='jquery-3.3.1.min.js'></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".btn-slide").click(function(){
+		$("#panel").slideToggle("slow");
+		$(this).toggleClass("active"); 
+		//return false;
+	});
+	
+	 
+});
+</script>
+
+</body>
+</html>
