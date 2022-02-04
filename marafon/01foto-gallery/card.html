@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        overflow: hidden;
+        background: #111;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        padding: 0 20px;
+      }
+      .slide {
+        height: 80vh;
+        border-radius: 20px;
+        margin: 10px;
+        cursor: pointer;
+        color: #fff;
+        flex: 1;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        position: relative;
+        transition: all 500ms ease-in-out;
+      }
+      .slide h3 {
+        position: absolute;
+        font-size: 20px;
+        bottom: 20px;
+        left: 20px;
+        margin: 0;
+        opacity: 0;
+      }
+      .slide.active {
+        flex: 10;
+      }
+      .slide.active h3 {
+        opacity: 1;
+        transition: opacity 0.3s ease-in 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="slide"
+        style="
+          background-image: url(https://source.unsplash.com/random/1200x500);
+        "
+      >
+        <h3>Машина1</h3>
+      </div>
+
+      <div class="slide" style="background-image: url(img/2.jpg)">
+        <h3>Машина2</h3>
+      </div>
+
+      <div class="slide" style="background-image: url(img/3.jpg)">
+        <h3>Машина3</h3>
+      </div>
+      <div class="slide" style="background-image: url(img/1.jpg)">
+        <h3>Машина4</h3>
+      </div>
+    </div>
+    <script>
+      function activeSlide(item = 0) {
+        const slides = document.querySelectorAll('.slide');
+        slides[item].classList.add('active');
+        for (const slide of slides) {
+          slide.addEventListener('click', function () {
+            clearActiveClasses();
+            this.classList.add('active');
+          });
+        }
+        function clearActiveClasses() {
+          slides.forEach((slide) => {
+            slide.classList.remove('active');
+          });
+        }
+      }
+      activeSlide(3);
+    </script>
+  </body>
+</html>
