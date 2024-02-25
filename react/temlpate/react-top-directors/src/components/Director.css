@@ -13,4 +13,16 @@ body{
 .link {
   color: #61dafb;
 }
- 
+.form{
+  display: flex;
+  flex-direction: column;   
+  width: 250px;   
+  gap: 16px; 
+  margin: 20px auto;
+  padding: 50px;
+  background-color: #61dafb;
+}
+.form input{
+ height: 30px;
+ border: none;
+}
