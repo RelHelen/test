@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .form_book {
+            width: 300px;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .list {
+            width: 300px;
+        }
+        
+        .block {
+            margin: 10px 0;
+            border-bottom: 1px solid grey;
+            position: relative;
+        }
+        
+        .block p {
+            margin: 0;
+        }
+        
+        .remove-button {
+            content: '[x]';
+            display: inline-block;
+            position: absolute;
+            font-size: 110%;
+            top: 0;
+            background: #000;
+            right: 10px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            border: none;
+            /* background: transparent; */
+            cursor: pointer;
+        }
+        
+        .select {
+            background-color: rgba(127, 255, 212, 0.43);
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form_book" action="">
+        <label for="text">Введите имя; </label>
+        <input type="text" name="text" id="text" placeholder="name" /><br />
+
+        <label for="text">Введите заметку: </label>
+        <textarea name="desc" id="desc" cols="30" rows="10"></textarea><br />
+
+        <input type="date" id="date" name="date" />
+        <input type="button" name="submit" id="submit" value="Добавить" />
+    </form>
+    <div class="list" id="list"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js " integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js " integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ " crossorigin="anonymous "></script>
+    <script>
+        function creatElement() {
+
+        }
+        const createMyElement = (tag, attribute) => {
+            const element = document.createElement(tag);
+            //копирует в текущий объект  из исходного объекта перечисляемые свойства
+            Object.assign(element, attribute);
+            //   console.log(' Object.assign(element, attribute): ', element);
+
+            return element;
+        };
+
+        const addList = function() {
+            const list = document.getElementById('list');
+            const text = document.getElementById('text');
+            const desc = document.getElementById('desc');
+            const elDate = document.getElementById('date');
+
+            // let Data = new Date();
+            const elBlock = document.createElement('div');
+            //elBlock.className = 'block';
+            elBlock.classList.add('block');
+
+
+            //создали заголовок 
+            const elH = document.createElement('p');
+            elH.innerText = "name: " + text.value;
+            elBlock.append(elH);
+            // list.append(elBlock);
+
+            //создали параграф
+            const elP = document.createElement('p');
+            elP.textContent = "note: " + desc.value;
+            elBlock.append(elP);
+
+            //list.append(elBlock);
+
+            //создали дату
+            const elSpan = document.createElement('span');
+            elSpan.textContent = "date: " + elDate.value;
+            elBlock.append(elSpan);
+
+            const elBtn = document.createElement('span');
+            elBtn.classList.add('remove-button');
+
+            elBlock.append(elBtn);
+            list.append(elBlock);
+
+            //очистили
+            text.value = '';
+            desc.value = '';
+            elDate.value = '';
+
+        }
+
+        function remove(e) {
+            const removeButtons = list.querySelectorAll('.remove-button');
+            const divs = document.querySelectorAll('.block ');
+            //console.log(e.target);
+            for (removeButton of removeButtons) {
+                if (e.target == removeButton) {
+                    let parent = removeButton.closest('.block');
+                    console.log(parent);
+                    parent.classList.toggle('select');
+                }
+            }
+        }
+
+        submit.addEventListener('click', addList);
+        list.addEventListener('click', remove);
+    </script>
+</body>
+
+</html>

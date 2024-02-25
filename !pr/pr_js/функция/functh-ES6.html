@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="res"></div>
+
+    <script>
+      //вывести среднее арифметическеоие и имя студента
+      //spread оператор ...marks
+
+      /*Spread оператор – это три точки перед именем переменной (или константы), 
+      внутри определения объекта. Он раскладывает соответствующий объект внутри 
+      нового объекта. С его помощью 
+      можно получить только копию, он не может изменять существующие объекты.*/
+      function some(name, ...marks) {
+        let sum = 0;
+        for (let m of marks) {
+          sum += m;
+        }
+        let avg = (sum / marks.length).toFixed(2);
+        let res = `Средняя оценка ${name} : ${avg} `;
+        return res;
+      }
+      window.onload = function () {
+        let str = some('Petr', 2, 3, 4, 5);
+        document.querySelector('.res').innerHTML = str;
+      };
+      //С помощью spread оператора легко расширять новые объекты дополнительными данными:
+      const user = { name: 'Vasya', age: 11 };
+      const newUser = { ...user, married: true, age: 25 };
+      // Возраст поменялся!
+      console.log(newUser); // => { name: 'Vasya', married: true, age: 25 }
+
+      const user = { name: 'Vasya', married: true, age: 25 };
+      const user2 = { name: 'Irina', surname: 'Petrova' };
+      const mergedObject = { ...user, ...user2 };
+      console.log(mergedObject);
+      // => { name: 'Irina', married: true, age: 25, surname: 'Petrova' }
+    </script>
+  </body>
+</html>

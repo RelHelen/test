@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REact!!!!</title>
+   <!-- Примечание: при деплое на продакшен замените «development.js» на «production.min.js». -->
+   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+   <!-- компилятор, с помощью которого идет преобразованиереакт кода в js скрипт-->
+
+   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<style>
+    .cont{
+      margin: 20px auto;
+    }
+</style>
+</head>
+<body>
+    <div id="app"></div>  
+    <script type="text/babel">
+    const app = document.getElementById("app")
+     
+    //  ReactDOM.render(
+    //         <h1>React</h1>,
+    //          app
+    //   )
+
+      // const element = React.createElement(
+      //   'h1',
+      //   {id:'h1'},
+      //   "ReactJS - реактивная библиотека"
+      // )
+      // const p = React.createElement(
+      //   'h1',
+      //   {id:'p1'},
+      //   "текст"
+      // )
+      
+      // //ReactDOM.render(element,app)
+      // ReactDOM.render(
+      //   React.createElement('section', null, 
+      //       React.createElement('div',null,element , p) ),        
+      //   app)
+      let user='';
+     // console.log(`${name}`);
+      let noName='default'
+      console.log(`${name || noName}`);
+
+      let data=[{name: 'Anna', age:18},{name:'Tom',age: 20},{age:'54'}]
+       let res=data.filter(item=>item.name!==undefined);
+
+     console.log(data.filter(item=>item.name!==undefined).map(item2=>item2));
+      const numbers = [1, 2, 3, 4, 5];
+ 
+const squareNumbers = [];
+  ReactDOM
+  .createRoot(app)
+  .render(      
+      <section>
+        <h1 id="h1" className="head">React</h1>
+        <div>
+          <p key="p1">2+2={2+2} 
+            {Math.abs(10-20)} 
+            {Math.min(1,2,3,-2)} 
+          { new Date().toLocaleDateString}
+          {new Date().toLocaleTimeString}
+          <br/>
+          {(Math.random().toFixed(3))}
+          {name&& <span>{name} </span>  }
+          {name!=null && name!=undefined ? name : "нет даных"}
+
+          {numbers.map((item,index)=>{return (<p key={index}>{item}</p>)})}
+          
+          {numbers.reduce((sum, item) => {
+             sum +=item
+             return sum
+            },0)}
+          
+          {data.map((item,index)=>{return (
+            item.name && <p key={index}>{item.name}</p>)
+          })}
+     
+           
+          
+          <br/>
+          
+          </p>
+           
+        </div>
+      </section>   
+)
+      // получаем корневой элемент 
+      // const root = ReactDOM.createRoot(app);
+      
+       const User={
+        id : 5,
+        name:'Petr',
+        age:32
+       }
+       const styleDate={
+        color:'red'  
+       }
+      //рендерим наш элемент
+      // root.render(<h1>React1</h1>)
+      //  root.render(
+      //   <div id={User.id} className={"cont"} style={{color: 'grey',fontFamily:'Verdana'}}>
+      //     <p>Name #{2+4}</p> 
+      //     <span style={User.age===32 ? {color: 'blue'} : {color: 'red'}}> Age:{ User.age} </span>
+      //     <div style={styleDate}>{new Date().toLocaleTimeString()}</div>
+      //     {User.age>18&&(<span> Age:{ User.age} </span>)}
+      //     {User.name==='Petr' 
+      //     ? <span> Имя:{ User.name} </span>
+      //     : <span> {"не верно указаны данные"} </span>
+      //     }
+      //    </div>
+      //   )
+  
+         
+             
+        // const title = <h1>React</h1>
+
+        // ReactDOM
+        // .createRoot(app)
+        // .render(title)
+
+        
+            
+             
+      
+    
+        
+      </script>
+
+</body>
+</html>  

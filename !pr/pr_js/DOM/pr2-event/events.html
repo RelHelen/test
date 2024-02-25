@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .blue {
+            background-color: blue;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .vis {
+            visibility: hidden
+        }
+        
+        .menu ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 20px;
+            display: none;
+        }
+        
+        .menu .title {
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .menu .title::before {
+            content: '▶ ';
+            font-size: 80%;
+            color: green;
+        }
+        
+        .menu.open .title::before {
+            content: '▼ ';
+        }
+        
+        .menu.open ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect" onclick="displayMessage(this)" style="width: 150px; height: 50px" class="red">
+        поменяй меня
+    </div>
+
+
+    <div id="rect2" onclick="toggleClass1(this)" style="width: 150px; height: 50px" class="blue">
+        поменяй меня X2
+    </div>
+    <div>
+        <a href="https://metanit.com/web/javascript/9.1.php" onclick="handler(this)">Переход на страницу metanit</a
+      >
+    </div>
+    <div>
+      <a
+        href="https://metanit.com/web/javascript/9.1.php"
+        style="color: greenyellow"
+        onclick="return handler(this)"
+        >НЕТ Перехода на страницу metanit</a
+      ><br>
+        <button id="rrect3" type="submit">Нажми и будет Спасибо!</button>
+      </br>
+    </div>
+
+    <script>
+      function displayMessage(obj) {
+        alert('Изменяем стиль');
+        obj.style.color = '#f0f';
+        obj.style.backgroundColor = '#ff0';
+        obj.innerText = 'отлично!';
+      }
+      function toggleClass1(obj) {
+        obj.classList.toggle('red');
+      }
+      function handler(obj) {
+        alert(obj.href);
+        return false; //чтобы не переходить
+      }
+      function sayThanks() {
+        alert('Спасибо!');
+      }
+      rrect3.onclick = sayThanks;
+    </script>
+
+
+<!-- Объект-обработчик: handleEvent
+Мы можем назначить обработчиком не только функцию, но и объект 
+при помощи addEventListener. 
+В этом случае, когда происходит событие, вызывается метод объекта handleEvent. -->
+<button id="elem">Нажми меня</button>
+<script>
+    class Menu {
+      handleEvent(event) {
+        switch(event.type) {
+          case 'mousedown':
+            elem.innerHTML = "Нажата кнопка мыши";
+            break;
+          
+            case 'mousemove':
+            elem.innerHTML = " движется мышка";
+            break;
+            case 'mouseup':
+            elem.innerHTML = "...и отжата.";
+            break;
+        }
+      }
+    }
+  
+    let menu = new Menu();
+    elem.addEventListener('mousedown', menu);
+    elem.addEventListener('mouseup', menu);
+    elem.addEventListener('mousemove', menu);
+  </script>
+
+
+
+  <!-- Скрыть элемент по нажатию кнопки -->
+  <br><br><br><br><br><br>
+  <div class="block">
+        <div id="vis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, nesciunt ducimus natus veritatis eum quos harum quisquam a debitis sit quasi voluptas, consectetur qui cupiditate facilis eos nobis reiciendis magni!</div>
+        <button id="hid"  >Скрыть текст</button>
+    </div>
+    <br><br><br><br><br><br>
+    <script>
+          const  vis = document.getElementById('vis') ;   
+          const  hid = document.getElementById('hid') ;    
+        hid.onclick=function(){
+            //vis.style.visibility='hidden' ;
+            vis.classList.toggle('vis');
+            hid.innerText='Показать текст'
+           //vis.hidden = true;
+           if (vis.className!='vis'){hid.innerText='Скрыть текст';}
+        }
+      
+    </script>
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+    <div id="text">Текст</div>
+  
+    <script>
+      // Здесь не важно, как мы скрываем текст.
+      // Также можно использовать style.display:
+      document.getElementById('hider').onclick = function() {
+        document.getElementById('text').hidden = true;
+      }
+    </script>
+
+
+<!-- Создайте кнопку, которая будет скрывать себя по нажатию. -->
+<input type="button" id="hid2" value="Нажмите, чтобы скрыть эту  кнопку" />
+<script>
+    // Здесь не важно, как мы скрываем текст.
+    // Также можно использовать style.display:
+    hid2.onclick = function() {
+      this.hidden = true;
+    }
+  </script>
+
+
+
+
+<!-- Создать меню, которое по нажатию открывается либо закрывается: --> 
+<div id="sweeties" class="menu">
+    <span class="title">Сладости (нажми меня)!</span>
+    <ul>
+      <li>Пирожное</li>
+      <li>Пончик</li>
+      <li>Мёд</li>
+    </ul>
+
+  </div>
+    <script>
+     let menuElem = document.getElementById('sweeties');
+    let titleElem = menuElem.querySelector('.title');
+
+    titleElem.onclick = function() {
+      menuElem.classList.toggle('open');
+    };
+    </script>
+
+<!-- event -->
+<style>
+  #rect4{
+    background:#ded;
+    width: 150px;
+    line-height:40px;
+  }
+  form,form * {
+    margin: 10px;
+     border: 1px solid blue; 
+  }
+</style>
+<div id="rect4">проверь меня</div>
+<form onclick="alert('form')">FORM
+  <div onclick="handler4(event)">DIV
+    <p onclick="alert('p')">P</p>
+  </div>
+</form>
+
+<script>
+  let el_rect4=document.getElementById('rect4');
+  function handler4(event){
+    alert("тип событи"+event.type);
+    alert("применен к элементу "+  event.target+" "+ event.target.innerHTML);     
+    alert("вызван на элементе "+event.currentTarget+" "+event.currentTarget.innerHTML);
+    event.target.style.backgroundColor='yellow'; 
+    event.currentTarget.style.color='red';
+    
+  }
+   el_rect4.addEventListener('click',handler4);
+  
+   
+  el_rect4.addEventListener("click", function(evet){
+    alert("Событие на blueRect");
+     event.stopPropagation();//приостановливает распространение событий на другие элеметы
+} );
+   document.body.addEventListener("click", function(){
+     alert("Событие  вызыванное скриптом 2 на body ");
+ });
+</script>
+
+  </body>
+</html>

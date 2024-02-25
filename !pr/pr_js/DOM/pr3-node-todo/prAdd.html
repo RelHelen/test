@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <span>5</span>
+        </li>
+        <div>4</div>
+        <li>5</li>
+    </ul>
+    <button onclick="addItem()">Добавить список</button>
+    <button onclick="insertItem()">Вставить в начало список</button>
+    <button onclick="deleteItem(2)">Удалить 2 элемент</button>
+
+    <script>
+        function addItem() {
+            let newEl = document.createElement('li');
+            newEl.innerText = '2';
+            list.appendChild(newEl);
+            let leng = list.childNodes.length;
+            console.log('list.childNodes=' + leng);
+        }
+
+        function insertItem() {
+            var firstItem = list.childNodes[0];
+            var newItem = document.createElement('li');
+            newItem.innerText = 'New item';
+            list.insertBefore(newItem, firstItem);
+            let leng = list.childNodes.length;
+            console.log('list.childNodes=' + leng);
+        }
+
+        function deleteItem(n) {
+            let leng = list.childNodes.length;
+            console.log('list.childNodes=' + leng);
+            for (var element of list.childNodes) {
+                console.log(element);
+                if (list.childNodes[n] != null && element.tagName == 'LI') {
+                    list.removeChild(element);
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

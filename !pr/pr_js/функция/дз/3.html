@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function recursion(a, b) {
+            if (b === 0) {
+                return a;
+            } else {
+                return recursion(b, a % b);
+            }
+        }
+
+        let num1 = prompt("Введите первое число:");
+        let num2 = prompt("Введите второе число:");
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+
+            let result = recursion(num1, num2);
+            alert("Наибольший общий делитель: " + result);
+        } else {
+            alert("Вы ввели некорректные значения.");
+        }
+    </script>
+</body>
+
+</html>

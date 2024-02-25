@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .section{
+            background: #84ac18;
+            color: #283308;
+            padding: 10px;
+            /* margin: 10px; */
+        }
+    </style>
+</head>
+<body>
+    <div id="idDiv">
+        <p>Параграф 1</p>
+        <p><span>Параграф 2</span>далее текст параграфа 2</p>
+    </div>
+        <p id="idP">текст</p>
+        <button id="addClassElement">добавить класс</button>
+        <button id="removeClassElement">удалить класс</button>
+
+    <script>
+        const idDiv = document.querySelector('#idDiv')
+        const pAll = idDiv.querySelectorAll('p')
+        // добавили класс section
+        idDiv.classList.add('section')
+        // удалили класс section
+        idDiv.classList.remove('section')
+        // если класс есть, он удаляется, если класса нет, он добавляется
+        idDiv.classList.toggle('section')
+
+        // для какого elem добавляется класс 
+        function addClass(){
+            idDiv.classList.add('section')
+        }
+        const addClassElement = document.querySelector('#addClassElement')
+        addClassElement.addEventListener('click', addClass)
+
+        // // для какого elem удаляется класс 
+        // function removeClass(){
+        //     idDiv.classList.remove('section')
+        // }
+        // const removeClassElement = document.querySelector('#removeClassElement')
+        // removeClassElement.addEventListener('click', removeClass)
+        removeClassElement.addEventListener('click', function(){
+            idDiv.classList.remove('section')
+        })
+
+    </script>
+</body>
+</html>

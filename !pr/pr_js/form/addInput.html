@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .form_book {
+            width: 300px;
+        }
+        
+        .form_book input {
+            width: 100%;
+        }
+        
+        .block {
+            margin: 10px 0;
+            border-bottom: 1px solid grey;
+        }
+        
+        .block p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form_book" action="">
+        <input type="text" name="text" id="text" placeholder="name" /><br />
+        <textarea name="desc" id="desc" cols="30" rows="10"></textarea><br />
+        <input type="button" name="submit" id="submit" value="Добавить" />
+    </form>
+    <div class="" id="list"></div>
+    <script>
+        function addList() {
+            let list = document.getElementById('list');
+            let elBlock = document.createElement('div');
+            elBlock.classList.add('block');
+            list.appendChild(elBlock);
+
+            let elH = document.createElement('h3');
+            let hTxt = document.createTextNode(text.value);
+            elH.appendChild(hTxt);
+            //elBlock.appendChild(elH);
+            // elH.textContent = text.value;
+
+            let elT = document.createElement('p');
+            let TTxt = document.createTextNode(desc.value);
+            elT.appendChild(TTxt);
+
+            elBlock.appendChild(elH);
+            elBlock.appendChild(elT);
+
+            text.value = '';
+            desc.value = '';
+        }
+        submit.addEventListener('click', addList);
+    </script>
+</body>
+
+</html>

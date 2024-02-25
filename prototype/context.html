@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script>
-      var array = [7, 2, 3, 4, 5];
-      var newArr = [];
-      //умножим массив на число
-      function multArr(arr, n) {
-        arr.forEach((element, i, arr) => {
-          newArr[i] = element * n;
-        });
-        return newArr;
-      }
+        var array = [7, 2, 3, 4, 5];
+        var newArr = [];
+        //умножим массив на число
+        function multArr(arr, n) {
+            arr.forEach((element, i, arr) => {
+                newArr[i] = element * n;
+            });
+            return newArr;
+        }
 
-      multArr(array, 2);
-      console.log(array);
-      console.log('newArr * 2 ');
-      console.log(newArr);
-      var elementMapN;
-      //Метод .map() создает массив,
-      //вызывая определенную функцию для каждого элемента родительского массива
-      function mapArr(arr, n) {
-        elementMapN = arr.map(function (element) {
-          return element * n;
-        });
-        return elementMapN;
-      }
-      console.log('elementMapN * 3 ');
-      console.log(mapArr(array, 3));
+        multArr(array, 2);
+        console.log(array);
+        console.log('newArr * 2 ');
+        console.log(newArr);
+        var elementMapN;
+        //Метод .map() создает массив,
+        //вызывая определенную функцию для каждого элемента родительского массива
+        function mapArr(arr, n) {
+            elementMapN = arr.map(function(element) {
+                return element * n;
+            });
+            return elementMapN;
+        }
+        console.log('elementMapN * 3 ');
+        console.log(mapArr(array, 3));
 
-      //вариант 3
-      //создадим метод массива , который изменяет текущий массив
-      Array.prototype.changeArr = function (n) {
-        return this.map(function (element) {
-          return element * n;
-        });
-      };
-      console.log('array * 8 ');
-      console.log(array.changeArr(8));
+        //вариант 3
+        //создадим метод массива , который изменяет текущий массив
+        Array.prototype.changeArr = function(n) {
+            return this.map(function(element) {
+                return element * n;
+            });
+        };
+        console.log('array * 8 ');
+        console.log(array.changeArr(8));
+        const user = {
+            name: 'Vasz',
+            email: 'aaa@.www.ru'
+        }
+        Object.prototype.showObj = function() {
+            for (elem in this) {
+                console.log(elem);
+            }
+
+        }
+        user.showObj();
     </script>
 
     <button class="cll">click</button><span class="numm"></span>
     <button class="cll">click</button><span class="numm"></span>
     <button class="cll">click</button><span class="numm"></span>
     <script>
-      var cll = document.querySelectorAll('.cll');
-      var numm = document.querySelectorAll('.numm');
-      var j = 0;
-      console.log(cll);
-      cll.forEach((el, i) => {
-        el.textContent = j;
-        console.log('numm: ');
-        console.log(el);
-      });
-      /*cll[1].addEventListener('click', function () {
-        j++;
-        numm.innerHTML = j;
-      });*/
-      for (let i = 0; i < cll.length; i++) {
-        cll[i].addEventListener('click', function (event) {
-          var ss = Number(event.currentTarget.textContent);
-          ss++;
-          cll[i].textContent = ss;
+        var cll = document.querySelectorAll('.cll');
+        var numm = document.querySelectorAll('.numm');
+        var j = 0;
+        console.log(cll);
+        cll.forEach((el, i) => {
+            el.textContent = j;
+            console.log('numm: ');
+            console.log(el);
         });
-      }
+        /*cll[1].addEventListener('click', function () {
+          j++;
+          numm.innerHTML = j;
+        });*/
+        for (let i = 0; i < cll.length; i++) {
+            cll[i].addEventListener('click', function(event) {
+                var ss = Number(event.currentTarget.textContent);
+                ss++;
+                cll[i].textContent = ss;
+            });
+        }
     </script>
-  </body>
+</body>
+
 </html>

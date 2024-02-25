@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/28ced0cf82.js" crossorigin="anonymous"></script>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .item::before {
+            content: '\f004';
+            color: grey;
+            font-size: 20px;
+            font-family: "FontAwesome";
+        }
+        
+        .item.add::before {
+            content: '\f004';
+            color: red;
+            font-size: 20px;
+            font-family: "FontAwesome";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="products">
+        <div class="item" id="p1">Товар1</div>
+        <div class="item" id="p2">Товар2</div>
+        <div class="item" id="p3">Товар3</div>
+        <div class="item" id="p4">Товар4</div>
+
+    </div>
+    <h2> Товары из избранного</h2>
+    <button id="wishlistDisplay">Показать товары</button>
+    <div id="wishlistBox">
+    </div>
+    <script>
+        const prods = document.querySelectorAll('.item');
+        let str;
+
+        for (elem of prods) {
+            elem.addEventListener("click", function(e) {
+                e.target.classList.toggle('add');
+                const wishList = document.querySelectorAll('.item.add');
+                const arr = [];
+                for (elem of wishList) {
+                    arr.push({
+                        id: elem['id'],
+                        text: elem.textContent
+                    });
+                }
+                // str = JSON.stringify(arr);
+                updateLocalStorage(arr);
+            })
+        };
+
+        function updateLocalStorage(str) {
+            localStorage.setItem("wishList", JSON.stringify(str));
+        }
+
+        function getWishList() {
+            let wishList = localStorage.getItem("wishList") || '';
+            wishList = JSON.parse(wishList);
+            // console.log(wishList);
+            // console.log(localStorage.getItem("wishList"));
+
+            // for (elem of wishList) {
+            //     console.log(wishList[1]);
+            // }
+            return wishList;
+
+        }
+
+        function displayWish() {
+            wishlistBox.innerHTML = '';
+            let wishList = getWishList();
+            console.log(wishList);
+            wishList.forEach((elem) => {
+                wishlistBox.innerHTML += `
+              <li>${elem['id']} : ${elem['text']}</li>
+            `;
+            });
+        }
+
+        function showWish() {
+            let wishList = getWishList();
+
+            wishList.forEach((elem) => {
+                const pid = document.getElementById(elem['id']);
+                pid.classList.add('add');
+                console.log(pid);
+                console.log(elem);
+            })
+
+
+        }
+
+        wishlistDisplay.addEventListener('click', displayWish);
+        showWish();
+    </script>
+</body>
+
+</html>

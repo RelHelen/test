@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emico cinema</title>
+
+    <link rel="icon" href="img/logo.svg" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Lato&family=Oswald:wght@400;500&family=Roboto&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style/style.css" />   
+    <script src="./js/index.js" type="module"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <p class="header__logo">
+                <span class="header__logo-primary">Emico</span> Cinema
+            </p>
+            <form class="header__search-form" action="#">
+                <input class="header__search-input" type="search" name="search" required="" placeholder="Поиск">
+            </form>
+            <button class="header__burger-btn" aria-label="открыть меню">
+                <svg class="header__burger-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.94403 9.8959H34.6564" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M28.0537 19.8H4.94403" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.94403 29.7041H21.4509" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="navigation">
+            <ul class="navigation__list get-nav">
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link get-nav__link get-nav__link_triends">В тренде</a>
+                </li>                          
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link get-nav__link get-nav__link_top-movies">Новинки</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link get-nav__link get-nav__link_top-movies">Top Фильмов</a>
+                </li>
+
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link get-nav__link get-nav__link_top-tv">Top Сериалы</a>
+                </li>
+            </ul>
+            <button class="navigation__close">
+                <svg class="navigation__close-cross" height="30" viewBox="0 0 365.696 365.696" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0"></path>
+                </svg>
+            </button>
+        </nav>
+
+    </header>
+
+    <main>
+        <!-- search -->
+        <section class="search-films" id="searchFilms">
+            <div class="container ">                
+                <ul class="search-films__list"> 
+
+                    
+                </ul>
+            </div>
+        </section>
+        <section class="film-week" id="filmWeek">
+            <!-- начало -->
+                 
+            <!-- /конец -->
+        </section>
+        <section class="gallery-films" id="galleryFilms">
+            <div class="container">
+                <h2 class="film-header other-films__title">фильмы на
+                    <span class="other-films__title-add scroll-right">  Emico Cinema</span>
+                </h2>
+                <div class="slider" id="slider">
+                    <div class="slider__wrapper">
+                        <div class="slider__list">
+                         
+
+                        </div>
+                    </div>
+                    <!-- Кнопки-стрелочки -->
+                    <a class="prev">&#10094;</a>
+                    <a class="next ">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="top-films" id="topFilms">
+            <div class="container ">
+                <h2 class="other-films__title">top фильмы
+                    <span class="other-films__title-add scroll-right">  на Emico Cinema </span>
+                </h2>
+                <ul class="other-films__list ">
+                                 
+                    <li class="other-films__item ">
+                        <a class="other-films__link " data-rating="7.6 " href="https://youtu.be/Q50TXqNSGi8 ">
+                            <img class="other-films__img " src="https://ia.media-imdb.com/images/M/MV5BOTEzNzI3MDc0N15BMl5BanBnXkFtZTgwMzk1MzA5NzE@._V1_SX300.jpg " alt=" ">
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </section>
+
+         <!-- movie-line -->
+         <section class="movie-line" id="moviLine">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title text-uppercase">Смотреть в кинотеатре</h2>
+                    <p class="section-date"></p>
+                </div>
+                <div class="movie-line__list">
+                    <!-- <article class="movie-line-entity">
+                        <div class="entity-poster" data-role="hover-wrap">
+                            <div class="embed-responsive embed-responsive-poster">
+                                <img class="embed-responsive-item" src="http://via.placeholder.com/340x510" alt="" />
+                            </div>
+                            <div class="d-over bg-theme-lighted collapse animated faster" data-show-class="fadeIn show" data-hide-class="fadeOut show">
+                                <div class="entity-play">
+                                    <a class="action-icon-theme action-icon-bordered rounded-circle" href="https://www.youtube.com/watch?v=d96cjJhvlMA" data-magnific-popup="iframe">
+                                        <span class="icon-content"><i class="fas fa-play"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="entity-content">
+                            <h4 class="entity-title">
+                                <a class="content-link" href="movie-info-sidebar-right.html">Outsider</a>
+                            </h4>
+                            <div class="entity-category">
+                                <a class="content-link" href="movies-blocks.html">crime</a>,
+                                <a class="content-link" href="movies-blocks.html">comedy</a>
+                            </div>
+                            <div class="entity-info">
+                                <div class="info-lines">
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-star"></i></span>
+                                        <span class="info-text">8,1</span>
+                                        <span class="info-rest">/10</span>
+                                    </div>
+                                    <div class="info info-short">
+                                        <span class="text-theme info-icon"><i class="fas fa-clock"></i></span>
+                                        <span class="info-text">125</span>
+                                        <span class="info-rest">&nbsp;min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-short entity-text">Aenean molestie turpis eu aliquam bibendum. Nulla facilisi. Vestibulum quis risus in lorem suscipit tempor. Morbi consectetur enim vitae justo finibus consectetur. Mauris volutpat nunc dui, quis condimentum dolor efficitur
+                                et. Phasellus rhoncus porta nunc eu fermentum. Nullam vitae erat hendrerit, tempor arcu eget, eleifend tortor.
+                            </p>
+                        </div>
+                        <div class="entity-extra">
+                            <div class="text-uppercase entity-extra-title">Showtime</div>
+                            <div class="entity-showtime">
+                                <div class="showtime-wrap">
+                                    <div class="showtime-item">
+                                        <span class="disabled btn-time btn" aria-disabled="true">11 : 30</span>
+                                    </div>
+                                    <div class="showtime-item">
+                                        <a class="btn-time btn" aria-disabled="false" href="#">13 : 25</a>
+                                    </div>
+                                    <div class="showtime-item">
+                                        <a class="btn-time btn" aria-disabled="false" href="#">16 : 07</a>
+                                    </div>
+                                    <div class="showtime-item">
+                                        <a class="btn-time btn" aria-disabled="false" href="#">19 : 45</a>
+                                    </div>
+                                    <div class="showtime-item">
+                                        <a class="btn-time btn" aria-disabled="false" href="#">21 : 30</a>
+                                    </div>
+                                    <div class="showtime-item">
+                                        <a class="btn-time btn" aria-disabled="false" href="#">23 : 10</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article> -->
+                </div>
+
+            </div>
+        </section>
+        <!-- /movie-line -->
+    </main>
+    <footer class="footer ">
+        <div class="container footer__container ">
+            <div class="footer__column contacts ">
+                <p class="contacts__logo ">
+                    <span class="contacts__logo-primary ">Emico</span> Cinema
+                </p>
+
+                <p class="contacts__description ">онлайн-кинотеатр</p>
+
+                <a href="tel:8800123456 " class="contacts__phone ">8-800-123-45-56</a>
+
+                <a href="mailto:help@emico.ru" class="contacts__mail ">help@emico.ru</a>
+
+                
+            </div>
+
+            <div class="footer__column subnav get-nav ">
+                <ul class="subnav__list ">
+                    <li class="subnav__item ">
+                        <a href="# " class="subnav__link get-nav__link get-nav__link_triends ">Новинки</a>
+                    </li>                   
+
+                    <li class="subnav__item ">
+                        <a href="# " class="subnav__link get-nav__link get-nav__link_top-movies ">Top Фильмов</a>
+                    </li>
+
+                    <li class="subnav__item ">
+                        <a href="# " class="subnav__link get-nav__link get-nav__link_top-tv ">Top Сериалы</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__column regulation ">
+                <img class="regulation__age " src="img/18+.svg " alt="Только для совершеннолетних ">
+                <p class="regulation__offer ">Просматривая материалы, находящиеся на настоящем сайте, вы&nbsp;обязуетесь выполнять условия Публичной оферты</p>
+            </div>
+
+            <div class="footer__column partners ">
+                <img class="partners__me " src="img/logo.svg " alt="Логотип Emico ">
+                
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js " integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js " integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ " crossorigin="anonymous "></script>
+   <script src="./js/slider.js"></script>
+</body>
+
+</html>

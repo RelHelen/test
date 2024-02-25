@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h3>необходимо все три блока перекрасить в розовый цвет.</h3>
+    <div class="box">Элемент 1</div>
+    <div class="box">Элемент 2</div>
+    <div class="box">Элемент 3</div>
+    <button id="btnColor">красить</button>
+    <!-- Получим все элементы по селектору и 
+        присвоим этот массив переменной box. 
+        Пройдемся по всем элементам в цикле forEach.
+         В аргументах цикла передадим анонимную callback
+          функцию с тремя аргументами (элемент, счетчик, массив). 
+          Наша функция перекрасит цвет 
+        фона у элементов, только после того, как отработает цикл. -->
+    <script>
+        let box = document.querySelectorAll('.box');
+        btnColor.addEventListener('click', function() {
+            box.forEach(function(item, i, box) {
+                //box[i].style.backgroundColor = 'pink';
+                item.style.backgroundColor = 'pink';
+                console.log(box[i]);
+            });
+        });
+    </script>
+</body>
+
+</html>

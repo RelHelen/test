@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Примечание: при деплое на продакшен замените «development.js» на «production.min.js». -->
+   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+   <!-- компилятор, с помощью которого идет преобразованиереакт кода в js скрипт-->
+
+   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+          * {
+            box-sizing: border-box;
+            transition: all 500ms;
+        }
+        
+        body,
+        main {
+            min-height: 100vh;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 80px;
+            background-color: rgb(33, 31, 47);
+            padding: 0 40px;
+        }
+        
+        main {
+            background-color: rgb(194, 193, 201);
+            padding-top: 50px;
+        }
+        
+        .logo {
+            color: rgb(6, 248, 248);;
+            font-size: 26px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .buttons-container,
+        .feedback {
+            display: flex;
+            align-items: center;
+        }
+        
+        .buttons-container>span {
+            display: block;
+            padding: 8px 15px;
+            margin-right: 16px;
+            border-radius: 6px;
+            /* background-color: rgb(6, 248, 248); */
+            color: rgb(6, 248, 248);
+        }
+
+        .buttons-container>span:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .feedback>span {
+            display: block;
+            padding: 8px 15px;
+            margin-right: 16px;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .feedback span:after {
+            content: '';
+            display: block;
+            background-color: rgb(6, 248, 248);
+            height: 2px;
+            margin-top: 5px;
+            width: 0;
+        }
+        
+        .feedback span:hover:after {
+            width: calc(100% + 2px);
+            transition: 1s;
+            
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 500px;
+            margin: 0px auto;
+            padding: 50px;           
+            border-radius: 6px;
+        }
+        
+        .form input {
+            display: block;
+            outline: none;
+            border: none;
+            height: 40px;
+            padding: 5px 16px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        .form button {
+            display: block;
+            border: none;
+            height: 40px;
+            padding: 5px 16px;             
+            margin-bottom: 12px;
+            background-color: rgb(6, 248, 248);
+        }
+    </style>   
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+      const app= document.getElementById('app')
+       
+ 
+
+      const Logo=()=>{return(
+        <div className={"logo"}>Logo</div>
+        )
+      }
+    //         <span>{menu[0]}</span>
+    //         <span>{menu[1]}</span>
+    //         <span>{menu[2]}</span>
+      const data=['Главная','Компоненты','Контакты']
+      const NavMenu=()=>{return(
+        <nav className={"buttons-container"}>            
+           {data.map((item,index)=>{return <span key={index}>{item}</span>})
+          }
+        </nav>
+      )}
+
+      const Feedback=()=>{return(
+        <div className={"feedback"}>
+         <span>+7-900-000-00</span>
+        </div>
+      )}
+    const Header=()=>{ return(
+        <header>
+            <Logo/>
+            <NavMenu/>
+            <Feedback/>
+         </header>
+    )
+    }
+    // const Form=()=>{
+    //     return(
+    //         <div className={"form"}>
+    //             <input type={ "text"} placeholder={ "Введите ваше имя"} />
+    //             <input type={ "mail"} placeholder={ "Введите вашу почту"} />
+    //             <input type={ "mail"} placeholder={ "Введите ваш логин"} />
+    //             <input type={ "password"} placeholder={ "Введите ваш пароль"} />
+    //             <button>Регистрация</button>
+    //         </div>
+    //     )
+    // }
+
+    const Button=(props)=>{
+        const {valType}=props         
+        return(<button type={valType}>Регистрация</button>)
+    }
+
+    const Input =(props)=>{
+        const {valType,valPlaceholder} = props
+        return(         
+        <input 
+            type={valType} 
+            placeholder={valPlaceholder}             
+            />
+        )}
+
+
+        //При рендеринге React передает значения атрибутов в виде единого объекта "props".
+        //То есть значение из атрибута valType={ "text"}  перейдет в свойство props.valType
+
+    const FormInput=()=>{
+        return(
+            <div className={"form"}>
+            <Input valType={ "text"} valPlaceholder={ "Введите ваше  имя"}/>
+            <Input valType={ "mail"} valPlaceholder={ "Введите вашу почту"} />
+            <Input valType={ "text"} valPlaceholder={ "Введите ваш логин"} />
+            <Input valType={ "password" } valPlaceholder={ "Введите ваш пароль"} />
+            <Button valType="submit"> </Button>
+            </div>
+        )
+    } 
+
+//рендер страницы
+      const RegApp=()=>{return(       
+            <React.Fragment>
+               <Header/>
+                <main>
+                    <FormInput/>
+                </main>
+            </React.Fragment>)
+      }
+      const root = ReactDOM.createRoot(app);
+      //ReactDom.createRoot(app).render(<regApp/>)
+      root.render(<RegApp/>)
+
+    </script>
+</body>
+</html>

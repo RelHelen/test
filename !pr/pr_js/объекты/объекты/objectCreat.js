@@ -1,0 +1,58 @@
+ const user = { name: 'Pet', age: 22, };
+ //  console.log('user: ', user);
+
+ //  for (let key in user) {
+ //      console.log('key: ',
+ //          key);
+ //  }
+
+ const person = Object.create({
+     //можно прописать методы прототипа 
+     calck() {
+         return console.log('Привет,', this.name);
+         //вызывается  person.calck()
+     },
+ }, {
+     name: {
+         value: 'Max',
+         enumerable: true,
+         //видимость ключа в цикле 
+         writable: true,
+         //возможность менять значения 
+         configurable: false,
+         //нельзя удалить ключ 
+     },
+     birthday: {
+         value: 1990,
+         //enumerable: false, 
+         //по умолчанию 
+         writable: false,
+         //по умолчанию
+         enumerable: true,
+     },
+     age: {get() {
+             console.log(this);
+             return new Date().getFullYear() - this.birthday;
+             //вызывается     person.age
+         },
+         set(val) {
+             console.log('Ваше сообщение: ', val);
+             //вызывается       person.age = 'kjkjkjkj'
+         },
+     },
+ });
+ console.log(person);
+ person.name = 'Vlad';
+ //поменяет  значение 
+ person.birthday = 2004;
+ //не поменяет, т.к не прописан writable: false 
+
+ person.age = 'ghbdtb';
+ console.log(person.age);
+ for (let key in person) {
+     if (person.hasOwnProperty(key)) {
+         //показывает свойства объекта, а не его прототипа
+         console.log(key, person[key]);
+     }
+
+ }

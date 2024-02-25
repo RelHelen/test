@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Примечание: при деплое на продакшен замените «development.js» на «production.min.js». -->
+   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+   <!-- компилятор, с помощью которого идет преобразованиереакт кода в js скрипт-->
+
+   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+       const rootNode = document.getElementById("app"); 
+    //  class HelloWorld extends React.Component{
+    //         render(){
+    //             return <p>Привет, мир</p>
+    //         }
+    //     }
+        
+    //     ReactDOM
+    //     .createRoot(app)
+    //     .render(<HelloWorld/>)
+            // function App() { 
+            // return  <h1> React </h1>        
+            // }; 
+
+             /* элемент для рендеринга приложения React 
+            // получаем корневой элемент */ 
+            /* рендеринг в корневой элемент*/
+
+            const Title=()=>{
+                return  <h1> React </h1>            
+            }
+            ReactDOM
+            .createRoot(rootNode)  
+            .render(<Title/>); 
+            
+        
+           
+    
+           
+            </script>
+</body>
+</html>

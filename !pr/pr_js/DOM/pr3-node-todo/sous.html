@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block, .block2, .block3{
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 20px 50px;
+        }
+        .block{
+            background: rgb(247, 228, 122);
+        }
+        .block2{
+            background: rgb(233, 195, 72);
+        }
+        .block3{
+            background: rgb(233, 83, 72);
+        }
+        .select{
+            border: 2px solid black;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <p id="content"></p>
+        <div class="block">сырный соус</div>
+        <div class="block2"> кисло-сладкий соус</div>
+        <div class="block3"> соус ткемали</span></div>
+    </section>
+        <button id="addContent">добавить</button>
+        <button id="removeContent">удалить</button>
+    <script>
+        const addContent = document.querySelector('#addContent')
+        const content = document.querySelector('#content')
+        const divAll = document.querySelectorAll('section div')
+        // 2 взять содержимое у div
+        
+        const getContent = function(elem){
+            return div.textContent;
+        }
+        // 3 установить содержимое div в content
+        const setContent = function(txt){
+            content.textContent = content.textContent + txt;
+        }
+        const display = function(){
+            clearContent();
+            for(div of divAll){
+            let text = getContent(divAll); //получаем содержимое div
+            setContent(text);
+        }}
+        const clearContent = function(){
+            content.textContent = '';
+        }
+        // 1 нажать на кнопку
+        addContent.addEventListener('click', display)
+        // кнопка, которая ощищает контент в первом блоке
+        removeContent.addEventListener('click', clearContent)
+        
+        // внутри elem лежит div
+        for ( elem of divAll){
+            elem.addEventListener('click', function(event){
+                // currentTarget по которому щелкнули
+                event.currentTarget.classList.toggle('select');
+            }) 
+            
+        }
+        
+    </script>
+</body>
+</html>

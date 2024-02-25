@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //рекурсия
+        //Написать функцию, которая вычисляет факториал заданного числа
+        /*function FindFactorial(n) {
+          if (n ===0 ) return 1
+          else{
+          return n * FindFactorial(n - 1);}
+        }
+        let x = prompt('Введите число', '');
+        alert('факториал = ' + FindFactorial(x));*/
+
+        //Написать функцию, которая выводит все числа из заданного
+        //пользователем диапазона в прямом порядке. И еще одну
+        //функцию – для вывода в обратном порядке
+        /**/
+        // function ShowNumber(n) {
+        //     if (n == 2) return 2;
+        //     return n + ' ' + ShowNumber(n - 2);
+        // }
+
+        // let x = +prompt('Введите число', '');
+        // alert('числа = ' + ShowNumber(x));
+
+        //Написать функцию, которая выводит переданное ей число задом наперед.
+
+
+        // function revers(n) {
+        //     if (n <= 1) return n
+        //     else {
+        //         console.log(n);
+        //         return n % 10 + "" + revers(Math.floor(n / 10))
+        //     };
+        // }
+
+        // function kolCifra(n, i = 0) {
+
+        //     if (n <= 0) return i
+        //     else {
+        //         ++i;
+        //         // console.log(`i = ${i}`);
+        //         // console.log(`n = ${n}`);
+        //         return kolCifra(Math.floor(n / 10), i)
+        //     };
+        // }
+
+        // let x = +prompt('Введите число', '');
+        // //  alert('числа = ' + kolCifra(x));
+        // //сдвиг
+
+        // function sdvig(n, s) {
+        //     let num = kolCifra(n);
+
+        //     if (s <= 0) return n
+        //     else {
+
+        //         return sdvig(((n % (10 ** (num - 1)) * 10) + Math.floor(n / (10 ** (num - 1)))), s - 1)
+        //             //(n % 10000 * 10 + Math.floor(n / 10000))
+        //     }
+        // }
+        // console.log(`x = ${x}`);
+        // // let x = +prompt('Введите число', '');
+        // alert('числа = ' + sdvig(x, 2));
+
+
+
+
+
+        // let x = +prompt('Введите число', '');
+        // alert('числа = ' + revers(x));
+        // Написать функцию, которая считает сумму цифр числа.
+        // Например: число 1357, сумма 1 + 3 + 5 + 7 = 16.
+
+        // Написать функцию, которая принимает число и выводит
+        // соответствующее количество вложенных пар круглых скобок.
+        // Например: число 4 – (((()))).
+        function symbol(n, s1 = '(', s2 = ')') {
+
+            let s11 = s1;
+            let s21 = s2;
+            let s = '';
+            console.log(`s0 = ${s}`);
+            if (n < 0) return s;
+            else {
+
+                s11 += s1;
+                s21 += s2;
+                s = s11 + s21;
+                console.log(`s = ${s}`);
+                console.log(`n = ${n}`);
+                console.log(` s11 = ${s11}`);
+                console.log(` s21 = ${s21}`);
+                return symbol(n - 1, s11, s21)
+            };
+
+        }
+
+
+        alert('числа = ' + symbol(3));
+    </script>
+</body>
+
+</html>

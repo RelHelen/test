@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=gjbcr, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .article {
+            color: red;
+        }
+        
+        .head {
+            color: blue;
+        }
+        
+        .visible {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS </h1>
+    <p> CSS используется для определения стилей (правил) оформления документов — включая дизайн, вёрстку и вариации макета для различных устройств и размеров экрана. У такого способа форматирования несколько достоинств:</p>
+    <ul>
+        <li>теги не дублируются;</li>
+        <li>документ проще обслуживать;</li>
+        <li>внешний вид всего сайта можно изменить централизованно, а не корректировать форматирование каждой странички.</li>
+    </ul>
+    <p>Стили можно разметить внутри тега HEAD или использовать отдельный CSS-файл.</p>
+    <!-- поиск -->
+    <!-- <div> </div> -->
+
+    <!-- <h3 id="header"> </h3>
+        <p> </p> -->
+
+
+    <!-- <h3 id="header">Block Header</h3>
+        <p><span>Text1</span></p>
+        <p>Text2</p>
+        <p>Text3</p> -->
+
+    <h3 id="head" class="head">Block Header</h3>
+
+    <div>
+        <h1 id="header">WWW</h1>
+        <p>WWW-это аббревиатура, которая означает world wide web</p>
+    </div>
+    <section>
+        <p>Text1</p>
+        <p>Text2</p>
+        <p>Text3</p>
+    </section>
+    <ul>
+        <li><a href="https://ya.ru/">YA.RU</a></li>
+        <li><a href="https://vk.ru/">VK.RU</a></li>
+    </ul>
+
+
+    <script>
+        // const elHead = document.getElementById('header');
+        // const elP = document.querySelector('p');
+
+        // elP.textContent = document.location;
+        //elP.textContent = 'ffff';
+        // document.write(elHead.tagName);
+        // document.write(elHead.innerText);
+
+        // document.write('<div><h1 id="header">WWW</h1><p>WWW-это аббревиатура, которая означает world wide web</p></div>');
+
+        // document.write('<a href="https://ya.ru/">YA.RU</a>');
+        // document.write('<a href="https://vk.ru/">VK.RU</a>');
+
+        // for (element of document.links) {
+        //     document.write('<li>' + element + '</li>');
+        //     console.log(element);
+        // }
+        const elHead = document.getElementById('header');
+        const elP = document.querySelector('p');
+
+
+        elHead.textContent = `HTML`;
+        elP.innerHTML = `<dfn> HTML(Hypertext Markup Language) </dfn>- это код, который используется для структурирования и отображения веб - страницы и её контента.`
+            //  document.location = elA.href;
+        const elA = document.querySelector('a'); // document.write(elHead.outerHTML);
+
+        //elHead.innerHTML = `<span>HTML</span>`;  //   elP.innerHTML = '<li>' + 'привет' + elA.href + '</li>';
+
+        const elPAll = document.querySelectorAll('section p');
+        let el = [];
+        [...elPAll].forEach(elem => {
+            el.push(elem.textContent);
+        })
+
+        //el = [...elPAll];
+        for (elem of elPAll) {
+            document.write('<li>' +
+                elem.textContent + '</li> ');
+
+
+        }
+
+
+        let ppp = document.createElement('p');
+        elHead.append(ppp);
+        ppp.textContent = "ghbdtn pppp";
+
+        elPAll[0].innerText = "Это был первый параграф"
+            // const pElement = document.getElementsByTagName("p")[0];
+        const pElement = document.querySelectorAll("p")[0];
+        // console.log(el);
+        document.write("Текст параграфа: " + pElement.innerText);
+        // elHead.innerText = elP.innerText;
+
+        el = [];
+        obj = [];
+
+        const elLinks = document.querySelectorAll('a');
+        [...elLinks].forEach(elem => {
+            obj = {
+                text: elem.textContent,
+                link: elem.href
+            }
+            el.push(obj);
+        });
+        // obj = Object.assign(el);
+        console.log(el);
+        console.log(obj);
+
+        const elHeadd = document.getElementById('head');
+
+        elHeadd.classList.remove("head"); // удаляем класс
+        elHeadd.classList.add("article"); // добавляем класс
+        elHeadd.classList.add("alert"); // добавляем класс
+        //elHeadd.classList.toggle("visible"); // переключаем класс
+    </script>
+</body>
+
+</html>

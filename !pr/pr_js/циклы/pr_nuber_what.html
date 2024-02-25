@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- угадай число от 0 до 100 -->
+    <script>
+        let num, number, otvet = true,
+            min = 1,
+            max = 100;
+        alert("Загадайте число от 1 до 100");
+        do {
+            number = Math.floor((min + max) / 2); //50
+            num = parseInt(prompt("Если ваше число > " + number + " введите 1" + "\n" +
+                "Если ваше число < " + number + " введите 2" + "\n" +
+                "Если ваше число == " + number + " введите 3", ""));
+            switch (num) {
+                case 1:
+                    min = number;
+                    break;
+                case 2:
+                    max = number;
+                    break;
+                case 3:
+                    number = number;
+                    otvet = false;
+                    break;
+                default:
+                    alert("Ввод не корректных данных");
+                    otvet = false;
+                    break;
+            }
+        }
+        while (otvet);
+        alert(`Ваше число ${number}`);
+    </script>
+</body>
+
+</html>

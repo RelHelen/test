@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add React in One Minute</title>
+    <!-- Примечание: при деплое на продакшен замените «development.js» на «production.min.js». -->
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- компилятор, с помощью которого идет преобразованиереакт кода в js скрипт-->
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: all 500ms;
+        }
+        
+        body,
+        main {
+            min-height: 100vh;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 80px;
+            background-color: rgb(21, 20, 28);
+            padding: 0 40px;
+        }
+        
+        main {
+            background-color: rgb(194, 193, 201);
+            padding-top: 50px;
+        }
+        
+        .logo {
+            color: rgb(9, 255, 153);
+            font-size: 26px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .buttons-container,
+        .feedback {
+            display: flex;
+            align-items: center;
+        }
+        
+        .buttons-container>span {
+            display: block;
+            padding: 8px 15px;
+            margin-right: 16px;
+            border-radius: 6px;
+            background-color: rgb(74, 123, 117);
+            color: white;
+        }
+        
+        .feedback>span {
+            display: block;
+            padding: 8px 15px;
+            margin-right: 16px;
+            border-radius: 6px;
+            color: white;
+        }
+        
+        .feedback span:after {
+            content: '';
+            display: block;
+            background-color: rgb(9, 255, 153);
+            height: 2px;
+            margin-top: 5px;
+            width: 0;
+        }
+        
+        .feedback span:hover:after {
+            width: calc(100% + 2px);
+            transition: 1s;
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 500px;
+            margin: 0px auto;
+            padding: 50px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+            border-radius: 6px;
+        }
+        
+        .form input,
+        .form button {
+            display: block;
+            outline: none;
+            border: none;
+            height: 40px;
+            padding: 5px 16px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+        
+        button {
+            border-radius: 6px;
+            background-color: rgb(74, 123, 117);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"> </div>
+    <!-- JSX-->
+ 
+
+    <script type="text/babel">
+        const logo = "LOGO текст";
+        const menu=["О компании","Контакты","Время работы"];
+
+        const active=false;
+
+       /* function Logo(){ return (
+        <div className={"logo"}>{logo}</div>
+        ); } 
+эта на самом деле краткая запись след  функции React.createElement
+React.createElement(type,{props},children);
+
+то есть это валидный js код как исходник записи <div className={"logo"}>{logo}</div>
+*/
+        
+        function LogoNew(){ 
+            return React.createElement(
+            'div',
+            {className: 'logo'},
+            "Logo new"
+            ); 
+        }
+
+         function LogoSpan(){ 
+            return React.createElement(
+            'div',
+            {   className: 'logo', 
+                name: 'logo',
+                id: 'logo'
+            },
+                React.createElement(
+                'span',
+                {},
+                "Logo span"
+            )); 
+        }
+
+        function Menu(){ return (
+        <div className={ "buttons-container"}>      
+              
+            <span>{menu[0]}</span>
+            <span>{menu[1]}</span>
+            <span>{menu[2]}</span>      
+             
+        </div>
+        ); } 
+
+        function Feedback(){ return (
+        <div className={ "feedback"}>
+            <span style={active===false ? {color: 'red'} : {color: 'green'}}>  Позвонить </span>
+        </div>
+        ); } 
+
+        function Form(){ return(
+        <div className={ "form"}>
+            <input type={ "text"} placeholder={ "Введите ваш номер"} />
+            <input type={ "text"} placeholder={ "Введите ваше имя"} />
+            <button>Напиши мне</button>
+        </div>
+        ) } 
+
+        function Header(){ return(
+        <header>            
+            <LogoSpan/>
+            <Menu/>
+            <Feedback/>
+        </header>
+        )} 
+
+
+        function MyApp(){ return(
+        <React.Fragment>
+            <Header/>
+            <main>
+                <Form/>
+            </main>
+        </React.Fragment>
+        ); }; 
+
+        const rootNode = document.getElementById("app"); /* элемент для рендеринга приложения React // получаем корневой элемент */ /* рендеринг в корневой элемент*/ 
+
+        ReactDOM 
+        .createRoot(rootNode) 
+        .render(<MyApp/>);
+
+
+    </script>
+</body>
+
+</html>

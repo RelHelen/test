@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let player_score = 0,
+            player_select = 0,
+            comp_score = 0,
+            comp_select = 0;
+        for (let i = 1; i <= 3; i++) {
+            alert("Раунд №" + i)
+            while (true) {
+                player_select = prompt("\t Ваш выбор: К,Н,Б")
+                if (player_select == "к" || player_select == "н" || player_select == "б") {
+                    alert("Выбор игрока:" + player_select);
+                    break;
+                } else
+                    alert("\tНекорректный ввод данных!")
+            }
+            comp_select = Math.floor(Math.random() * (3)) + 1;
+            //Максимум не включается, минимум включается
+            switch (comp_select) {
+                case 1:
+                    comp_select = 'к';
+                    break;
+                case 2:
+                    comp_select = 'н';
+                    break;
+                case 3:
+                    comp_select = 'б';
+                    break;
+            }
+            alert("\t Выбор компьютера: " + comp_select)
+
+            if (player_select == comp_select) alert("\t Ничья!");
+
+            if (player_select == "к" && comp_select == "н") {
+                player_score = player_score + 1
+                alert("\t Вы победили!")
+            }
+            if (player_select == "н" && comp_select == "к") {
+                comp_score = comp_score + 1
+                alert("\t Победил компьютер!")
+            }
+            if (player_select == "к" && comp_select == "б") {
+                player_score = player_score + 1
+                alert("\t Вы победили!")
+            }
+
+            if (player_select == "б" && comp_select == "к") {
+                comp_score = comp_score + 1
+                alert("\t Победил компьютер!")
+            }
+
+            if (player_select == "н" && comp_select == "б") {
+                player_score = player_score + 1
+                alert("\t Вы победили!")
+            }
+            if (player_select == "б" && comp_select == "н") {
+                comp_score = comp_score + 1
+                alert("\t Победил компьютер!")
+            }
+        }
+    </script>
+</body>
+
+</html>

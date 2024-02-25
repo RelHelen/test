@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS final</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        
+        h2 {
+            font-size: 20px;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .content {
+            text-align: center;
+        }
+        
+        #category {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            width: 24%;
+            text-align: center;
+            padding: 1em;
+            box-shadow: 0px 0px 1px rgba(100, 100, 100, .2);
+            border: 1px solid #ECEAEA;
+        }
+        
+        .card img {
+            width: 125px;
+            height: 200px;
+            object-fit: cover;
+            object-position: 0px 0px;
+        }
+        
+        .card h2 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #000;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: 'BreeSerif-Regular';
+        }
+        
+        .card .price {
+            font-size: 17px;
+            color: #000;
+            margin: 5px 0 0 0;
+            font-family: 'BreeSerif-Regular';
+        }
+        
+        .card .cart {
+            width: 32px;
+            height: 30px;
+            background: url(img/cart.png) no-repeat;
+            border: none;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        
+        .card .block-ec {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .order {
+            clear: both;
+            text-align: center;
+            box-shadow: 0px 0px 1px rgba(100, 100, 100, .2);
+            border: 1px solid #ECEAEA;
+            width: 97%;
+            margin: 0 auto;
+        }
+        
+        .order button {
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(100, 100, 100, .8);
+            margin: 5px;
+            border-radius: 5px;
+        }
+        
+        .order input {
+            width: 250px;
+            height: 25px;
+            border: 1px solid #777;
+            border-radius: 5px;
+        }
+        
+        .time {
+            text-align: right;
+        }
+        
+        #selectProduct {
+            width: 30%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        #selectProduct li {
+            padding: 2px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="time" id="tt"></div>
+            <h1>Продукция</h1>
+            <section id="category"></section>
+
+            <div class="order ">
+                <form action=" " class="forms">
+                    <h2>Ваш заказ</h2>
+                    <ul id="selectProduct"></ul>
+
+                    <h3>Сформировать заказ</h3>
+                    <button id="subm">Заказ</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

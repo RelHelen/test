@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function validatePhone(phone) {
+            // Паттерн для проверки соответствия шаблону
+            let pattern = /^\d{3}-\d{2}-\d{2}$/;
+            return pattern.test(phone);
+        }
+        let phoneNumber = prompt("Введите номер телефона в формате 555-55-55:");
+        if (phoneNumber !== null && phoneNumber !== "") {
+            let isValid = validatePhone(phoneNumber);
+            if (isValid) {
+                alert("Номер телефона введен в верном формате.");
+            } else {
+                alert("Номер телефона введен неверно.");
+            }
+        } else {
+            alert("Вы не ввели номер телефона.");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ["интуитивный уровень", "поведенческий уровень", "рефлекторный уровень"]
+        const elDiv = document.createElement('div');
+        elDiv.className = 'title';
+        document.body.appendChild(elDiv);
+        const elP = document.createElement('p');
+        const txP = document.createTextNode("3 уровня визуального дизайна по Норману");
+        elP.appendChild(txP);
+        elDiv.appendChild(elP);
+        var elH3 = document.createElement('h3');
+        const txH3 = document.createTextNode("Привлекательный дизайн");
+        elH3.appendChild(txH3);
+        elDiv.insertBefore(elH3, elP);
+
+        const elUl = document.createElement('ul');
+        for (let i = 0; i < arr.length; i++) {
+            const elLi = document.createElement('li');
+            elLi.textContent = arr[i];
+            console.log(elLi);
+            elUl.appendChild(elLi);
+        }
+        elDiv.after(elUl);
+    </script>
+</body>
+
+</html>

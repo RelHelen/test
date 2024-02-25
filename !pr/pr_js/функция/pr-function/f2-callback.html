@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Колбэк функция(от английского callback
+        //         function -функция обратного вызова)–— 
+        //это функция, которая должна быть выполнена после того, как другая функция завершила выполнение
+        //  Рбота автоответчика  сообщение после звонка 
+
+        // function sayName(name, callback, ) {
+        //     alert(`Привет ${name} `);
+
+        //     setTimeout(callback, 1100);
+
+
+        // }
+
+        // function sayText() {
+        //     alert('Вам пришла посылка'); //2
+        // }
+
+        // sayName('Вася', function() {
+        //     alert('Не удалось дозвониться, прослушай сообщение…..')
+        //     sayText();
+        // });
+
+        // alert('Вы еще не получили сообщение?'); //2
+
+
+        // const first = (callback) => {
+        //     // Как будто бы запрос к API
+        //     setTimeout(() => {
+        //         console.log(1);
+        //         callback();
+        //     }, 500);
+
+        // };
+
+        // const second = () => {
+        //     console.log(2);
+        // };
+
+        // first(second);
+
+
+
+        // let checkPrime = function(n) {
+        //     for (let i = 2; i < n; i++) {
+        //         if (n % i == 0) return false;
+        //     }
+        //     return true;
+        // }
+        // let checkChet = function(n) {
+        //     if (n % 2 == 0) return false;
+        //     return true;
+        // }
+
+
+        // let sum = function(x, y) {
+        //     return x + y;
+        // }
+
+        // function subtract(x, y) {
+        //     return x - y;
+        // }
+
+        // function operation(x, y, nameoperation) {
+
+        //     const result = nameoperation(x, y);
+        //     console.log(result);
+        // }
+
+
+        // sayHi("Вася"); // ошибка!
+        //         let sayHi = function(name) { // (*) магии больше нет
+        //             alert(`Привет, ${name}`);
+        //         };
+        //         // sayHi("Вася"); // ошибка!
+        // 
+        //         u = 8;
+        //         let a = u + 2;
+        //         console.log(a);
+        //         var u;
+
+
+        //alert(sum(2, 3));
+        //alert(subtract(2, 3));
+
+        //operation(5, 3, sum);
+
+
+        // Если число четное и простое, необходимо его увелить до нечетного
+        // let num = +prompt('num>', '');
+        // if (checkPrime(num)) alert("простое")
+        // else alert("составное");
+
+        // function showNumber(n) {
+        //     for (let i = 1; i < n; i++) {
+        //         if (!checkPrime(i)) continue;
+        //         alert(i); // простое
+        //     }
+        // }
+        // showNumber(10);
+
+
+        //         function sayName(name, callback) {
+        //             setTimeout(function() {
+        //                 alert(`Привет ${name} `);
+        //             }, 500);
+        // 
+        //             callback(name);
+        //         }
+        // 
+        //         function alertBy(name) {
+        //             alert(`Пока ${name} `);
+        //         }
+        //         //sayName('Вася', alertBy);
+        // 
+        //         sayName('Вася', function(name) {
+        //             alert(`Пока ${name} `);
+        //         })
+
+        //         function doHomework(subject, callback) {
+        //             alert(`Starting my ${subject} homework.`);
+        //             callback();
+        //         }
+        // 
+        //         doHomework('math', function() {
+        //             alert('Finished my homework');
+        //         });
+        //         function hello() {
+        //             return 'Hello, world!';
+        //         }
+        //         alert(hello)
+        // 
+
+
+
+        //         function display(callback) {
+        //             return callback(); // Вызываем функцию, переданную в качестве параметра
+        //         }
+        //         alert(display(hello))
+        //         const makePizza = function(title, cb) {
+        //             console.log(`Заказ на приготовление пиццы «${title}» получен. Начинаем готовить…`);
+        //             //  setTimeout(cb, 3000);
+        //             cb();
+        //         }
+        // 
+        //         const readBook = function() {
+        //             console.log('Читаю книгу «Колдун и кристалл»…');
+        //         }
+        // 
+        //         const eatPizza = function() {
+        //             console.log('Ура! Пицца готова, пора подкрепиться.');
+        //         }
+        // 
+        //         makePizza('Пеперонни', eatPizza);
+        //         //         readBook();
+        //         function readBook() {
+        //             alert('Читай книгу  JS');
+        //         }
+        // 
+        //         function sayName(name, callback) {
+        //             alert(`Привет ${name} `);
+        //             setTimeout(callback, 3000);
+        //         }
+        // 
+        //         function alertBy() {
+        //             alert(`Пока  `);
+        //         }
+        //         sayName('Вася', alertBy);
+        //         readBook();
+        //         let age = prompt("Сколько Вам лет?", '');
+        // 
+        //         let welcome = (age < 18) ? () => alert('Ты еще мал') : () => alert("Добро пожаловать");
+        // 
+        //         welcome();
+
+        // const min = (num1, num2, num3) => {
+        //     let c = num1;
+        //     if (c > num2) {
+
+        //         c = num2
+        //     } else {
+        //         num2 = c;
+        //     }
+        //     if (c > num3) {
+
+        //         c = num3
+        //     } else {
+        //         num3 = c;
+        //     }
+        //     return c;
+        // }
+        // alert(min(10, 3, 2))
+
+        function sum(x, y) {
+            return x + y;
+        }
+
+        function mult(x, y) {
+            return x * y;
+        }
+
+        function operation(x, y, callback) {
+            if (typeof callback === "function") {
+                let result = callback(x, y);
+                alert(result);
+            } else alert("no result")
+        }
+        operation(1, 2, sum)
+    </script>
+
+</body>
+
+</html>

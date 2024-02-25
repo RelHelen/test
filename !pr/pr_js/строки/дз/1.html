@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function countWords(sentence) {
+            // Удаляем начальные и конечные пробелы, затем разбиваем предложение на слова
+            let words = sentence.trim().split(" ");
+            // Фильтруем пустые элементы (в случае нескольких пробелов между словами)
+            words = words.filter(word => word !== "");
+            // Возвращаем количество слов
+            return words.length;
+        }
+        let sentence = prompt("Введите предложение:");
+        if (sentence !== null && sentence !== "") {
+            let wordCount = countWords(sentence);
+            alert("Количество слов: " + wordCount);
+        } else {
+            alert("Вы ввели пустое предложение.");
+        }
+    </script>
+</body>
+
+</html>

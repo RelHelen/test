@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="Log"></p>
+    <script type="text/javascript">
+        /*		Функции, начинающиеся с…
+
+        "get…" – возвращают значение,
+        "calc…" – что-то вычисляют,
+        "create…" – что-то создают,
+        "check…" – что-то проверяют и возвращают логическое значение, и т.д.
+        *********
+        showMessage(..)     // показывает сообщение
+        getAge(..)          // возвращает возраст (в каком либо значении)
+        calcSum(..)         // вычисляет сумму и возвращает результат
+        createForm(..)      // создаёт форму (и обычно возвращает её)
+        checkPermission(..) // проверяет доступ, возвращая true/false
+
+
+        */
+        /*function incAndLog(x) {
+ x = x+1;
+ alert("inc x = " + x);
+ Log.innerHTML += "<br>inc x = " + x;
+ }
+ var x = 2;
+ Log.innerHTML = "x1 = " + x;
+ incAndLog(x);
+ Log.innerHTML += "<br> x2 = " + x;*/
+
+        /*function showMessage() {
+  userName = "Петя"; // (1) изменяем значение внешней переменной
+
+  let message = 'Привет, ' + userName;
+  alert(message);
+}
+ userName = 'Вася';
+alert( userName ); // Вася перед вызовом функции
+
+showMessage();
+
+alert( userName ); // Петя, значение внешней переменной было изменено функцией
+*/
+        /*var y;
+function incAndLog(x) {
+ 
+return x+3; 
+}
+
+x = 2;
+ 
+y=1-incAndLog(x);
+alert(y);*/
+
+        /*function sum(a, b) {
+ 
+s= a+b;
+ return s;
+}
+var  a=1;
+var   b=2;
+ result = sum(a, b);
+alert( result ); // 3
+alert("a="+a);*/
+
+        //Написать функцию, которая принимает 2 числа и возвращает меньшее из них.
+        /*function min(a, b) {
+	//if (a>b) {return b}
+	 //else {return a};
+	 
+  return (a < b) ? a : b;
+
+
+}
+var a=+prompt("a","");
+var b=+prompt("b","");
+
+alert("min= "+min(a,b));*/
+
+        //Написать функцию, которая возводит переданное число
+        //в указанную степень
+        /*function step(a, b) {
+	let s=a;
+	for(let i=1;i<b;i++)
+	{
+		s*=a;
+	}
+	return s;
+}
+var a=+prompt("a","");
+var b=+prompt("b","");
+
+alert("степень= "+step(a,b));*/
+
+        //Написать функцию, которая принимает 2 числа и знак (+ - * /), считает пример и возвращает результат
+
+        /*var a,b,c,s;
+function calc() {	
+      a=+prompt("a","");
+			b=+prompt("b","");
+			c=prompt("операция","");	
+		switch(c){
+		case "+":  s=a+b;break;
+		case "-":  s=a-b;break;
+		case "/":  s=a/b;break;
+		case "*":  s=a*b;break;
+		 
+	}
+	alert(s);		
+}		
+		do{			
+			calc();
+			rezult=confirm("Продолжить?");
+	      }while(rezult);*/
+
+        //Запросить у пользователя число и вывести все делители 	этого числа
+        // 6- совершенное 1+2+3=6
+
+        /*function divider(x) {
+		let s=0;
+		 for(let i=1; i<x; i++){
+		     if (x%i==0){
+		     	s+=i;
+
+		     } 
+		}	
+		if (x==s) alert ("Число" + x +"совершенное")
+			else (alert("Число" + x +"несовершенное"));
+	}
+	var x=+prompt("","");
+	divider(x);*/
+
+        /*function tableMultiplication(x) {
+		let s=1;		 
+		 console.log(x);
+		 alert(x);	
+		 for(let i=1; i<=x; i++){		     
+		     	s=x*i;	
+		     	Log.innerHTML += "<br>" + i + " * " + x +"= " + s;	     		    
+		}
+	}
+	var x=+prompt("","");
+	tableMultiplication(x); */
+
+        //остаток от деления
+        // a = 17;
+        // b = 3;
+        // n = 10;
+        // z = a - b;
+        // while (z >= 0) {
+        //   z = z - b;
+        //   n--;
+        //   console.log(z);
+        // }
+        // alert(z);
+        // y = z + b;
+        // alert('остаток' + y);
+    </script>
+</body>
+
+</html>

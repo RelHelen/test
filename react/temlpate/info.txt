@@ -1,0 +1,147 @@
+создание шаблона https://www.youtube.com/watch?v=zE6LEpPqF5Q
+
+1) для начала пеерейти на сайт https://create-react-app.dev/
+1.1) далее get starting
+1.2) перейти в папку разработки, например template
+1.3) в командной строке (через терминал ) ввести команду установки пакетов для проекта my-app (можно др назнвание ) и настройка зависимостей
+
+-> npx create-react-app my-app
+
+1.4) далее надо запустить дев сервера в котором будет развернуто приложение, можно по локалхосту смотреть результат что делаем
+переходим в папку 
+
+-> cd my-app 
+
+и стартуем 
+-> npm start
+ 
+после будет запуск http://localhost:3000/
+
+2)подготовка папки к проекту:
+
+удаляем 
+================================
+в src:
+    setupTests.js 
+    reportWebVitals.js
+    App.css
+    index.css
+    App.test.js
+в public
+    logo192.png
+    logo512.png    
+==============================
+
+изменяем:
+==============================
+ src/index.js почистили и оставили
+
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App';
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render( 
+            <React.StrictMode >
+                <App/>
+            </React.StrictMode>
+        )
+
+
+ src/App.js
+    import React from 'react';
+    function App() {
+    return (
+    <React.Fragment>
+      
+    </React.Fragment>
+    );
+    }
+    export default App; 
+
+=====================================
+
+3) Создаем 
+3.1) папки 
+    components
+        comps
+        pages
+        views
+    services
+    store
+    styles
+
+
+3.2)шаблоны компонентов:
+
+    import React from 'react'
+    const Button=()=>{
+    return (
+        <React.Fragment>
+          
+        </React.Fragment>
+      )
+    }
+    export default Button
+
+
+шаблоны страницы Main:
+import React from 'react'
+import Head from    '../view/global/Head'
+import Foot from    '../view/global/Foot'
+
+
+const Main=()=>{
+ return(
+    <React.Fragment>
+         <Head></Head>
+         <Foot></Foot>
+    </React.Fragment>  
+ )
+}
+export default Main
+
+3.3)создаем стили style.js
+основан на библиоетеки styled components:  https://styled-components.com/
+
+Используя тегированные литералы шаблонов (недавнее дополнение к JavaScript) 
+и возможности CSS, styled-comments позволяет  писать реальный CSS-код 
+для стилизации  компонентов
+
+Позволяет писать полностью идентичный css синтаксис в рамках JS-объекта
+
+3.3.1)установим styled components, в разделе установки
+https://styled-components.com/docs/basics#installation
+
+в терминале проекта my-app установим зависимости
+-> npm install styled-components
+
+
+3.3.2) чтобы использовать библиотеку необходимо экспортировать объект 
+import styled from 'styled-components'
+
+
+
+4) materil ui:     https://mui.com/material-ui/
+это библиотека компонентов под react
+для установки вводим в командную строку 
+-->   npm install @mui/material @emotion/react @emotion/styled
+
+
+5) бибилиотека для роутера в реакте:    https://reactrouter.com/en/main
+в самом реакте ее нет, поэтому надо установить
+она позволяет настроить маршрутизацию, то есть переход по ссылкам
+реакт роутер постороен на компонентах
+
+
+в разделе https://reactrouter.com/en/main/start/tutorial
+есть команда установки (без доп пакетов)
+--> npm install react-router-dom
+
+будем использовать компонент BrowserRouter https://reactrouter.com/en/main/router-components/browser-router 
+подходит для большинства приложений 
+работает используя API-браузера, в строке выводится новый адрес, но переход не осуществляется, работаем на одной странице
+ 
+HashRouter - сохраняет url адрес, не меняет фактический, добавляет #, подходит длялокальной сборки
+
+100) отвечает за сборку приложения. Любое реакт приложение по оканчанию сборки формирует набор html, css, js файлы, которые можно уже разместить на сервере
+  npm run build

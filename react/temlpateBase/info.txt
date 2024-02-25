@@ -1,0 +1,65 @@
+создание шаблона https://www.youtube.com/watch?v=zE6LEpPqF5Q
+
+1) для начала пеерейти на сайт https://create-react-app.dev/
+1.1) далее get starting
+1.2) перейти в папку разработки, например template
+1.3) в командной строке (через терминал ) ввести команду установки пакетов для проекта my-app (можно др назнвание ) и настройка зависимостей
+
+-> npx create-react-app my-app
+
+1.4) далее надо запустить дев сервера в котором будет развернуто приложение, можно по локалхосту смотреть результат что делаем
+переходим в папку 
+
+-> cd my-app 
+
+и стартуем 
+-> npm start
+ 
+после будет запуск http://localhost:3000/
+1.6)
+подготовка папки к проекту:
+
+удаляем 
+================================
+в src:
+    setupTests.js 
+    reportWebVitals.js
+    App.css
+    index.css
+    App.test.js
+в public
+    logo192.png
+    logo512.png    
+==============================
+
+изменяем:
+==============================
+ src/index.js почистили
+
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App';
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render( 
+            <React.StrictMode >
+                <App/>
+            </React.StrictMode>
+        )
+
+
+ src/App.js
+    import React from 'react';
+    function App() {
+    return (
+    <React.Fragment>
+      
+    </React.Fragment>
+    );
+    }
+    export default App; 
+
+=====================================
+
+
+ 1.5) отвечает за сборку приложения. Любое реакт приложение по оканчанию сборки формирует набор html, css, js файлы, которые можно уже разместить на сервере
+  npm run build

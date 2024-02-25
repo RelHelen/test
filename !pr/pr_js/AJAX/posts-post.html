@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="posts">
+    </div>
+    <script>
+        const urlPosts = 'https://jsonplaceholder.typicode.com/posts';
+
+        const body = {
+            userId: 100,
+            id: 1,
+            title: 'qqqq',
+            body: 'qqqq wwwww eeeee'
+        }
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+
+        let postResp = fetch(urlPosts, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: headers
+        }).then((response) => {
+            if (response.ok) {
+                console.log(response);
+                return response.json();
+            }
+            return response.json().then(err => console.log('ошибка в передаче данных'))
+        })
+
+        postResp.then((data) => {
+                console.log(data);
+                //                 let str = '';
+                //                 posts.innerHTML = '';
+                //                 for (let obj of data) {
+                //                     if (obj['userId'] == 1) {
+                //                         console.log('i=', obj['userId']);
+                //                         str += `<h3>${obj['userId']} </h3>`;
+                //                         str += ` <ul><li> пользователь  : ${obj['userId']} </li>
+                //                                     <li> id пост: ${ obj['id'] } </li> 
+                //                                     <li> title: ${obj['title']} </li> 
+                //                                     <li> body: ${obj['body']} </li></ul>`
+                // 
+                // 
+                // 
+                //                     }
+                //                 }
+                //                 posts.innerHTML = str;
+
+            })
+            .catch(err => console.log('error'))
+    </script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="article">
+        
+    </div>
+
+    <script>
+        const article=document.querySelector("#article");
+        //заголовок статьи
+        const h2El=document.createElement('h2');
+        h2El.textContent="Заголовок статьи";
+ 
+        //первый абзац
+        const p1El= document.createElement('p');
+        p1El.textContent="111111lorem lorem lorem";
+  
+        //второй  абзац
+        const p2El= document.createElement('p');
+        p2El.textContent="2222222lorem lorem lorem";
+          
+        article.append(h2El,p1El,p2El);
+
+//заголовк  старницы
+        const h1El= document.createElement('h1');
+        h1El.textContent="Заголовок страницы";
+        
+      //  document.body.insertBefore(h1El,article);
+        
+        article.before(h1El);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- кликаем на параграф и либо выделяем его либо снимаем выделение -->
+    <p>
+        Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее
+        для общения широкий диапазон звуковых сигналов.
+    </p>
+    <p>
+        Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в хозяйстве многих развивающихся стран.
+    </p>
+    <p>
+        Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.
+    </p>
+    <div>
+        ioioio
+    </div>
+</body>
+<script>
+    //     document.body.addEventListener("click", function(e) {
+    //         const select = document.querySelectorAll('.red');
+    //         e.target.classList.toggle('red');
+    //         for (elem of select) {
+    //             elem.classList.remove('red');
+    //         }
+    // 
+    //     })
+    const pAll = document.querySelectorAll('p');
+    for (elemP of pAll) {
+        elemP.addEventListener("click", function(e) {
+            const select = document.querySelectorAll('.red');
+            e.target.classList.toggle('red');
+            // for (elem of select) {
+            //     elem.classList.remove('red');
+            // }
+        });
+
+    }
+</script>
+
+</html>

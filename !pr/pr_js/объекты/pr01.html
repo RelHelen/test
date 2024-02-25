@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // const img = {
+        //     src: "img.png",
+        //     alt: "фото",
+        //     width: 340,
+        //     height: this.width,
+        //     filter: "none",
+        //     // ["border-size"]: 0,
+        // };
+        // const show = function(key) {
+        //     document.writeln(key + ":" + this[key] + "<br>");
+        // }
+        // img.write = show;
+        // img.write('src');
+
+        // if (!img.hasOwnProperty(["border-size"])) {
+        //     img["border-size"] = 1;
+        // }
+        // if (!img.hasOwnProperty(["height"])) {
+        //     img.height = img.width;
+        // }
+        // if ('toString' in img) {
+        //     console.log('есть');
+        // } else {
+        //     console.log('нет');
+        // }
+        // console.log(img.toString !== undefined);
+
+
+        // //img["width"] = 400;
+
+        // for (key in img) {
+
+        //     document.writeln(key + ":" + img[key] + "<br>");
+        // }
+
+        /*объект животное*/
+        var animal = {
+            name: 'неопределено',
+            // class: 'неопределено',
+            totalLegs: 'отсутвуют',
+            totalWings: 'отсутсвуют',
+            say: function(a) {
+                alert(a);
+            }
+        }
+        for (key in animal) {
+            if (key !== 'say') {
+                animal[key] = prompt('Введите' + key, '');
+            } else {
+                a = prompt('как говорит животное', '');
+            }
+        };
+        for (key in animal) {
+            document.writeln(key + ":" + animal[key] + "<br>");
+        };
+
+
+        animal.say(a);
+
+        /*количество студентов в классах*/
+        /*вывести общее число студентов*/
+        /**/
+        /*var totalStudent={
+			1:50,
+			2:25,
+			3:50,
+			4:56,
+		};
+		console.log(totalStudent);
+		console.log(totalStudent[1]);
+		let s = 0;
+		console.log(s);
+		for (key in totalStudent) {
+			console.log(key+":"+totalStudent[key]); 
+			 s = s+totalStudent[key]; 
+		}
+       console.log('всего' + s); /*вывести общее число студентов*/
+
+        /*
+     unshift / shift и push / pop
+      var fruits = ["Яблоко", "Апельсин"];
+
+		fruits.push("Груша"); //добавляет в конец
+		fruits.shift();  //удаляет вначале
+
+		alert( fruits ); //  Апельсин, Груша
+		fruits.unshift("Вишня"); // добавляет вначало
+		alert( fruits ); //  Вишня ,Апельсин, Груша
+
+		//добавляет в нонец и вначало
+		fruits.push("АпельсинКрасный", "ГрушаКрасный ");
+		fruits.unshift("АнанасЗеленый", "ЛимонЗеленый");
+		alert( fruits ); // АнанасЗеленый,ЛимонЗеленый,Вишня,Апельсин,Груша,АпельсинКрасный,ГрушаКрасный 
+
+*/
+        /*
+		ar.length
+*/
+        /*		arr= [];
+		arr[0] = 12;
+		arr[4] = 15;
+		alert(arr.length); //5
+		for (var i=0; i<arr.length;i++){
+			document.write(arr[i]);
+			document.write('<br>');
+		}
+		arr.length = 2; //удалит все элементы больше крома 0, 1
+		arr.length = 0; //удалит все элементы 
+		arr.length = 5; //добавит 5 неопределенных элементов undefind
+*/
+
+        /* пользователь вводит 5 чисел с клавиатуры**/
+        // var num = [];
+        // var numChet = [];
+        // var numLength = (num.length = 5);
+        // //ввод массива
+        // function massivInput(numLength) {
+        //   for (var i = 0; i < numLength; i++) {
+        //     num[i] = +prompt('введите число ' + i, '');
+        //     console.log(num[i]);
+        //   }
+        //   return num;
+        // }
+        //вывод массива
+        // function massivWrite(num, numLength) {
+        //     document.write('длина массива ' + numLength + '<br>');
+        //     for (var i = 0; i < numLength; i++) {
+        //         document.write(num[i] + '<br>');
+        //     }
+        // }
+        //суума элементов
+        // function massivSumm(numLength) {
+        //     var s = 0;
+        //     for (var i = 0; i < numLength; i++) {
+        //         s = s + num[i];
+        //     }
+        //     return s;
+        // }
+        //определение четных элементов
+        // function massivChet(numLength) {
+        //     var s = 0;
+        //     var j = 0;
+        //     for (var i = 0; i < numLength; i++) {
+        //         if (num[i] % 2 == 0) {
+        //             numChet.push(num[i]);
+        //         }
+        //     }
+        //     console.log(numChet);
+        //     return numChet;
+        // }
+        // massivInput(numLength);
+        // massivWrite(num, numLength);
+        // document.write('Сумма чисел:' + massivSumm(numLength) + '<br>');
+        // massivChet(numLength);
+        // massivWrite(numChet, numChet.length);
+        // var numNew = [];
+        // var numNew = num.splice(1, 0, 10);
+        // console.log('numNew');
+        // //5. Функция добавления нового элемента в массив по указанному индексу.console.log(numNew); //пусто
+
+        // var index = +prompt('введите индекс ', '');
+        // var number = +prompt('введите number ', '');
+        // num.splice(index, 0, number);
+        // console.log('num');
+        // console.log(num);
+
+        // //6. Функция удаления элемента из массива по указанному индексу
+        // var index = +prompt('введите индекс ', '');
+
+        // num.splice(index, 1);
+        // console.log('num');
+        // console.log(num);
+        // /*образовать массив случайных чисел и вывести новый без возможных повторений, удаляется последний*/
+        // var num2 = [];
+        // var num1 = [];
+        // var num3 = [];
+        /* for (var i = 0; i < 5; i++) {
+          num1[i] = Math.floor(Math.random() * 10);
+        }
+        for (var i = 0; i < 5; i++) {
+          document.write('случайные1:' + num1[i] + '<br>');
+        }
+        console.log('num1 1');
+        console.log(num1);
+        for (var i = 0; i < 5; i++) {
+          for (var j = i + 1; j < 5; j++)
+            if (num1[i] == num1[j]) {
+              num1.splice(j, 1);
+            }
+        }
+        console.log('num1 2');
+        console.log(num1);*/
+
+        //задать ввод размера массива с клавиатуры и сохдать цикл
+        /* пользователь вводит числа с клавиатуры**/
+        /*
+var arr=[];
+do{
+	var value=prompt('введите число','');
+	if(value){arr.push(value);}
+}while(value);*/
+    </script>
+</body>
+
+</html>

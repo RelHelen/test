@@ -1,0 +1,87 @@
+testovaa_u@t.top-academy.ru  
+6dUVhwF5445H
+
+
+web215
+https://teams.microsoft.com/_#/school/conversations/%D0%9E%D0%B1%D1%89%D0%B8%D0%B9?threadId=19:SXAQjPeAK5rXcM6Rra4Rft_ypK0nzoseK6nCmghNnNk1@thread.tacv2&ctx=channel
+
+03.04.2023 - angular 1 занятие
+05.04.2023 ang 2 -https://itstepru.sharepoint.com/sites/Web215/_layouts/15/stream.aspx?id=%2Fsites%2FWeb215%2FShared%20Documents%2FGeneral%2FRecordings%2F%D0%A1%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B5%20%5FGeneral%5F%2D20230405%5F184117%2D%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+
+
+10.04.2023 react1 https://itstepru.sharepoint.com/:v:/s/Web215/EeSrjlpuSodNnTksSxsV510BLKxPYc29qWxU65trZaNy_g?e=odB03Q
+12.04.2023 react2 https://itstepru.sharepoint.com/:v:/s/Web215/Efq9zIiTKuxKg9YYS1XUDrABg0F9hS9IuINpr5EgTnOtoQ?e=Z3PRcw
+17.04.2023 react 3
+19.04.2023 react 4 https://itstepru.sharepoint.com/:v:/s/Web215/EZfI8D_3Y2ZGlWmU2PUa-G4BLQlEZ2WbmnVfj10ZpgKh5A?e=FNkIC1
+24.04.2023 5
+01.05.2023 6
+
+
+
+Контекстная реклама: Яндекс Директ
+https://itstepru.sharepoint.com/:v:/s/Web215/ER_BMqA08F5KmmukpWogesYBdsI958YSOSqkb8jk08PFSA?e=ZPkmYI
+
+
+========================================================
+------------------web123--------------------------------
+
+autorenametag
+curcormove - для удобства просомтра перемещения курсова
+githistory
+javascript es6 code snipets -короткие команды 
+JS JSX Snippets -короткие команды 
+Inline Parameters for VSCode - отображает имена параметоров у функции
+Material Icon Theme - отображает иконки в файловом проводнике
+Nested Comments  -комментарии внутри комментариев правильно закрывает
+Path Intellisense - предлагает часто используемый набор команд в отоношении путей (предлагает набор адресов)
+Prettier - Code formatter - форматировщик кода, использовать осторожно, необходимы доп настройки, чтобы код не поламал структуру
+Project Dashboard - быстрый доступ к проектам
+
+Better Comments -подсветка коментов
+better less -подстветка less 
+
+https://itstepru.sharepoint.com/sites/WEB123/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FWEB123%2FShared%20Documents%2FGeneral%2FRecordings&FolderCTID=0x012000BAF2AC51E28A4F488E8B16029C41A9CB
+
+
+
+11.10.2021, Занятие 1. Фреймворки и библиотеки JS для UI. Введение в React. 
+		https://itstepru.sharepoint.com/:v:/s/WEB123/EazF365MB4hCnJXiKzjdUrIB6gsEB4jjrO6fkL5Fr8Eg5A?e=WezcIe
+		https://itstepru.sharepoint.com/:v:/s/WEB123/Ed_x-7mehCpInbMtArkBhXYB27hrgHA1GrzyW-wm1d_noA?e=BG7qAh
+
+13.10.2021 Занятие 2. Компоненты: Обработка событий, Props. Операторы spread и rest. Деструктурирующее прис
+          https://itstepru.sharepoint.com/:v:/s/WEB123/EYL1T0SONaVMgXOS25mVePYBCJ-rAZb80sxTXIRLEPmNSQ?e=0A1nR0
+	  https://itstepru.sharepoint.com/:v:/s/WEB123/ESAQWVVBzRpOuCegAYGSWYgBFcuI9fdUxLrlBU0bkdNRKw?e=Fgfdgp
+
+18.10.2021  Занятие 3. Node. Создание окружение React-разработчика Компоненты: Пропсы
+     	 https://itstepru.sharepoint.com/sites/WEB123/_layouts/15/stream.aspx?id=%2Fsites%2FWEB123%2FShared%20Documents%2FGeneral%2FRecordings%2FGeneral%2D20211018%5F183315%2D%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+рассказывает все что установилось в react:      	 
+https://itstepru.sharepoint.com/:v:/s/WEB123/Ec4j_Q-iEcFPuwVoKz0iqSQBt1s5k3zxjqWzYB6k_ty90g?e=udw2eu
+
+
+20.10.2021   -Занятие 4 
+
+введение в классы, прототипное наследование: https://itstepru.sharepoint.com/sites/WEB123/_layouts/15/stream.aspx?id=%2Fsites%2FWEB123%2FShared%20Documents%2FGeneral%2FRecordings%2F%D0%A1%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B5%20%5F%D0%9E%D0%B1%D1%89%D0%B8%D0%B9%5F%2D20211020%5F183402%2D%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+классы - https://itstepru.sharepoint.com/sites/WEB123/_layouts/15/stream.aspx?id=%2Fsites%2FWEB123%2FShared%20Documents%2FGeneral%2FRecordings%2F%D0%A1%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B5%20%5FGeneral%5F%2D20211020%5F202823%2D%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+
+ 
+
+27.10.2021  6 Создание React-приложения Счётчик лайков и дизлайков
+
+https://itstepru.sharepoint.com/sites/WEB123/_layouts/15/stream.aspx?id=%2Fsites%2FWEB123%2FShared%20Documents%2FGeneral%2FRecordings%2FGeneral%2D20211027%5F183529%2D%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+
+
+03.11.2021, -8-  Маршрутизация в React-приложениях. Установка и использование пакета react-router-dom. Компоненты BrowserRouter, Switch, Route
+
+10.11.2021,  -9- Маршрутизация в React-приложениях.Навигационное меню, компонент Link. Передача параметров маршрута
+
+12.11.2021  -10- Функции и хуки для работы с жизненным циклом компонентов
+Создание React-приложения часов
+
+
+15.11.2021  -11- Использование PropTypes.Описания примитивных значений. Требование на передачу пропсов
+ Сетевое взаимодействие с внешними сервисами.Использование клиента Axios.Работа с API
+Создание приложения по поиску фильмов
+
+19.11.2021 - 12 -  Введение в фреймворк Angular
+
+           

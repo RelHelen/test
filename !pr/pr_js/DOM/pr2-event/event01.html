@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 2px solid black;
+        }
+        
+        div {
+            background-color: rgb(136, 136, 140);
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        #elemDiv {
+            background-color: blue;
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+        
+        p {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <!-- <div onclick="alert('Привет')">Выведи сообщение</div>
+    <div onclick="document.body.style.backgroundColor='red'">Закрась экран в красный</div>
+    <div onclick="this.style.backgroundColor='green'">Закрась кнопку в зеленый</div>
+    <div onclick="document.body.style.backgroundColor='white'">Закрась экран в белый</div> -->
+
+    <!-- <div id="elemDiv" onclick="Hi()"></div> -->
+    <div onclick="disp()">bgGreen</div>
+    <div id="elemDiv" class="elemDiv"></div>
+    <p></p>
+    <script>
+        function Hi() {
+            alert('Привет еще раз');
+        };
+        // elemDiv.onclick = Hi;
+        // elemDiv.onclick();
+        //Координаты курсора в момент клика (относительно окна)
+        // elemDiv.onclick = function(e) {
+        //     alert(e.clientX + ": " + e.clientY);
+        // }
+        function disp(e) {
+
+            alert('Привет еще раз');
+            alert(`Элемент:` + this);
+            // alert(`Кнопка: ${e.which}`);
+            // alert(`Тип события: ${e.type}`);
+            alert(`
+            Элемент обработчика события: ${
+                e.currentTarget
+            }
+            `);
+            alert(`
+            Тег элемента: ${
+                e.currentTarget.tagName
+            }
+            `);
+            // alert(`Время события: $ {e.timestamp}`);
+        }
+        elemDiv.onclick = function(e) {
+                alert(`
+        Кнопка: $ {
+            e.which
+        }
+        `);
+                alert(`
+        Тип события: ${
+            e.type
+        }
+        `);
+                alert(`
+        Элемент обработчика события: ${
+            e.currentTarget
+        }
+        `);
+                alert(`
+        Тег элемента: ${
+            e.currentTarget.tagName
+        }
+        `);
+                alert(`
+                Время события: ${
+                    e.timestamp
+                }
+                `);
+            }
+            // elemDiv.onmousemove = function(e) {
+            // this.innerHTML = `
+            // ${
+            //     e.clientX
+            // } + ": " + ${
+            //     e.clientY
+            // }
+            // `
+            // }
+            // elemDiv.onmouseover = function() {
+            //     this.style.backgroundColor = 'green';
+            // }
+
+        function bgGreen() {
+            this.style.backgroundColor = 'green';
+        }
+
+        function bgRed() {
+            this.style.backgroundColor = 'red'
+        }
+
+        // elemDiv.ondblclick = function() {
+        //     alert('Приве и Пока');
+        // }
+
+        function sayThanks() {
+            alert('Спасибо!');
+        };
+
+        function above(event) {
+            //target: указывает на элемент, на котором было вызвано событие
+            //currentTarget: определяет элемент, к которому прикреплен обработчик события
+            //this совпадает с currentTarget
+            alert(event.type + ' \n' +
+                "на что нажали: " +
+                event.target + ' \n' + "обработчик события " + event.currentTarget);
+            alert(this);
+
+            this.style.backgroundColor = 'green'; //какой элемент вызывает событие
+            event.target.style.backgroundColor = 'yellow'; //по кому кликаем
+            // alert(event.clientX + ';' + event.clientY + ' ' + event.button);
+
+        };
+
+        // elemDiv.onclick = sayThanks;
+        // elemDiv.addEventListener("click ", bgGreen);
+        // elemDiv.addEventListener("click ", sayThanks);
+        // document.body.addEventListener("click ", bgRed);
+        //   document.body.addEventListener("click ", above);
+    </script>
+</body>
+
+</html>

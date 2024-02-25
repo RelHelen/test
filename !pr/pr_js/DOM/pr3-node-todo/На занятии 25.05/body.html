@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        
+        div {
+            width: 100px;
+            /* height: 100px; */
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+        </ol>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta inventore ex nobis autem saepe aspernatur hic repudiandae quas architecto iusto, quo distinctio ad quod ea dolor quidem sit quisquam et.</p>
+
+
+    <script>
+        const elemenMain = document.childNodes;
+        // console.log(elemenMain);
+        // console.log(elemenMain[1].childNodes);
+        const bodyNode = elemenMain[1].childNodes[2];
+        const bodyChilds = bodyNode.childNodes;
+        console.log(bodyNode);
+        for (e of bodyChilds) {
+            console.log(e.nodeName);
+        }
+        for (var i = 0; i < bodyChilds.length; i++) {
+            // console.log(bodyChilds[i].nodeName);
+        }
+
+        document.body.addEventListener('click', function(e) {
+            // alert(e.target);
+            // alert(e.target.tagName);
+        })
+        const list = document.querySelector('#list');
+        let childList = list.children;
+
+        for (li of childList) {
+            li.setAttribute('style', "padding: 10px; color: blue")
+        }
+        let parentList = list.parentElement;
+        console.log("parentList", parentList);
+        const nextEl = list.nextElementSibling; //ol
+        console.log(nextEl);
+        let childOl = nextEl.children; //li
+
+        for (li of childOl) {
+            li.setAttribute('style', "padding: 10px; color: white")
+        }
+
+        let first = list.firstElementChild;
+        first.setAttribute('style', "font-weight: bold;padding: 10px; color: white")
+
+        // console.log(childList);
+    </script>
+</body>
+
+</html>

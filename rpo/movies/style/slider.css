@@ -1,0 +1,162 @@
+/* slider */
+
+.slider {
+    max-width: 90%;
+    /* Положение элемента устанавливается относительно его исходной позиции: */
+    position: relative;
+    /* Центрируем по горизонтали: */
+    margin: auto;
+    /* border: 1px solid red; */
+}
+
+.slider__wrapper {
+    position: relative;
+    overflow: hidden;
+    left: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(0, 0, 0); */
+}
+
+.slider__list {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    /* justify-content: center; */
+    align-items: stretch;
+}
+
+.slider .gallery-slide {
+    flex: 0 0 25%;
+    max-width: 25%;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.entity-title {
+    font-family: 'Oswald';
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.info-lines {
+    display: flex;
+    margin: 0 -0.5rem;
+    gap: 1rem;
+}
+
+.text-theme {
+    color: #ff8a00 !important;
+}
+
+
+/* Картинка масштабируется по отношению к родительскому элементу: */
+
+.slider .gallery-poster {
+    position: relative;
+    height: 400px;
+}
+
+.slider .gallery-poster img {
+    /* Элемент меняет размер так, чтобы заполнить блок и сохранить пропорции: */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+.poster-entity {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    color: #fff;
+    padding: 4px;
+}
+
+.d-over {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.bg-highlight-bottom {
+    background-image: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.9) 80%, rgba(0, 0, 0, 1) 100%) !important;
+}
+
+
+/* Кнопки назад и вперёд: */
+
+.slider .prev,
+.slider .next {
+    /* Добавляет курсору иконку, когда тот оказывается над кнопкой: */
+    cursor: pointer;
+    /* Положение элемента задаётся относительно границ браузера: */
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    /* Оформление самих кнопок: */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    /* Плавное появление фона при наведении курсора: */
+    transition: 0.6s ease;
+    /* Скругление границ: */
+    background-color: rgba(255, 138, 0, 0.8);
+}
+
+.slider .next {
+    right: -50px;
+    border-radius: 0 3px 3px 0;
+}
+
+.slider .prev {
+    left: -50px;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* При наведении курсора на кнопки добавляем фон кнопок: */
+
+.slider .prev:hover,
+.slider .next:hover {
+    background-color: rgba(255, 138, 0, 1);
+}
+
+
+/* Анимация слайдов: */
+
+.slider__list {
+    transform: translateX(0);
+    transition: transform 1s ease;
+    animation: fade ease-in 1s;
+}
+
+@keyframes fade {
+    /* Устанавливаем и изменяем степень прозрачности: */
+    from {
+        opacity: 0.2
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media (max-width:768px) {
+    /* .slider .gallery-slide {
+        flex: 0 0 100%;
+        max-width: 100%;
+    } */
+}

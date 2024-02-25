@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="msg"></div>
+    <script>
+      /*    Функции, начинающиеся с…
+
+"get…" – возвращают значение,
+"calc…" – что-то вычисляют,
+"create…" – что-то создают,
+"check…" – что-то проверяют и возвращают логическое значение, и т.д.
+*********
+showMessage(..)     // показывает сообщение
+getAge(..)          // возвращает возраст (в каком либо значении)
+calcSum(..)         // вычисляет сумму и возвращает результат
+createForm(..)      // создаёт форму (и обычно возвращает её)
+checkPermission(..) // проверяет доступ, возвращая true/false
+
+
+*/
+      // function h(n){
+      // 	let h='';
+      // 	for (i=1;i<=n;i++){
+      // 		  // h+="<h"+i+"> Header "+i+ "</h"+i+">";
+      // 		// document.write("<h"+i+"> Header "+i+ "</h"+i+">");
+      // 		window.msg.innerHTML+="<h"+i+"> Header "+i+ "</h"+i+">"
+
+      // 	}
+      // 	// document.write(h);
+      // 	// window.msg.innerHTML=h;
+      // }
+      // h(6);
+      // выводит заголовки
+      //   function CreatHeader(n) {
+      //     let str = '';
+      //     for (i = 1; i <= n; i++) {
+      //       str += '<h' + i + '>header' + i + '</h' + i + '>';
+      //     }
+      //     $('body').append(str);
+      //   }
+      //   CreatHeader(2);
+
+      //Написать функцию, которая принимает 2 числа и возвращает меньшее из них.
+      //   function min(x, y) {
+      //     if (x > y) {
+      //       return y;
+      //     } else {
+      //       return x;
+      //     }
+      //   }
+      //   min(3, 5);
+      // 	Написать функцию, которая возводит переданное число
+      // в указанную степень.
+      // function step(x, y) {
+      //   let p = 1;
+      //   for (i = 1; i <= y; i++) {
+      //     p *= x;
+      //   }
+      //   return p;
+      // }
+      // console.log(step(2, 3));
+
+      // 	  function oper() {
+      //   x = +prompt('введите x', '');
+      //   y = +prompt('введите y', '');
+      //   op = prompt('введите / * - +', '');
+      //   switch (op) {
+      //     case '/':
+      //       s = x / y;
+      //       break;
+      //     case '+':
+      //       s = x + y;
+      //       break;
+      //     case '-':
+      //       s = x - y;
+      //       break;
+      //     case '*':
+      //       s = x * y;
+      //       break;
+      //   }
+      //   alert(s);
+      //   return s;
+      // }
+      // //console.log(oper());
+      // // alert(oper());
+      // do {
+      //   oper();
+      //   res = confirm('Продолжить?');
+      // } while (res)
+
+      ///вевести все простые из диапозона 1..n
+      // function showPrimes(n) {
+//   nextPrime: for (let i = 2; i < n; i++) {
+
+//     for (let j = 2; j < i; j++) {
+//       if (i % j == 0) continue nextPrime;
+//     }
+
+//     alert( i ); // простое
+//   }
+// }
+
+//..или
+
+// function showPrimes(n) {
+
+//   for (let i = 2; i < n; i++) {
+//     if (!isPrime(i)) continue;
+
+//     alert(i);  // простое
+//   }
+// }
+
+// function isPrime(n) {
+//   for (let i = 2; i < n; i++) {
+//     if ( n % i == 0) return false;
+//   }
+//   return true;
+// }
+
+      // Написать функцию, которая выводит все четные или нечетные числа, в указанном пользователем диапазоне. Какие
+      // числа выводить, определяется третьим параметром типа
+      // bool (true(1) – четные, false(0) – нечетные).
+      // function list(a, b, par) {
+      //   let s = '';
+      //   if (par) {
+      //     for (let i = a; i < b; i++) {
+      //       if (i % 2 == 0) {
+      //         s += String(i) + ' ';
+      //       }
+      //     }
+      //   } else {
+      //     for (let i = a; i < b; i++) {
+      //       if (!(i % 2) == 0) {
+      //         s += String(i) + ' ';
+      //       }
+      //     }
+      //   }
+      //   return s;
+      // }
+      // console.log(list(1, 6, 0));
+    </script>
+  </body>
+</html>

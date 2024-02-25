@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Add React in One Minute</title>
+   <!-- Примечание: при деплое на продакшен замените «development.js» на «production.min.js». -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- компилятор, с помощью которого идет преобразованиереакт кода в js скрипт-->
+    
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"> </div>
+
+
+
+    <script type="text/babel">
+      function MyApp() { 
+       // return  <h1> Hello world </h1>
+        return (
+        <section className={"main-section"}> 
+        <h1> Hello world </h1>
+         </section> 
+        );
+
+
+    }; 
+        
+        const rootNode = document.getElementById("app"); 
+
+        /* элемент для рендеринга приложения React 
+        // получаем корневой элемент */ 
+        /* рендеринг в корневой элемент*/
+
+       ReactDOM
+       .createRoot(rootNode)  
+	   .render(<MyApp/>); 
+
+
+    </script>
+</body>
+
+</html>
