@@ -21,16 +21,18 @@ let directors =[
 ]
 // Steven Allan Spielberg
 function Form(){
-  const handleSubmit = event=>{
-    event.preventDefault();
-    console.log('submit отменен');
-
+  const output = React.createRef();  
+  const newDirectors = React.createRef();   
+  
+  const handleClick = event=>{ 
+    output.current.textContent = newDirectors.current.value;
   }
-  return(
-    <form className="form" onSubmit={ handleSubmit }>
-       <input id="new-dir" name="new-dir" type="text" />
-       <input type="submit" />
-    </form >
+  return(  
+    <div className="form">
+       <p ref={output}></p>  
+       <input id="new-dir"  type="text" ref={newDirectors}/>
+       <input type="button" onClick={handleClick} value="добавить"/>   
+    </div>
   )
 }
 function Director(props) {
