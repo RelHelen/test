@@ -9,22 +9,27 @@ function Form(props){
     const output = React.createRef();  
     const newDirectors = React.createRef();   
  
-    const  [val, setVal] = useState(' ');
+    const  [val, setVal] = useState('');
 
    const handleClick = () =>{ 
   //   output.current.textContent = newDirectors.current.value;
   }
   const handleChange = (e) =>{ 
    // output.current.textContent = newDirectors.current.value;
-   setVal(e.target.value);
+   //setVal(newDirectors.current.value);
+   setVal(e.target.value);  
+   
   }
   
   const handleClickDirector = (val) =>{ 
     // результатом метода split является разделение строки 
     // на несколько элементов массива
    //const [name, lastname] = newDirectors.current.value.split(' ');
-   const [name, lastname] = val.split(' ');
-   console.log(name,lastname);
+   const [name, lastname] = val.trim().split(' ');
+
+  //  console.log(val.split(' '));
+  //  console.log(name,lastname);
+
   //  const newDirector ={
   //    name: name,
   //    lastname: lastname
@@ -35,7 +40,7 @@ function Form(props){
     //  props.action(newDirector);
 
      //можно сократить
-     action({name, lastname });
+     action({name, lastname});
 
      //очистили поле
     // newDirectors.current.value ='';
@@ -61,12 +66,18 @@ function Form(props){
     </div>
   )
 }
+
 //выводит один пункт списка из режиссеров
 function Director(props) {
-  const {id,name,lastname} = props;
+   
+  const {id,name,lastname,action} = props;
+  
   return (
-    <li className="list">
-       {id}. { name } { lastname }
+    <li 
+    className="list" 
+     onDoubleClick={action}
+    >
+       {id}. { name } { lastname }     
     </li>
   );
 }
@@ -102,27 +113,38 @@ function DirectorList(){
     
     //создали новый объект на основе данных, котороые прилетели
     //этому объекту добавили id - берем из расчета количества элментов в маасиве
-    newDirector={  
-        id:  directorsList.length+1,           
+    let key = directorsList[directorsList.length-1].id;
+    
+    // console.log("key last",key);
+    newDirector={ 
+        // id:directorsList.length-1, 
+        id:  key+1,           
         // name:'James ',
         // lastname:'Cameron' 
         ...newDirector     
     }
+    console.log("directorsList",directorsList);
     //даллее этот объект пушим в массив
     newDirectorList.push(newDirector);
     //установили в  state  новый массив
     //запускает изменение состояния directorsList
     setDirectorsList(newDirectorList)
   }
-  
+
+  const removeItem = id => {
+    console.log(id) ; 
+    setDirectorsList(directors => directors.filter(el => el.id !== id))
+    
+  }
   return(
     <>
+    
      {/* 1способ */}
     {/* <Director {...directors[0]}/> 
     <Director {...directors[1]}/> 
     <Director {...directors[2]}/>  */}
     
-    <div className="directors">
+    <ol className="directors">
      {/*2способ */}
     { 
     directorsList.map(director => {
@@ -130,10 +152,11 @@ function DirectorList(){
         <Director 
         { ...director } 
         key={director.id}
+        action={()=>removeItem(director.id)}
       />
       )})
      }
-     </div>
+     </ol>
      <Form action={addDirectors}/>
     </>
   )

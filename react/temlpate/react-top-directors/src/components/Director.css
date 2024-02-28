@@ -6,7 +6,16 @@ body{
   font-size:20px;
   color: white;
   border-bottom: 1px solid white;;
-   list-style: none;
+  /* list-style: none; */
+  position: relative;
+}
+.list-remove{
+ position: absolute;
+ right: 10px;
+ top:10px;
+ border: 1px solid grey;
+ padding: 5px;
+ line-height: 10px;
 }
  
 
