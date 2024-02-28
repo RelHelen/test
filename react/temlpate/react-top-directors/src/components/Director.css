@@ -1,12 +1,12 @@
 body{
  background-color: #282c34;   
 }
-.container-dir {
+.list {
   padding: 10px;   
   font-size:20px;
   color: white;
   border-bottom: 1px solid white;;
-   
+   list-style: none;
 }
  
 

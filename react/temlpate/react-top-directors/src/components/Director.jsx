@@ -1,51 +1,120 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Director.css';
 
-let directors =[
-  {
-    id:1,
-    name:'James',
-    lastname:'Cameron' 
 
-  },
-  {
-    id:2,
-    name:'Quentin',
-    lastname:'Tarantino'
-  },
-  {
-    id:3,
-    name:'George ',
-    lastname:'Lucas'
-  }
-]
 // Steven Allan Spielberg
-function Form(){
-  const output = React.createRef();  
-  const newDirectors = React.createRef();   
-  
-  const handleClick = event=>{ 
-    output.current.textContent = newDirectors.current.value;
+function Form(props){
+   const {action}=props;  
+
+    const output = React.createRef();  
+    const newDirectors = React.createRef();   
+ 
+    const  [val, setVal] = useState(' ');
+
+   const handleClick = () =>{ 
+  //   output.current.textContent = newDirectors.current.value;
   }
+  const handleChange = (e) =>{ 
+   // output.current.textContent = newDirectors.current.value;
+   setVal(e.target.value);
+  }
+  
+  const handleClickDirector = (val) =>{ 
+    // результатом метода split является разделение строки 
+    // на несколько элементов массива
+   //const [name, lastname] = newDirectors.current.value.split(' ');
+   const [name, lastname] = val.split(' ');
+   console.log(name,lastname);
+  //  const newDirector ={
+  //    name: name,
+  //    lastname: lastname
+  //  }
+
+     //можно сократить
+    //  const newDirector ={name, lastname }
+    //  props.action(newDirector);
+
+     //можно сократить
+     action({name, lastname });
+
+     //очистили поле
+    // newDirectors.current.value ='';
+    // output.current.textContent='';
+    setVal('');
+  }
+ 
   return(  
     <div className="form">
-       <p ref={output}></p>  
-       <input id="new-dir"  type="text" ref={newDirectors}/>
-       <input type="button" onClick={handleClick} value="добавить"/>   
+       {/* <p ref={output}>{val}</p>   */}
+       <p>1 {val}</p> 
+       <input 
+          id="new-dir"  
+          type="text" 
+          ref={newDirectors}          
+          onChange={handleChange} 
+          value={val}         
+        />     
+          
+       <input type="button" 
+         onClick={()=>handleClickDirector(val)} 
+         value="добавить"/>   
     </div>
   )
 }
+//выводит один пункт списка из режиссеров
 function Director(props) {
-  const {name,lastname} = props;
+  const {id,name,lastname} = props;
   return (
-    <div className="container-dir">
-       { name } { lastname }
-    </div>
+    <li className="list">
+       {id}. { name } { lastname }
+    </li>
   );
 }
 
 //вызывает Director и передает пропсы по каждому компоненту
 function DirectorList(){
+  //useStat не имеет доступа к внешней сущности directors
+  //поэтому перенесли массив directors 
+  const directors =[
+    {
+      id:1,
+      name:'James',
+      lastname:'Cameron' 
+  
+    },
+    {
+      id:2,
+      name:'Quentin',
+      lastname:'Tarantino'
+    },
+    {
+      id:3,
+      name:'George ',
+      lastname:'Lucas'
+    }
+  ]
+  const [directorsList,setDirectorsList] = useState(directors);
+  
+  const addDirectors =(newDirector)=>{
+    //создали newDirector формируется 
+    //на основе текущей directorsList - как копия существующего масссив
+    const newDirectorList = [...directorsList]; 
+    
+    //создали новый объект на основе данных, котороые прилетели
+    //этому объекту добавили id - берем из расчета количества элментов в маасиве
+    newDirector={  
+        id:  directorsList.length+1,           
+        // name:'James ',
+        // lastname:'Cameron' 
+        ...newDirector     
+    }
+    //даллее этот объект пушим в массив
+    newDirectorList.push(newDirector);
+    //установили в  state  новый массив
+    //запускает изменение состояния directorsList
+    setDirectorsList(newDirectorList)
+  }
+  
   return(
     <>
      {/* 1способ */}
@@ -56,9 +125,8 @@ function DirectorList(){
     <div className="directors">
      {/*2способ */}
     { 
-    directors.map(director => {
-      return (
-       
+    directorsList.map(director => {
+      return (       
         <Director 
         { ...director } 
         key={director.id}
@@ -66,8 +134,9 @@ function DirectorList(){
       )})
      }
      </div>
-     <Form />
+     <Form action={addDirectors}/>
     </>
   )
 }
+
 export default DirectorList;
