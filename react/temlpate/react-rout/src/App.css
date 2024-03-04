@@ -1,0 +1,14 @@
+body{
+  background: rgb(216, 216, 216);
+  padding: 50px;
+}
+h2{
+  color: rgb(155, 11, 155);
+}
+h3{
+  color: rgb(155, 11, 155);
+}
+.link{
+  display: inline-block;
+  margin: 5px 10px;
+}
