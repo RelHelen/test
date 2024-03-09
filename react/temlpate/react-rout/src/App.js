@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes,  Route ,Link} from 'react-router-dom';
+import { BrowserRouter, Routes,  Route ,Link,Outlet} from 'react-router-dom';
 // import {Link, useNavigate} from 'react-router-dom'
 import { loremIpsum } from 'lorem-ipsum';
 import './App.css';
@@ -36,6 +36,8 @@ function Paris() {
     </div>
   );
 }
+ 
+
 function London() {
   return (
     <div className="main">
@@ -43,37 +45,46 @@ function London() {
     </div>
   );
 }
+
+
  function News() {
   const paths=[
     {
-      path: '/new-york',
+      path: 'new-york',
       value:'NewYork'
     },
     {
-      path: '/paris',
+      path: 'paris',
       value:'Paris'
     },
+    
     {
-      path: '/london',
+      path: 'london',
       value:'London'
-    },
+    }
+  
   ]
   return (
   <>
   <h2>News</h2>
-   <Nav pathes={paths}/> 
-   <Routes> 
-    
-         {/* <Route path="/news/new-york" element={<NewYork/>} /> 
-        <Route path="/news/paris/" element={<Paris/>} /> 
-        <Route path="/news/london" element={<London/>} />            */}
+    <Nav pathes={paths}/>     
+   
+    <Outlet />
+    {/* <Routes>
+        <Route path="new-york" element={<NewYork/>} /> 
+        <Route path="paris" element={<Paris/>} /> 
+        <Route path="london" element={<London/>} />           
+     </Routes> */}
 
-        {
+       {/*<Routes>
+       {
           paths.map((link,i)=>
-            <Route key={i} path={link.path} children={()=>link.value()}/>
+            <Route key={i} path={link.path} element={link.value }/>
             )
         }  
-  </Routes> 
+         </Routes>
+          */}
+    
    </>
   );
  }
@@ -102,7 +113,7 @@ function London() {
     {
       path: '/news',
       value:'News'
-    },
+    }
   ]
   return (
     <>
@@ -112,8 +123,15 @@ function London() {
       <Routes>     
           <Route exact path="/" element={<Main/>} /> 
           <Route  path="/about" element={<AboutCompany/>} /> 
-          <Route  strict path="/news/" element={<News/>} /> 
-          <Route  element={<NotFound/>} />     
+          {/* <Route   path="/news/*" element={<News/>} >  */}
+          <Route   path="/news" element={<News/>} > 
+                 <Route path="new-york" element={<NewYork/>} /> 
+                 <Route path="paris" element={<Paris/>} />
+                 <Route path="london" element={<London/>} />      
+                 
+        </Route> 
+           
+          <Route   path="*" element={<NotFound/>} />     
       </Routes> 
     </BrowserRouter>
     </>
