@@ -51,39 +51,47 @@ function London() {
   const paths=[
     {
       path: 'new-york',
-      value:'NewYork'
+      value:'Нью Йорк',
+      component:<NewYork/>
     },
     {
       path: 'paris',
-      value:'Paris'
+      value:'Париж',
+      component:<Paris/>,
     },
     
     {
       path: 'london',
-      value:'London'
+      value:'London',
+      component:'London'
+    }
+    , {
+      path: '/',
+      value:'',
+      component: <h3>Все новости</h3>
     }
   
   ]
   return (
   <>
-  <h2>News</h2>
-    <Nav pathes={paths}/>     
    
-    <Outlet />
-    {/* <Routes>
+  <h2>News</h2>
+  <Nav pathes={paths}/>    
+      {  <Outlet />  }    
+    {/* {  <Routes>
         <Route path="new-york" element={<NewYork/>} /> 
-        <Route path="paris" element={<Paris/>} /> 
+        <Route   path="paris" element={<Paris/>} /> 
         <Route path="london" element={<London/>} />           
-     </Routes> */}
-
-       {/*<Routes>
+     </Routes>  } */}
+        
+       {/* {  <Routes>
        {
           paths.map((link,i)=>
-            <Route key={i} path={link.path} element={link.value }/>
+            <Route key={i} path={link.path} element={link.component} />
             )
         }  
-         </Routes>
-          */}
+      </Routes>  } */}
+         
     
    </>
   );
@@ -92,13 +100,31 @@ function London() {
  function NotFound() {
   return <h2>Not found</h2>;
  }
+
  function Nav(props){
   const {pathes}=props;
   return(
-    <>  
-    {pathes.map((link,i)=><span className="link"><Link key={i} to={link.path}>{link.value}</Link></span>)}              
-    </> 
+    <nav>  
+    {pathes.map((link,i)=>
+      <span className="link">
+        <Link 
+          key={i} 
+          to={link.path}
+        >
+            {link.value}
+        </Link>
+      </span>
+      )}              
+    </nav> 
   )          
+}
+
+function Solutions() {
+  return (
+    <div className="main">
+      <h3> Solutions</h3> 
+    </div>
+  );
 }
  function App() {
   const paths=[
@@ -114,6 +140,10 @@ function London() {
       path: '/news',
       value:'News'
     }
+    ,{
+      path: '/solutions',
+      value:'Solutions'
+    }
   ]
   return (
     <>
@@ -123,13 +153,13 @@ function London() {
       <Routes>     
           <Route exact path="/" element={<Main/>} /> 
           <Route  path="/about" element={<AboutCompany/>} /> 
-          {/* <Route   path="/news/*" element={<News/>} >  */}
-          <Route   path="/news" element={<News/>} > 
+          {/* {  <Route   path="/news/*" element={<News/>} />      } */}
+          {<Route   path="/news" element={<News/>} > 
+                 <Route index element={<h3>Все новоси</h3>} />    
                  <Route path="new-york" element={<NewYork/>} /> 
                  <Route path="paris" element={<Paris/>} />
-                 <Route path="london" element={<London/>} />      
-                 
-        </Route> 
+                 <Route path="london" element={<London/>} />                
+         </Route>}
            
           <Route   path="*" element={<NotFound/>} />     
       </Routes> 

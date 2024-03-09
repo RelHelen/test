@@ -8,7 +8,10 @@ h2{
 h3{
   color: rgb(155, 11, 155);
 }
-.link{
+.link a{
   display: inline-block;
   margin: 5px 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color:rgb(128, 7, 241);
 }
