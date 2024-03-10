@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes,  Route ,Link,Outlet} from 'react-router-dom';
+import { BrowserRouter, Routes,  Route ,Link,Outlet,NavLink,useParams } from 'react-router-dom';
 // import {Link, useNavigate} from 'react-router-dom'
 import { loremIpsum } from 'lorem-ipsum';
 import './App.css';
@@ -26,28 +26,76 @@ function AboutCompany() {
   return (
     <div className="main">
       <h3> NewYork</h3> 
+      {loremIpsum({ count: 10 })}
     </div>
   );
 }
 function Paris() {
   return (
     <div className="main">
-      <h3> Paris</h3> 
+      <h3> Paris</h3>
+      {loremIpsum({ count: 10 })} 
     </div>
   );
 }
  
 
-function London() {
+const London=()=>{
   return (
     <div className="main">
       <h3> London</h3> 
+      {loremIpsum({ count: 10 })}
     </div>
   );
 }
 
-
+function Article() {
+  // получаем параметры
+  const params = useParams();
+  let name = params.name;
+  let number = params.number;
+  //заменим первую букву из полученного параметра на Заглавную
+  // ^\w - означает взять первую букву 
+  // компонент вернет параметр name
+  name  = name.replace(/^\w/,firstLetter=>firstLetter.toUpperCase());
+  //заменим дефисы и нижние подчеркивания напробелы
+  //name  = name.replace(/_/g," ");
+  name  = name.replace(/_|-/g," ");
+  return (  
+    <>
+    <h4>Наименование статьи:: {name}</h4>  
+    <h5>Номер статьи::  {number}</h5>
+    </>
+  );
+}
+function ArticleList(){ return <h3>Список статей</h3>;}
+function Articles(){
+  const paths=[
+    {
+      path: 'about_technologi-docs/4',
+      value:'About technologi'      
+    },
+    {
+      path: 'about_car/1',
+      value:'About car'     
+    },    
+    {
+      path: 'about_mobile/11',
+      value:'About mobile'      
+    }   
+  
+  ]
+  return(
+    <>
+     
+      <h2>Articles</h2>
+      <Nav pathes={paths}/>  
+      <Outlet />
+    </>
+  )
+}
  function News() {
+  
   const paths=[
     {
       path: 'new-york',
@@ -73,11 +121,10 @@ function London() {
   
   ]
   return (
-  <>
-   
-  <h2>News</h2>
+  <>   
+  <h2>News</h2>   
   <Nav pathes={paths}/>    
-      {  <Outlet />  }    
+ {  <Outlet />  }    
     {/* {  <Routes>
         <Route path="new-york" element={<NewYork/>} /> 
         <Route   path="paris" element={<Paris/>} /> 
@@ -105,7 +152,7 @@ function London() {
   const {pathes}=props;
   return(
     <nav>  
-    {pathes.map((link,i)=>
+    {/* {pathes.map((link,i)=>
       <span className="link">
         <Link 
           key={i} 
@@ -114,18 +161,23 @@ function London() {
             {link.value}
         </Link>
       </span>
-      )}              
+      )}               */}
+      {pathes.map((link,i)=>
+      <span className="link">
+        <NavLink 
+          key={i} 
+          to={link.path}
+          className={({ isActive }) =>(isActive ? "active" : "")}
+        >
+            {link.value}
+        </NavLink>
+      </span>
+      )} 
     </nav> 
   )          
 }
 
-function Solutions() {
-  return (
-    <div className="main">
-      <h3> Solutions</h3> 
-    </div>
-  );
-}
+ 
  function App() {
   const paths=[
     {
@@ -141,8 +193,8 @@ function Solutions() {
       value:'News'
     }
     ,{
-      path: '/solutions',
-      value:'Solutions'
+      path: '/articles',
+      value:'Articles'
     }
   ]
   return (
@@ -154,13 +206,16 @@ function Solutions() {
           <Route exact path="/" element={<Main/>} /> 
           <Route  path="/about" element={<AboutCompany/>} /> 
           {/* {  <Route   path="/news/*" element={<News/>} />      } */}
-          {<Route   path="/news" element={<News/>} > 
-                 <Route index element={<h3>Все новоси</h3>} />    
+          <Route   path="/news" element={<News/>} > 
+                 <Route index element={<h3>Все новоси</h3>} />                    
                  <Route path="new-york" element={<NewYork/>} /> 
                  <Route path="paris" element={<Paris/>} />
-                 <Route path="london" element={<London/>} />                
-         </Route>}
-           
+                 <Route path="london" element={<London/>} />                 
+         </Route>
+          <Route path="articles" element={<Articles/>}> 
+              <Route index element={<ArticleList />} />
+             <Route path=":name/:number" element={<Article/>}/>
+          </Route>          
           <Route   path="*" element={<NotFound/>} />     
       </Routes> 
     </BrowserRouter>
