@@ -38,6 +38,10 @@ function Form(props){
         */
         let uName = document.getElementById('newDir');         
         console.log(uName.value); 
+        
+        const [name, lastname] = val.trim().split(' ');
+        action({name, lastname});
+        setVal('');
     }
   
    const handleClick = () =>{ 
@@ -46,7 +50,7 @@ function Form(props){
   const handleChange = (e) =>{ 
    // output.current.textContent = newDirectors.current.value;
    //setVal(newDirectors.current.value);
-   setVal(e.target.value);  
+      setVal(e.target.value);  
    
   }
   
@@ -54,7 +58,7 @@ function Form(props){
     // результатом метода split является разделение строки 
     // на несколько элементов массива
    //const [name, lastname] = newDirectors.current.value.split(' ');
-   const [name, lastname] = val.trim().split(' ');
+   //const [name, lastname] = val.trim().split(' ');
 
   //  console.log(val.split(' '));
   //  console.log(name,lastname);
@@ -69,12 +73,12 @@ function Form(props){
     //  props.action(newDirector);
 
      //можно сократить
-     action({name, lastname});
+     //action({name, lastname});
 
      //очистили поле
     // newDirectors.current.value ='';
     // output.current.textContent='';
-    setVal('');
+    //setVal('');
   }
  
   return(  
@@ -86,11 +90,11 @@ function Form(props){
           type="text" 
           ref={newDirectors}          
           onChange={handleChange} 
-          // value={val}         
+            value={val}         
         />     
           
        <input type="submit" 
-         onClick={()=>handleClickDirector(val)} 
+        //  onClick={()=>handleClickDirector(val)} 
          value="добавить"/>   
     </form>
   )
@@ -116,63 +120,64 @@ function Button(props){
 }
 
 //вызывает Director и передает пропсы по каждому компоненту
-function DirectorList(props){
-  const {directors} = props
+function DirectorList( ){
+  // const {directors} = props
 
   const [directorsList,setDirectorsList] = useState(directors);
   
   const addDirectors =(newDirector)=>{
     //создали newDirector, она формируется 
     //на основе текущей directorsList - как копия существующего масссив
-    const newDirectorList = [...directorsList]; 
+          // const newDirectorList = [...directorsList]; 
     
     //создали новый объект на основе данных, котороые прилетели
-    //этому объекту добавили id - берем из расчета количества элментов в маасиве
-    
-     
+    //этому объекту добавили id - берем из расчета количества элментов в маасиве    
+     console.log(directorsList.length);
     (directorsList.length>0) && directorsList.sort((a, b) => a.id - b.id) ;
     let key = directorsList.length>0       
-        ? directorsList[directorsList.length-1].id
-        : 0; 
+        ? directorsList[directorsList.length-1].id + 1
+        : 1; 
         
-     newDirector={ 
-        // id:directorsList.length-1, 
-        id:  key+1,           
-        // name:'James ',
-        // lastname:'Cameron' 
-        ...newDirector     
-    }
+    //  newDirector={ 
+    //     // id:directorsList.length-1, 
+    //     id:  key+1,           
+    //     // name:'James ',
+    //     // lastname:'Cameron' 
+    //     ...newDirector     
+    // }
    
     //даллее этот объект пушим в массив
-    newDirectorList.push(newDirector);
+          // newDirectorList.push(newDirector);
     //установили в  state  новый массив
     //запускает изменение состояния directorsList
-    setDirectorsList(newDirectorList)
+         //setDirectorsList(newDirectorList)
+    setDirectorsList([...directorsList, {id:  key,...newDirector }])  ;
+    console.log("directors",directorsList);
   }
-
   const removeItem = id => {
     console.log(id) ; 
     setDirectorsList(directorsList => directorsList.filter(el => el.id !== id))
    
   }
   const listInc=()=>{
-    let sortDirectors = [...directorsList]; 
-    sortDirectors=sortDirectors.sort((a, b) => a.id - b.id);           
-    setDirectorsList(sortDirectors) ;   
+    //let sortDirectors = [...directorsList]; 
+   // sortDirectors=sortDirectors.sort((a, b) => a.id - b.id);           
+   // setDirectorsList(sortDirectors) ; 
+   setDirectorsList([...directorsList].sort((a, b) => a.id - b.id)) ;   
   }
   
   const listDec=()=>{
-    let sortDirectors = [...directorsList]; 
-    sortDirectors=sortDirectors.sort((a, b) => b.id - a.id);       
-    setDirectorsList(sortDirectors) ;   
-      
+    // let sortDirectors = [...directorsList]; 
+    // sortDirectors=sortDirectors.sort((a, b) => b.id - a.id);       
+    // setDirectorsList(sortDirectors) ;   
+    setDirectorsList([...directorsList].sort((a, b) => b.id - a.id)) ;   
   }
 
   const listDecName=()=>{
-    let sortDirectors = [...directorsList]; 
-    sortDirectors=sortDirectors.sort((a,b)=> b.name.localeCompare(a.name));
-    console.log(sortDirectors);         
-    setDirectorsList(sortDirectors) ;   
+    // let sortDirectors = [...directorsList]; 
+    // sortDirectors=sortDirectors.sort((a,b)=> b.name.localeCompare(a.name));        
+    // setDirectorsList(sortDirectors) ;
+    setDirectorsList([...directorsList].sort((a,b)=> b.name.localeCompare(a.name)))
       
   }
   const listIncName=()=>{
@@ -241,7 +246,7 @@ function DirectorList(props){
 export default function App() {
   return (
   <>
-  <DirectorList directors={directors} />
+    <DirectorList directors={directors} />
   </>
   )}
  
